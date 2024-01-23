@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF7209BB2B5F8BCB001D76CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */; };
 		BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */; };
-		BF7209BF2B5F8BCB001D76CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BE2B5F8BCB001D76CB /* ViewController.swift */; };
+		BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */; };
 		BF7209C42B5F8BCD001D76CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7209C32B5F8BCD001D76CB /* Assets.xcassets */; };
 		BF7209C72B5F8BCD001D76CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7209C52B5F8BCD001D76CB /* LaunchScreen.storyboard */; };
 		BF7209D22B5F8BCE001D76CB /* Wetox_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209D12B5F8BCE001D76CB /* Wetox_iOSTests.swift */; };
@@ -17,6 +17,12 @@
 		BF7209DE2B5F8BCE001D76CB /* Wetox_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209DD2B5F8BCE001D76CB /* Wetox_iOSUITestsLaunchTests.swift */; };
 		BF7209EE2B5F8CB6001D76CB /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209ED2B5F8CB6001D76CB /* Label+Extension.swift */; };
 		BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209EF2B5F8CCB001D76CB /* Color+Extension.swift */; };
+		BF7209F32B5F9221001D76CB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BF7209F22B5F9221001D76CB /* SnapKit */; };
+		BF7209F52B5F923F001D76CB /* FriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209F42B5F923F001D76CB /* FriendsCollectionViewCell.swift */; };
+		BF7209F72B5F926B001D76CB /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209F62B5F926B001D76CB /* CircularProgressBar.swift */; };
+		BF7209FA2B5F928D001D76CB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BF7209F92B5F928D001D76CB /* RxCocoa */; };
+		BF7209FC2B5F928D001D76CB /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = BF7209FB2B5F928D001D76CB /* RxRelay */; };
+		BF7209FE2B5F928D001D76CB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF7209FD2B5F928D001D76CB /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +46,7 @@
 		BF7209B72B5F8BCB001D76CB /* Wetox-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wetox-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF7209BE2B5F8BCB001D76CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BF7209C32B5F8BCD001D76CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF7209C62B5F8BCD001D76CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF7209C82B5F8BCD001D76CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +57,8 @@
 		BF7209DD2B5F8BCE001D76CB /* Wetox_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wetox_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BF7209ED2B5F8CB6001D76CB /* Label+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Extension.swift"; sourceTree = "<group>"; };
 		BF7209EF2B5F8CCB001D76CB /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		BF7209F42B5F923F001D76CB /* FriendsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF7209F62B5F926B001D76CB /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF7209FC2B5F928D001D76CB /* RxRelay in Frameworks */,
+				BF7209FA2B5F928D001D76CB /* RxCocoa in Frameworks */,
+				BF7209FE2B5F928D001D76CB /* RxSwift in Frameworks */,
+				BF7209F32B5F9221001D76CB /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +154,9 @@
 		BF7209EB2B5F8C95001D76CB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BF7209BE2B5F8BCB001D76CB /* ViewController.swift */,
+				BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */,
+				BF7209F42B5F923F001D76CB /* FriendsCollectionViewCell.swift */,
+				BF7209F62B5F926B001D76CB /* CircularProgressBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +184,12 @@
 			dependencies = (
 			);
 			name = "Wetox-iOS";
+			packageProductDependencies = (
+				BF7209F22B5F9221001D76CB /* SnapKit */,
+				BF7209F92B5F928D001D76CB /* RxCocoa */,
+				BF7209FB2B5F928D001D76CB /* RxRelay */,
+				BF7209FD2B5F928D001D76CB /* RxSwift */,
+			);
 			productName = "Wetox-iOS";
 			productReference = BF7209B72B5F8BCB001D76CB /* Wetox-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -242,6 +262,10 @@
 				Base,
 			);
 			mainGroup = BF7209AE2B5F8BCB001D76CB;
+			packageReferences = (
+				BF7209F12B5F9221001D76CB /* XCRemoteSwiftPackageReference "SnapKit" */,
+				BF7209F82B5F928D001D76CB /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = BF7209B82B5F8BCB001D76CB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -285,8 +309,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF7209EE2B5F8CB6001D76CB /* Label+Extension.swift in Sources */,
+				BF7209F52B5F923F001D76CB /* FriendsCollectionViewCell.swift in Sources */,
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
-				BF7209BF2B5F8BCB001D76CB /* ViewController.swift in Sources */,
+				BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */,
+				BF7209F72B5F926B001D76CB /* CircularProgressBar.swift in Sources */,
 				BF7209BB2B5F8BCB001D76CB /* AppDelegate.swift in Sources */,
 				BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */,
 			);
@@ -475,7 +501,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wetox.Wetox-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wetox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -503,7 +529,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wetox.Wetox-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wetox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -522,7 +548,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wetox.Wetox-iOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wetox.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -542,7 +568,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wetox.Wetox-iOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wetox.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -560,7 +586,7 @@
 				DEVELOPMENT_TEAM = D9CAJN27UH;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wetox.Wetox-iOSUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wetox.UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -578,7 +604,7 @@
 				DEVELOPMENT_TEAM = D9CAJN27UH;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wetox.Wetox-iOSUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wetox.UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -627,6 +653,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BF7209F12B5F9221001D76CB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
+		BF7209F82B5F928D001D76CB /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BF7209F22B5F9221001D76CB /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF7209F12B5F9221001D76CB /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		BF7209F92B5F928D001D76CB /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF7209F82B5F928D001D76CB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		BF7209FB2B5F928D001D76CB /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF7209F82B5F928D001D76CB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		BF7209FD2B5F928D001D76CB /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF7209F82B5F928D001D76CB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BF7209AF2B5F8BCB001D76CB /* Project object */;
 }
