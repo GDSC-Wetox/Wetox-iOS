@@ -23,6 +23,7 @@
 		BF7209FA2B5F928D001D76CB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BF7209F92B5F928D001D76CB /* RxCocoa */; };
 		BF7209FC2B5F928D001D76CB /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = BF7209FB2B5F928D001D76CB /* RxRelay */; };
 		BF7209FE2B5F928D001D76CB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF7209FD2B5F928D001D76CB /* RxSwift */; };
+		BF832F182B60059A0005355F /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = BF832F172B60059A0005355F /* .gitkeep */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		BF7209EF2B5F8CCB001D76CB /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		BF7209F42B5F923F001D76CB /* FriendsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF7209F62B5F926B001D76CB /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		BF832F172B60059A0005355F /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 		BF7209EC2B5F8C9B001D76CB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BF832F172B60059A0005355F /* .gitkeep */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF832F182B60059A0005355F /* .gitkeep in Resources */,
 				BF7209C72B5F8BCD001D76CB /* LaunchScreen.storyboard in Resources */,
 				BF7209C42B5F8BCD001D76CB /* Assets.xcassets in Resources */,
 			);
