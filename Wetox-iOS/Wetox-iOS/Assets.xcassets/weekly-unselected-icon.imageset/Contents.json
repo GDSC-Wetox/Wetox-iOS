@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "weekly-unselected-icon.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
