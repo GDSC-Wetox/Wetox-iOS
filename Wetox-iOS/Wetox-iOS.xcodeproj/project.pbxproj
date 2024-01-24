@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */; };
+		552FE1772B611C1000A4F568 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 552FE1762B611C1000A4F568 /* KakaoSDK */; };
+		552FE1792B611C1000A4F568 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 552FE1782B611C1000A4F568 /* KakaoSDKAuth */; };
+		552FE17B2B611C1000A4F568 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 552FE17A2B611C1000A4F568 /* KakaoSDKUser */; };
 		554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544128F2B608CA9001B8CBA /* LoginViewController.swift */; };
 		557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F3EA12B60983A007C7247 /* Button+Extension.swift */; };
 		BF7209BB2B5F8BCB001D76CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */; };
@@ -46,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewContorller.swift; sourceTree = "<group>"; };
 		5544128F2B608CA9001B8CBA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		557F3EA12B60983A007C7247 /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		BF7209B72B5F8BCB001D76CB /* Wetox-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wetox-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,9 +78,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF7209FC2B5F928D001D76CB /* RxRelay in Frameworks */,
+				552FE1772B611C1000A4F568 /* KakaoSDK in Frameworks */,
 				BF7209FA2B5F928D001D76CB /* RxCocoa in Frameworks */,
+				552FE17B2B611C1000A4F568 /* KakaoSDKUser in Frameworks */,
 				BF7209FE2B5F928D001D76CB /* RxSwift in Frameworks */,
 				BF7209F32B5F9221001D76CB /* SnapKit in Frameworks */,
+				552FE1792B611C1000A4F568 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				5544128F2B608CA9001B8CBA /* LoginViewController.swift */,
+				552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */,
 				BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */,
 				BF7209F42B5F923F001D76CB /* FriendsCollectionViewCell.swift */,
 				BF7209F62B5F926B001D76CB /* CircularProgressBar.swift */,
@@ -198,6 +207,9 @@
 				BF7209F92B5F928D001D76CB /* RxCocoa */,
 				BF7209FB2B5F928D001D76CB /* RxRelay */,
 				BF7209FD2B5F928D001D76CB /* RxSwift */,
+				552FE1762B611C1000A4F568 /* KakaoSDK */,
+				552FE1782B611C1000A4F568 /* KakaoSDKAuth */,
+				552FE17A2B611C1000A4F568 /* KakaoSDKUser */,
 			);
 			productName = "Wetox-iOS";
 			productReference = BF7209B72B5F8BCB001D76CB /* Wetox-iOS.app */;
@@ -274,6 +286,7 @@
 			packageReferences = (
 				BF7209F12B5F9221001D76CB /* XCRemoteSwiftPackageReference "SnapKit" */,
 				BF7209F82B5F928D001D76CB /* XCRemoteSwiftPackageReference "RxSwift" */,
+				552FE1752B611C1000A4F568 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = BF7209B82B5F8BCB001D76CB /* Products */;
 			projectDirPath = "";
@@ -321,6 +334,7 @@
 				BF7209EE2B5F8CB6001D76CB /* Label+Extension.swift in Sources */,
 				BF7209F52B5F923F001D76CB /* FriendsCollectionViewCell.swift in Sources */,
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
+				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
 				BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */,
 				554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */,
 				BF7209F72B5F926B001D76CB /* CircularProgressBar.swift in Sources */,
@@ -667,6 +681,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		552FE1752B611C1000A4F568 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.20.0;
+			};
+		};
 		BF7209F12B5F9221001D76CB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -686,6 +708,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		552FE1762B611C1000A4F568 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 552FE1752B611C1000A4F568 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		552FE1782B611C1000A4F568 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 552FE1752B611C1000A4F568 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		552FE17A2B611C1000A4F568 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 552FE1752B611C1000A4F568 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
 		BF7209F22B5F9221001D76CB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BF7209F12B5F9221001D76CB /* XCRemoteSwiftPackageReference "SnapKit" */;
