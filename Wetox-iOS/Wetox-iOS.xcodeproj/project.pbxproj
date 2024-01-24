@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544128F2B608CA9001B8CBA /* LoginViewController.swift */; };
+		557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F3EA12B60983A007C7247 /* Button+Extension.swift */; };
 		BF7209BB2B5F8BCB001D76CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */; };
 		BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */; };
 		BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5544128F2B608CA9001B8CBA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		557F3EA12B60983A007C7247 /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		BF7209B72B5F8BCB001D76CB /* Wetox-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wetox-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			children = (
 				BF7209ED2B5F8CB6001D76CB /* Label+Extension.swift */,
 				BF7209EF2B5F8CCB001D76CB /* Color+Extension.swift */,
+				557F3EA12B60983A007C7247 /* Button+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 		BF7209EB2B5F8C95001D76CB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5544128F2B608CA9001B8CBA /* LoginViewController.swift */,
 				BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */,
 				BF7209F42B5F923F001D76CB /* FriendsCollectionViewCell.swift */,
 				BF7209F62B5F926B001D76CB /* CircularProgressBar.swift */,
@@ -316,9 +322,11 @@
 				BF7209F52B5F923F001D76CB /* FriendsCollectionViewCell.swift in Sources */,
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
 				BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */,
+				554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */,
 				BF7209F72B5F926B001D76CB /* CircularProgressBar.swift in Sources */,
 				BF7209BB2B5F8BCB001D76CB /* AppDelegate.swift in Sources */,
 				BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */,
+				557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
