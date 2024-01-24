@@ -9,14 +9,19 @@ import UIKit.UIButton
 
 extension UIButton {
     
-    func createButton(title: String, titleSize: Int, titleColor: UIColor, backgroundColor: UIColor) {
+    func setButton(title: String, titleSize: Int, titleColor: UIColor, backgroundColor: UIColor) {
         self.setTitle(title, for: .normal)
         self.titleLabel?.font = .systemFont(ofSize: CGFloat(titleSize), weight: .bold)
         self.setTitleColor(titleColor, for: .normal)
         self.backgroundColor = backgroundColor
     }
     
-    func makeRounded(radius: CGFloat) {
+    func setRooundedButton(title: String, titleSize: Int, titleColor: UIColor, backgroundColor: UIColor, radius: CGFloat) {
+        self.setTitle(title, for: .normal)
+        self.titleLabel?.font = .systemFont(ofSize: CGFloat(titleSize), weight: .bold)
+        self.setTitleColor(titleColor, for: .normal)
+        self.backgroundColor = backgroundColor
+        
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
     }
