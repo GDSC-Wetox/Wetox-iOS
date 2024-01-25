@@ -30,6 +30,35 @@ extension UIColor {
 
 extension UIColor {
     
+    // MARK: - Login Button Colors
+    static var kakaoTitleColor: UIColor {
+        return UIColor(hexCode: "000000")
+    }
+    
+    static var kakaoBackgroundColor: UIColor {
+        return UIColor(hexCode: "FEE500")
+    }
+    
+    static var appleTitleColor: UIColor {
+        return UIColor(hexCode: "FFFFFF")
+    }
+    
+    static var appleBackgroundColor: UIColor {
+        return UIColor(hexCode: "050708")
+    }
+    
+    static var googleTitleColor: UIColor {
+        return UIColor(hexCode: "1F1F1F")
+    }
+    
+    static var googleBackgroundColor: UIColor {
+        return UIColor(hexCode: "FFFFFF")
+    }
+    
+    static var googleBorderColor: UIColor {
+        return UIColor(hexCode: "747775")
+    }
+    
     // MARK: - Profile Colors
     static var profileBackgroundGrayColor: UIColor {
         return UIColor(hexCode: "0xF3F3F3")
