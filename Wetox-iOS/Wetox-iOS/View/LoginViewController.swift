@@ -14,15 +14,15 @@ import AuthenticationServices
 
 class LoginViewController: UIViewController {
     
-    var subTitleLabel: UILabel = UILabel()
-    var titleLabel: UILabel = UILabel()
+    private let subTitleLabel: UILabel = UILabel()
+    private let titleLabel: UILabel = UILabel()
     
     var kakaoLoginButton: UIButton = UIButton()
     var appleLoginButton: UIButton = UIButton()
     var googleLoginButton: UIButton = UIButton()
     
-    var guidingBoldLabel: UILabel = UILabel()
-    var guidingLightLabel: UILabel = UILabel()
+    private let guidingBoldLabel: UILabel = UILabel()
+    private let guidingLightLabel: UILabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
