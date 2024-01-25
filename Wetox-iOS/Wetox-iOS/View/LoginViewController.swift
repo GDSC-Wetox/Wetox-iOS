@@ -23,6 +23,47 @@ class LoginViewController: UIViewController {
     
     var guidingBoldLabel: UILabel = UILabel()
     var guidingLightLabel: UILabel = UILabel()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        
+        [subTitleLabel, titleLabel, kakaoLoginButton, appleLoginButton, googleLoginButton, guidingBoldLabel, guidingLightLabel].forEach { view.addSubview($0) }
+        
+        kakaoLoginButton.addTarget(self, action: #selector(kakaoLoginButtonTapped), for: .touchUpInside)
+
+        setupLabelLayout()
+        setupButtonLayout()
+        configureLayout()
+    }
+    
+    private func setupLabelLayout() {
+        
+        subTitleLabel.setLabel(labelText: "우리의 Detox Mate",
+                            backgroundColor: .clear,
+                            weight: .light,
+                            textSize: 18,
+                            labelColor: .black)
+        
+        titleLabel.setLabel(labelText: "Wetox",
+                            backgroundColor: .clear,
+                            weight: .medium,
+                            textSize: 35,
+                            labelColor: .black)
+        
+        guidingBoldLabel.setLabel(labelText: "가입하면",
+                                  backgroundColor: .clear,
+                                  weight: .medium,
+                                  textSize: 12,
+                                  labelColor: .gray)
+        
+        guidingLightLabel.numberOfLines = 2
+        guidingLightLabel.setLabel(labelText: "⋅ 나의 스크린타임을 친구와 공유할 수 있습니다\n⋅ 개인 맞춤형 성과 달성에 따른 배지를 획득할 수 있습니다",
+                                  backgroundColor: .clear,
+                                  weight: .ultraLight,
+                                  textSize: 12,
+                                  labelColor: .gray)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,4 +178,73 @@ class LoginViewController: UIViewController {
         print("tapped")
         
     }
+    
+    @objc func kakaoLoginButtonTapped() {
+        
+        print("tapped")
+        
+//        if UserApi.isKakaoTalkLoginAvailable() { // 카카오톡으로 로그인
+//            UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
+//                if let error = error {
+//                    print(error)
+//                } else {
+//                    // 회원가입 API
+//                        // self.socialSignUp(accessToken: "bafe06fae18a38ad49ad62ac407d285f")
+//                    }
+//                }
+//            } else { // 카카오 계정으로 로그인
+//            UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
+//                if let error = error {
+//                    print(error)
+//                } else {
+//                        self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
+//                        self.navigationController?.pushViewController(TabBarController(), animated: true)
+//                    } else { // sessionId가 존재하지 않음 > 회원가입 API
+//                        UserDefaults.standard.set(oauthToken!.accessToken, forKey: Const.UserDefaultsKey.accessToken)
+//                        self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "")
+//                    }
+//                }
+//            }
+        }
+    
+//    func requestKakaoUserProfile() {
+//        // 카카오 사용자 정보 요청
+//        UserApi.shared.me() { [weak self] (user, error) in
+//            if let error = error {
+//                print(error)
+//            } else {
+//                if let user = user {
+//                    // 카카오 사용자 정보를 사용하여 로그인 성공 후의 동작을 구현
+//                    print("Kakao user ID: \(user.id)")
+//                    print("Kakao user nickname: \(user.kakaoAccount?.profile?.nickname ?? "")")
+//                }
+//            }
+//        }
+//    }
 }
+
+// TODO: Network Model 정의 이후 구현
+//extension LoginViewController {
+//    func loginWithAPI(loginRequest: LoginRequest) {
+//        AuthAPI.shared.login(loginRequest: loginRequest) { response in
+//            switch response {
+//            case .success(let loginData):
+//                if let data = loginData as? LoginResponse {
+//                    UserDefaults.standard.set(loginRequest.socialType, forKey: Const.UserDefaultsKey.socialType)
+//                    UserDefaults.standard.set(data.sessionId, forKey: Const.UserDefaultsKey.sessionId)
+//                    UserDefaults.standard.set(data.memberId, forKey: Const.UserDefaultsKey.memberId)
+//                    UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
+//                    UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
+//                }
+//            case .requestError(let resultCode, let message):
+//                print("loginWithAPI - requestError: [\(resultCode)] \(message)")
+//            case .pathError:
+//                print("loginWithAPI - pathError")
+//            case .serverError:
+//                print("loginWithAPI - serverError")
+//            case .networkFail:
+//                print("loginWithAPI - networkFail")
+//            }
+//        }
+//    }
+//}
