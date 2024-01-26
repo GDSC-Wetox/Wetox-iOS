@@ -12,6 +12,10 @@
 		552FE1792B611C1000A4F568 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 552FE1782B611C1000A4F568 /* KakaoSDKAuth */; };
 		552FE17B2B611C1000A4F568 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 552FE17A2B611C1000A4F568 /* KakaoSDKUser */; };
 		554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544128F2B608CA9001B8CBA /* LoginViewController.swift */; };
+		554F27412B638EE60050B6D9 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27402B638EE60050B6D9 /* LoginRequest.swift */; };
+		554F27432B63908E0050B6D9 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27422B63908E0050B6D9 /* LoginResponse.swift */; };
+		554F27472B6391D80050B6D9 /* SocialSignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27462B6391D80050B6D9 /* SocialSignUpRequest.swift */; };
+		554F27492B6391E20050B6D9 /* SocialSignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27482B6391E20050B6D9 /* SocialSignUpResponse.swift */; };
 		557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F3EA12B60983A007C7247 /* Button+Extension.swift */; };
 		BF7209BB2B5F8BCB001D76CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */; };
 		BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */; };
@@ -52,6 +56,10 @@
 /* Begin PBXFileReference section */
 		552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewContorller.swift; sourceTree = "<group>"; };
 		5544128F2B608CA9001B8CBA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		554F27402B638EE60050B6D9 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		554F27422B63908E0050B6D9 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		554F27462B6391D80050B6D9 /* SocialSignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignUpRequest.swift; sourceTree = "<group>"; };
+		554F27482B6391E20050B6D9 /* SocialSignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignUpResponse.swift; sourceTree = "<group>"; };
 		557F3EA12B60983A007C7247 /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		BF7209B72B5F8BCB001D76CB /* Wetox-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wetox-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +112,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		554F273E2B638ECF0050B6D9 /* NetworkModel */ = {
+			isa = PBXGroup;
+			children = (
+				554F27442B6390BE0050B6D9 /* Auth */,
+			);
+			path = NetworkModel;
+			sourceTree = "<group>";
+		};
+		554F273F2B638EDA0050B6D9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				554F27402B638EE60050B6D9 /* LoginRequest.swift */,
+				554F27422B63908E0050B6D9 /* LoginResponse.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		554F27442B6390BE0050B6D9 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				554F27452B63919D0050B6D9 /* SocialSignUp */,
+				554F273F2B638EDA0050B6D9 /* Login */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		554F27452B63919D0050B6D9 /* SocialSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				554F27462B6391D80050B6D9 /* SocialSignUpRequest.swift */,
+				554F27482B6391E20050B6D9 /* SocialSignUpResponse.swift */,
+			);
+			path = SocialSignUp;
+			sourceTree = "<group>";
+		};
 		BF7209AE2B5F8BCB001D76CB = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +170,7 @@
 		BF7209B92B5F8BCB001D76CB /* Wetox-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				554F273E2B638ECF0050B6D9 /* NetworkModel */,
 				BF7209EC2B5F8C9B001D76CB /* Model */,
 				BF7209EB2B5F8C95001D76CB /* View */,
 				BF7209EA2B5F8C8F001D76CB /* Extension */,
@@ -332,7 +376,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF7209EE2B5F8CB6001D76CB /* Label+Extension.swift in Sources */,
+				554F27472B6391D80050B6D9 /* SocialSignUpRequest.swift in Sources */,
 				BF7209F52B5F923F001D76CB /* FriendsCollectionViewCell.swift in Sources */,
+				554F27432B63908E0050B6D9 /* LoginResponse.swift in Sources */,
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
 				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
 				BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */,
@@ -340,7 +386,9 @@
 				BF7209F72B5F926B001D76CB /* CircularProgressBar.swift in Sources */,
 				BF7209BB2B5F8BCB001D76CB /* AppDelegate.swift in Sources */,
 				BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */,
+				554F27492B6391E20050B6D9 /* SocialSignUpResponse.swift in Sources */,
 				557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */,
+				554F27412B638EE60050B6D9 /* LoginRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
