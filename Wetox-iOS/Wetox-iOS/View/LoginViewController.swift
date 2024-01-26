@@ -135,6 +135,48 @@ class LoginViewController: UIViewController {
     
     @objc func kakaoLoginButtonTapped() {
         print("tapped")
+
+        // 카카오 로그인 요청 시 사용할 수 있는 추가 기능 for openid
+        UserApi.shared.me() { (user, error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                if let user = user {
+                    var scopes = [String]()
+                    scopes.append("openid")
+                    
+                    if scopes.count > 0 {
+                        print("사용자에게 추가 동의를 받아야 합니다.")
+                        
+                        // scope 목록을 전달하여 카카오 로그인 요청
+                        UserApi.shared.loginWithKakaoAccount(scopes: scopes) { (_, error) in
+                            if let error = error {
+                                print(error)
+                            }
+                            else {
+                                UserApi.shared.me() { (user, error) in
+                                    if let error = error {
+                                        print(error)
+                                    }
+                                    else {
+                                        print("me() success.")
+                                        
+                                        //do something
+                                        _ = user
+                                        
+                                        print(user!)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        print("사용자의 추가 동의가 필요하지 않습니다.")
+                    }
+                }
+            }
+        }
         
         // 카카오톡 어플 실행 가능 여부 확인
         if (UserApi.isKakaoTalkLoginAvailable()) {
@@ -147,6 +189,7 @@ class LoginViewController: UIViewController {
 
                     //do something
                     _ = oauthToken
+                    
                 }
             }
         }
@@ -158,15 +201,9 @@ class LoginViewController: UIViewController {
                 }
                 else {
                     print("loginWithKakaoAccount() success.")
-
-                    //do something
                     _ = oauthToken
+                    print("this is oauthToken \(oauthToken!)")
                 }
             }
-        
-        // OpenID Connect ID 토큰 발급하기
-        // ref: https://developers.kakao.com/docs/latest/ko/kakaologin/ios#request-code-id-token
-        
-        
     }
 }
