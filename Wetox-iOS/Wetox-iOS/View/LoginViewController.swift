@@ -142,7 +142,7 @@ class LoginViewController: UIViewController {
                 print(error)
             }
             else {
-                if let user = user {
+                if user != nil {
                     var scopes = [String]()
                     scopes.append("openid")
                     
@@ -164,8 +164,8 @@ class LoginViewController: UIViewController {
                                         
                                         //do something
                                         _ = user
-                                        
-                                        print(user!)
+                                        print(user)
+
                                     }
                                 }
                             }
@@ -190,6 +190,8 @@ class LoginViewController: UIViewController {
                     //do something
                     _ = oauthToken
                     
+                    self.socialSignUp(accessToken: oauthToken!.accessToken)
+                    
                 }
             }
         }
@@ -203,7 +205,36 @@ class LoginViewController: UIViewController {
                     print("loginWithKakaoAccount() success.")
                     _ = oauthToken
                     print("this is oauthToken \(oauthToken!)")
+                    
+                    self.socialSignUp(accessToken: oauthToken?.accessToken ?? "")
                 }
             }
     }
+    
+    func socialSignUp(accessToken: String) {
+        let profileSettingViewContorller = ProfileSettingViewContorller()
+        profileSettingViewContorller.accessToken = UserDefaults.standard.string(forKey: "") ?? ""
+        self.navigationController?.pushViewController(profileSettingViewContorller, animated: true)
+    }
 }
+
+/*
+ 
+ loginWithKakaoAccount() success.
+ 
+ // 카카오로부터 응답으로 받은 oauthToken 내용
+ 
+ OAuthToken(
+ tokenType: "bearer",
+ accessToken: "6tJO9FBb-d2z-niI0mSZHfW4UOWx3HAYhLMKKwynAAABjUCOugL7Ewsnpgvovw",
+ expiresIn: 43199.0,
+ expiredAt: 2024-01-26 00:18:31 +0000,
+ refreshToken: "VipufcYGxxoISgnwSboYu7WiaNjybO1Jx-QKKwynAAABjUCOuf_7Ewsnpgvovw",
+ refreshTokenExpiresIn: 5183999.0,
+ refreshTokenExpiredAt: 2024-03-25 12:18:31 +0000,
+ scope: Optional("openid"),
+ scopes: Optional(["openid"]),
+ idToken: Optional("eyJraWQiOiI5ZjI1MmRhZGQ1ZjIzM2Y5M2QyZmE1MjhkMTJmZWEiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiYWZlMDZmYWUxOGEzOGFkNDlhZDYyYWM0MDdkMjg1ZiIsInN1YiI6IjMzMDE4MzUxNDMiLCJhdXRoX3RpbWUiOjE3MDYxODUxMTIsImlzcyI6Imh0dHBzOi8va2F1dGgua2FrYW8uY29tIiwiZXhwIjoxNzA2MjI4MzEyLCJpYXQiOjE3MDYxODUxMTJ9.S83myeppnJ3VLFvi3oISMVZCjxmqS7Qr6lblXCqyVATglHab65p47ZouvI_LZmEHM2URez3T74ts2dd20kipJceQuiK27zrfabt_jv99yRtqtHRqG9TL71lEpOuFQGEGAKbrkXtc2XBwlb8eqW-yanPPoB6K6FOuFzKTqe-HMRbyH4eWAhQMeEswzjJGaH405aP5Ee27Fl764bzcFInOkN_2r-QYSXhrpYBM-S2b3Qm6coCvwSaiSHdIEE9R_OINIDPtgEO_BYeCz5swuCpecXtOOOcEqRLzBTEM4Sx5o8K3CQAsCHNlBpU-vAx8lI_6I0kGt2J8XH4axdcf0j4SHg")
+ )
+ 
+ */

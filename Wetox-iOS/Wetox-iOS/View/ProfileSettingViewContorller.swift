@@ -10,6 +10,7 @@ import SnapKit
 
 class ProfileSettingViewContorller: UIViewController {
     
+    var accessToken = ""
     var titleLabel: UILabel = UILabel()
     
     private func setupLabelLayout() {
