@@ -120,4 +120,13 @@ extension UIColor {
         return UIColor(hexCode: "0x30DB5B")
     }
     
+    // MARK: - Common Colors
+    
+    static var opacityWhite: UIColor {
+        return UIColor(hexCode: "0xFFFFFF", alpha: 0.32)
+    }
+    
+    static var strokeGray: UIColor {
+        return UIColor(hexCode: "0xC0C0C0")
+    }
 }
