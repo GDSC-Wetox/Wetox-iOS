@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5514CE5E2B65F719006B2700 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514CE5D2B65F719006B2700 /* AuthAPI.swift */; };
+		5514CE602B65F721006B2700 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514CE5F2B65F721006B2700 /* AuthService.swift */; };
+		5514CE642B65F891006B2700 /* MoyaLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514CE632B65F891006B2700 /* MoyaLoggerPlugin.swift */; };
+		5514CE662B65F91F006B2700 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514CE652B65F91F006B2700 /* NetworkResult.swift */; };
+		5514CE682B65F95D006B2700 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514CE672B65F95D006B2700 /* GenericResponse.swift */; };
 		552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */; };
 		552FE1772B611C1000A4F568 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 552FE1762B611C1000A4F568 /* KakaoSDK */; };
 		552FE1792B611C1000A4F568 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 552FE1782B611C1000A4F568 /* KakaoSDKAuth */; };
@@ -54,6 +59,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5514CE5D2B65F719006B2700 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		5514CE5F2B65F721006B2700 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		5514CE632B65F891006B2700 /* MoyaLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggerPlugin.swift; sourceTree = "<group>"; };
+		5514CE652B65F91F006B2700 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		5514CE672B65F95D006B2700 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewContorller.swift; sourceTree = "<group>"; };
 		5544128F2B608CA9001B8CBA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		554F27402B638EE60050B6D9 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
@@ -112,10 +122,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5514CE5B2B65F6F8006B2700 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				5514CE622B65F87F006B2700 /* Plugin */,
+				5514CE5C2B65F704006B2700 /* Auth */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		5514CE5C2B65F704006B2700 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				5514CE5D2B65F719006B2700 /* AuthAPI.swift */,
+				5514CE5F2B65F721006B2700 /* AuthService.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		5514CE622B65F87F006B2700 /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				5514CE632B65F891006B2700 /* MoyaLoggerPlugin.swift */,
+			);
+			path = Plugin;
+			sourceTree = "<group>";
+		};
 		554F273E2B638ECF0050B6D9 /* NetworkModel */ = {
 			isa = PBXGroup;
 			children = (
 				554F27442B6390BE0050B6D9 /* Auth */,
+				5514CE652B65F91F006B2700 /* NetworkResult.swift */,
+				5514CE672B65F95D006B2700 /* GenericResponse.swift */,
 			);
 			path = NetworkModel;
 			sourceTree = "<group>";
@@ -170,6 +208,7 @@
 		BF7209B92B5F8BCB001D76CB /* Wetox-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				5514CE5B2B65F6F8006B2700 /* NetworkService */,
 				554F273E2B638ECF0050B6D9 /* NetworkModel */,
 				BF7209EC2B5F8C9B001D76CB /* Model */,
 				BF7209EB2B5F8C95001D76CB /* View */,
@@ -331,6 +370,7 @@
 				BF7209F12B5F9221001D76CB /* XCRemoteSwiftPackageReference "SnapKit" */,
 				BF7209F82B5F928D001D76CB /* XCRemoteSwiftPackageReference "RxSwift" */,
 				552FE1752B611C1000A4F568 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				5514CE612B65F75F006B2700 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = BF7209B82B5F8BCB001D76CB /* Products */;
 			projectDirPath = "";
@@ -376,19 +416,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF7209EE2B5F8CB6001D76CB /* Label+Extension.swift in Sources */,
+				5514CE5E2B65F719006B2700 /* AuthAPI.swift in Sources */,
 				554F27472B6391D80050B6D9 /* SocialSignUpRequest.swift in Sources */,
+				5514CE662B65F91F006B2700 /* NetworkResult.swift in Sources */,
 				BF7209F52B5F923F001D76CB /* FriendsCollectionViewCell.swift in Sources */,
 				554F27432B63908E0050B6D9 /* LoginResponse.swift in Sources */,
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
 				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
 				BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */,
 				554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */,
+				5514CE642B65F891006B2700 /* MoyaLoggerPlugin.swift in Sources */,
 				BF7209F72B5F926B001D76CB /* CircularProgressBar.swift in Sources */,
+				5514CE682B65F95D006B2700 /* GenericResponse.swift in Sources */,
 				BF7209BB2B5F8BCB001D76CB /* AppDelegate.swift in Sources */,
 				BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */,
 				554F27492B6391E20050B6D9 /* SocialSignUpResponse.swift in Sources */,
 				557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */,
 				554F27412B638EE60050B6D9 /* LoginRequest.swift in Sources */,
+				5514CE602B65F721006B2700 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +774,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5514CE612B65F75F006B2700 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 		552FE1752B611C1000A4F568 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
