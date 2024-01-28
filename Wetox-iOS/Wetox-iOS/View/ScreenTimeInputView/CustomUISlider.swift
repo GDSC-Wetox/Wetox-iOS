@@ -13,7 +13,10 @@ import RxCocoa
 
 class CustomUISlider: UISlider {
     
+    let categoryLabel = StrokeLabel()
     let timeLabel = UILabel()
+    private let trackLayer = CALayer() // slider의 track을 그리기 위한 layer
+    private let baseLayer = CALayer() // slider의 base layer
     private var disposeBag = DisposeBag()
     
     override init(frame: CGRect) {
@@ -28,6 +31,7 @@ class CustomUISlider: UISlider {
     
     private func commonInit() {
         configureUI()
+        configureTrackLayer()
         customizeSlider()
         observeSliderValueChange()
     }
@@ -36,21 +40,32 @@ class CustomUISlider: UISlider {
         super.layoutSubviews()
     }
     
+    override func trackRect(forBounds bounds: CGRect) -> CGRect {
+        let point = CGPoint(x: bounds.minX, y: 0)
+        return CGRect(origin: point, size: CGSize(width: bounds.width, height: bounds.height))
+    }
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         clear()
     }
     
     private func configureUI() {
+        updateTrackImage()
         minimumValue = Float(Constants.Time.minMinutes)
         maximumValue = Float(Constants.Time.maxMinutes)
         
         backgroundColor = .sliderBackgroundGray
         
+        categoryLabel.setLabel(labelText: "", backgroundColor: .clear, weight: .semibold, textSize: Constants.font.semiTitleSize, labelColor: .white)
+        categoryLabel.textAlignment = .center
+        timeLabel.setLabel(labelText: "", backgroundColor: .clear, weight: .light, textSize: Constants.font.semiTitleSize, labelColor: .unselectedTintColor)
+        
+        [categoryLabel, timeLabel].forEach { self.addSubview($0) }
         
         // MARK: label의 autolayout 제약조건
         categoryLabel.snp.makeConstraints {
-            $0.leading.equalTo(self).inset(Constants.Padding.defaultPadding)
+            $0.leading.equalTo(self).offset(Constants.Padding.defaultPadding)
             $0.centerY.equalTo(self.snp.centerY)
         }
         
@@ -63,10 +78,10 @@ class CustomUISlider: UISlider {
         }
     }
     
-    
     /// slider를 custom하기 전에 기본 UI 요소를 clear 합니다.
     private func clear() {
         tintColor = .clear
+        minimumTrackTintColor = .clear
         maximumTrackTintColor = .clear
         backgroundColor = .clear
         thumbTintColor = .clear
@@ -80,6 +95,7 @@ class CustomUISlider: UISlider {
         
         // thumbImage 세팅
         let thumbImage = UIImage(named: Constants.Image.sliderTrackImageName)
+        setThumbImage(thumbImage, for: [.normal, .disabled, .focused, .highlighted, .reserved, .selected, .application])
         
         // 슬라이더의 코너 라운드 적용
         self.layer.cornerRadius = 12
@@ -99,26 +115,19 @@ class CustomUISlider: UISlider {
     
     private func updateTrackImage() {
         let color = colorForValue(self.value)
-        let trackImage = createTrackImage(color: color)
-        setMinimumTrackImage(trackImage?.resizableImage(withCapInsets: .zero), for: .normal)
+        minimumTrackTintColor = color
+        
+        let thumbRect = thumbRect(forBounds: bounds, 
+                                  trackRect: trackRect(forBounds: bounds),
+                                  value: value)
+        
+        trackLayer.frame = .init(x: 0,
+                                 y: frame.height / 4,
+                                 width: thumbRect.midX,
+                                 height: frame.height / 2)
     }
-    
-    private func createTrackImage(color: UIColor) -> UIImage? {
-        let imageSize = CGSize(width: 1, height: max(baseLayer.frame.height, 44))
-        let cornerRadius = Constants.CornerRadius.slider
-        
-        let renderer = UIGraphicsImageRenderer(size: imageSize)
-        
-        let trackImage = renderer.image { context in
-            let rect = CGRect(origin: .zero, size: imageSize)
-            let path = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
-            color.setFill()
-            path.fill()
-        }
-        
-        return trackImage
-    }
-    
+
+    /// 입력하는 값에 따라 minimumTrack의 색상을 변경합니다
     private func colorForValue(_ value: Float) -> UIColor {
         let maxValue = Float(Constants.Time.maxMinutes)
         let minValue = Float(Constants.Time.minMinutes)
@@ -134,5 +143,11 @@ class CustomUISlider: UISlider {
             default:
                 return .wetoxRed
         }
+    }
+    
+    private func configureTrackLayer() {
+        trackLayer.frame = .init(x: 0, y: frame.height, width: 0, height: frame.height / 2)
+        trackLayer.cornerRadius = 12
+        layer.insertSublayer(trackLayer, at: 1)
     }
 }
