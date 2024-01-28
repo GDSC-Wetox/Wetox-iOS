@@ -20,6 +20,7 @@ extension UILabel {
         self.textColor = labelColor
     }
     
+    /// 서로 다른 속성을 적용하고 싶을 때 사용할 수 있습니다.
     func setSpacingLabel(text: String, spacing: Int, labelColor: UIColor, weight: UIFont.Weight, textSize: Int) {
         let calculatedSpacing: Double = Double(textSize * spacing) * 0.01
         let attributedString = NSMutableAttributedString(string: text)
