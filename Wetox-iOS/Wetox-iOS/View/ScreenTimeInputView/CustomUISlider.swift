@@ -88,7 +88,7 @@ class CustomUISlider: UISlider {
     }
     
     private func updateLabel() {
-        timeLabel.text = "\(Int(self.value))분"
+        timeLabel.text = TimeConverter.convertMinutesToHoursAndMinutes(Int(self.value))
     }
     
     private func customizeSlider() {
