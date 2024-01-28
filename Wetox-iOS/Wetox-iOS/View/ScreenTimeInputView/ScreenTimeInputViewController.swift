@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 import RxSwift
 
@@ -22,6 +23,11 @@ class ScreenTimeInputViewController: UIViewController {
     private let infoTitleLabel = UILabel()
     private let infoContentLabel = UILabel()
     
+    private var sliderValueObservables: [Observable<Float>] = []
+    private var screenTimeInputViewModel: ScreenTimeInputViewModel!
+    
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -34,11 +40,16 @@ class ScreenTimeInputViewController: UIViewController {
             sliders.append(slider)
         }
         
+        sliderValueObservables = sliders.map { $0.rx.value.asObservable() }
+        screenTimeInputViewModel = ScreenTimeInputViewModel(sliderValues: sliderValueObservables)
+        
         customizeLabel()
         configureLayout()
+        bind()
     }
 
     private func customizeLabel() {
+        
         infoTitleLabel.setLabel(labelText: Constants.ScreenTimeInput.titleMessage, backgroundColor: .clear, weight: .semibold, textSize: Constants.font.semiTitleSize, labelColor: .lightGray)
         
         infoContentLabel.setLabel(labelText: Constants.ScreenTimeInput.infoMessage, backgroundColor: .clear, weight: .medium, textSize: Constants.font.contentSize, labelColor: .darkGray)
@@ -67,5 +78,21 @@ class ScreenTimeInputViewController: UIViewController {
             }
             previousSlider = slider
         }
+    }
+    
+    private func bind() {
+        screenTimeInputViewModel.totalSliderValue
+            .subscribe(onNext: { [weak self] totalValue in
+            print("totalValue: \(totalValue)")
+                if Int(totalValue) > Constants.Time.maxMinutes {
+                    self?.infoTitleLabel.text = Constants.ScreenTimeInput.timeoverTitleMessage
+                    self?.infoContentLabel.text = Constants.ScreenTimeInput.timeoverInfoMessage
+                } else {
+                    self?.infoTitleLabel.text = Constants.ScreenTimeInput.titleMessage
+                    self?.infoContentLabel.text = Constants.ScreenTimeInput.infoMessage
+                }
+            })
+            .disposed(by: disposeBag)
+        
     }
 }
