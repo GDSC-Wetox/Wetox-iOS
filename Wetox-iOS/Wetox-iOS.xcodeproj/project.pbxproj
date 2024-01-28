@@ -35,6 +35,7 @@
 		BF7209FE2B5F928D001D76CB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF7209FD2B5F928D001D76CB /* RxSwift */; };
 		BF832F182B60059A0005355F /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = BF832F172B60059A0005355F /* .gitkeep */; };
 		BFB317A32B665744007F0A9A /* StrokeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A22B665744007F0A9A /* StrokeLabel.swift */; };
+		BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A42B6666AF007F0A9A /* TimeConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		BF7209F62B5F926B001D76CB /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		BF832F172B60059A0005355F /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		BFB317A22B665744007F0A9A /* StrokeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeLabel.swift; sourceTree = "<group>"; };
+		BFB317A42B6666AF007F0A9A /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			children = (
 				BF2FE0232B64C742009C3C73 /* Constants.swift */,
 				BFB317A22B665744007F0A9A /* StrokeLabel.swift */,
+				BFB317A42B6666AF007F0A9A /* TimeConverter.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
 				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
 				BF0EBDDF2B6529D000AEF19D /* AppDelegate.swift in Sources */,
+				BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */,
 				BFB317A32B665744007F0A9A /* StrokeLabel.swift in Sources */,
 				BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */,
 				554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */,
