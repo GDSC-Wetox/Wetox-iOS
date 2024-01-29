@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 /// 사용자의 화면 시간에 대한 정보를 담습니다
 struct UserScreenTime: Codable {
     var nickname: String
