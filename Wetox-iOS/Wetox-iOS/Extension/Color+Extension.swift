@@ -82,6 +82,8 @@ extension UIColor {
     }
     
     // MARK: - Tint Colors (label / image etc)
+    
+    /// 404040, alpha: 0.64
     static var unselectedTintColor: UIColor {
         return UIColor(hexCode: "0x404040", alpha: 0.64)
     }
@@ -90,4 +92,41 @@ extension UIColor {
         return UIColor(hexCode: "0x404040")
     }
 
+    
+    // MARK: - ScreenTimeInputview Colors
+    static var sliderBackgroundGray: UIColor {
+        return UIColor(hexCode: "0xF7F7F7")
+    }
+    
+    // MARK: - TimeLight Colors
+    
+    /// 3/4 이상 (1080분) 사용 시
+    static var wetoxRed: UIColor {
+        return UIColor(hexCode: "0xFF453A")
+    }
+    
+    /// 3/4 이하 (1080분) 사용 시
+    static var wetoxOrange: UIColor {
+        return UIColor(hexCode: "0xFFB340")
+    }
+    
+    /// 2/4 이하 (720분) 사용 시
+    static var wetoxYellow: UIColor {
+        return UIColor(hexCode: "0xFFD426")
+    }
+    
+    /// 1/4 이하 (360분) 사용 시
+    static var wetoxGreen: UIColor {
+        return UIColor(hexCode: "0x30DB5B")
+    }
+    
+    // MARK: - Common Colors
+    
+    static var opacityWhite: UIColor {
+        return UIColor(hexCode: "0xFFFFFF", alpha: 0.32)
+    }
+    
+    static var strokeGray: UIColor {
+        return UIColor(hexCode: "0xC0C0C0")
+    }
 }
