@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 수정 Need 
 struct LoginResponse: Codable {
     let sessionId: String
     let memberId: Int

@@ -16,12 +16,11 @@ public class AuthAPI {
     
     // MARK: - 소셜 회원가입
     func socialSignUp(socialSignUpRequest: SocialSignUpRequest, profileImage: UIImage?, completion: @escaping (NetworkResult<Any>) -> Void) {
-        authProvider.request(.socialSignUp(SocialSignUpRequest: SocialSignUpRequest, profileImage: profileImage)) { (result) in
+        authProvider.request(.socialSignUp(SocialSignUpRequest: socialSignUpRequest, profileImage: profileImage)) { (result) in
             switch result {
             case .success(let response):
                 let statusCode = response.statusCode
                 let data = response.data
-                
                 let networkResult = self.judgeSocialSignUpStatus(by: statusCode, data)
                 completion(networkResult)
                 
@@ -38,7 +37,6 @@ public class AuthAPI {
             case .success(let response):
                 let statusCode = response.statusCode
                 let data = response.data
-                
                 let networkResult = self.judgeLoginStatus(by: statusCode, data)
                 completion(networkResult)
                 
@@ -55,7 +53,6 @@ public class AuthAPI {
             case .success(let response):
                 let statusCode = response.statusCode
                 let data = response.data
-                
                 let networkResult = self.judgeLoginStatus(by: statusCode, data)
                 completion(networkResult)
                 

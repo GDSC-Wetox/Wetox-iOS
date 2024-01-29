@@ -161,11 +161,8 @@ class LoginViewController: UIViewController {
                                     }
                                     else {
                                         print("me() success.")
-                                        
-                                        //do something
                                         _ = user
                                         print(user)
-
                                     }
                                 }
                             }

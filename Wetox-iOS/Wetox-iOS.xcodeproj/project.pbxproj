@@ -22,6 +22,11 @@
 		554F27472B6391D80050B6D9 /* SocialSignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27462B6391D80050B6D9 /* SocialSignUpRequest.swift */; };
 		554F27492B6391E20050B6D9 /* SocialSignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27482B6391E20050B6D9 /* SocialSignUpResponse.swift */; };
 		557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F3EA12B60983A007C7247 /* Button+Extension.swift */; };
+		558601982B6629A6007EA357 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558601972B6629A6007EA357 /* Const.swift */; };
+		55A777632B66262C007FAEBF /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 55A777622B66262C007FAEBF /* CombineMoya */; };
+		55A777652B66262C007FAEBF /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 55A777642B66262C007FAEBF /* Moya */; };
+		55A777672B66262C007FAEBF /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 55A777662B66262C007FAEBF /* ReactiveMoya */; };
+		55A777692B66262C007FAEBF /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 55A777682B66262C007FAEBF /* RxMoya */; };
 		BF7209BB2B5F8BCB001D76CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */; };
 		BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */; };
 		BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */; };
@@ -71,6 +76,7 @@
 		554F27462B6391D80050B6D9 /* SocialSignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignUpRequest.swift; sourceTree = "<group>"; };
 		554F27482B6391E20050B6D9 /* SocialSignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignUpResponse.swift; sourceTree = "<group>"; };
 		557F3EA12B60983A007C7247 /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
+		558601972B6629A6007EA357 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		BF7209B72B5F8BCB001D76CB /* Wetox-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wetox-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,10 +103,14 @@
 			files = (
 				BF7209FC2B5F928D001D76CB /* RxRelay in Frameworks */,
 				552FE1772B611C1000A4F568 /* KakaoSDK in Frameworks */,
+				55A777652B66262C007FAEBF /* Moya in Frameworks */,
+				55A777692B66262C007FAEBF /* RxMoya in Frameworks */,
+				55A777672B66262C007FAEBF /* ReactiveMoya in Frameworks */,
 				BF7209FA2B5F928D001D76CB /* RxCocoa in Frameworks */,
 				552FE17B2B611C1000A4F568 /* KakaoSDKUser in Frameworks */,
 				BF7209FE2B5F928D001D76CB /* RxSwift in Frameworks */,
 				BF7209F32B5F9221001D76CB /* SnapKit in Frameworks */,
+				55A777632B66262C007FAEBF /* CombineMoya in Frameworks */,
 				552FE1792B611C1000A4F568 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +164,7 @@
 				554F27442B6390BE0050B6D9 /* Auth */,
 				5514CE652B65F91F006B2700 /* NetworkResult.swift */,
 				5514CE672B65F95D006B2700 /* GenericResponse.swift */,
+				558601972B6629A6007EA357 /* Const.swift */,
 			);
 			path = NetworkModel;
 			sourceTree = "<group>";
@@ -293,6 +304,10 @@
 				552FE1762B611C1000A4F568 /* KakaoSDK */,
 				552FE1782B611C1000A4F568 /* KakaoSDKAuth */,
 				552FE17A2B611C1000A4F568 /* KakaoSDKUser */,
+				55A777622B66262C007FAEBF /* CombineMoya */,
+				55A777642B66262C007FAEBF /* Moya */,
+				55A777662B66262C007FAEBF /* ReactiveMoya */,
+				55A777682B66262C007FAEBF /* RxMoya */,
 			);
 			productName = "Wetox-iOS";
 			productReference = BF7209B72B5F8BCB001D76CB /* Wetox-iOS.app */;
@@ -370,7 +385,7 @@
 				BF7209F12B5F9221001D76CB /* XCRemoteSwiftPackageReference "SnapKit" */,
 				BF7209F82B5F928D001D76CB /* XCRemoteSwiftPackageReference "RxSwift" */,
 				552FE1752B611C1000A4F568 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
-				5514CE612B65F75F006B2700 /* XCRemoteSwiftPackageReference "Moya" */,
+				55A777612B66262C007FAEBF /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = BF7209B82B5F8BCB001D76CB /* Products */;
 			projectDirPath = "";
@@ -424,6 +439,7 @@
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
 				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
 				BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */,
+				558601982B6629A6007EA357 /* Const.swift in Sources */,
 				554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */,
 				5514CE642B65F891006B2700 /* MoyaLoggerPlugin.swift in Sources */,
 				BF7209F72B5F926B001D76CB /* CircularProgressBar.swift in Sources */,
@@ -774,20 +790,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5514CE612B65F75F006B2700 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 15.0.3;
-			};
-		};
 		552FE1752B611C1000A4F568 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.20.0;
+			};
+		};
+		55A777612B66262C007FAEBF /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
 			};
 		};
 		BF7209F12B5F9221001D76CB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -823,6 +839,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 552FE1752B611C1000A4F568 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
+		};
+		55A777622B66262C007FAEBF /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55A777612B66262C007FAEBF /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		55A777642B66262C007FAEBF /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55A777612B66262C007FAEBF /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		55A777662B66262C007FAEBF /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55A777612B66262C007FAEBF /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		55A777682B66262C007FAEBF /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55A777612B66262C007FAEBF /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 		BF7209F22B5F9221001D76CB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

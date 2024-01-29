@@ -16,12 +16,12 @@ enum AuthService {
 }
 
 extension AuthService: TargetType {
-    // MARK: - baseURL (서버의 endpoint 도메인)
+    // MARK: - baseURL
     var baseURL: URL {
-        return URL(string: "baseURL")!
+        return URL(string: Const.URL.baseURL)!
     }
     
-    // MARK: - path (도메인 뒤에 추가될 path)
+    // MARK: - Endpoint path
     var path: String {
         switch self {
         case .socialSignUp:
@@ -35,7 +35,7 @@ extension AuthService: TargetType {
         }
     }
     
-    // MARK: - HTTP method (get, post, patch, delete)
+    // MARK: - HTTP method
     var method: Moya.Method {
         switch self {
         case .socialSignUp, .login, .logout:
@@ -51,12 +51,13 @@ extension AuthService: TargetType {
     // 서버에 보낼 데이터(body)가 있다면 .requestJSONEncodable
     // 참고: https://moya.github.io/Enums/Task.html
     
+    // MultipartFormData - Image 보내는 부분
     var task: Moya.Task {
         switch self {
-        case .socialSignUp(let socialSignUpJSON, let profileImage):
+        case .socialSignUp(let socialSignUpRequest, let profileImage):
             var multipartFormData: [MultipartFormData] = []
             
-            let requestData = try? JSONEncoder().encode(socialSignUpJSON)
+            let requestData = try? JSONEncoder().encode(socialSignUpRequest)
             multipartFormData.append(MultipartFormData(provider: .data(requestData!), name: "socialSignUpRequest", mimeType: "application/json"))
             if profileImage != nil {
                 let imageData = profileImage!.jpegData(compressionQuality: 1.0)
@@ -77,16 +78,17 @@ extension AuthService: TargetType {
     }
     
     // MARK: - HTTP Header
-//    var headers: [String: String]? {
-//        switch self {
-//        case .socialSignUp:
-//            return Const.Header.multipartHeader
-//        case .login:
-//            return .none
-//        case .logout, .withdrawal:
-//            let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
-//            let authorizationHeader = ["Content-Type": "application/json", "Authorization": sessionId ?? ""]
-//            return authorizationHeader
-//        }
-//    }
+    var headers: [String: String]? {
+        switch self {
+        case .socialSignUp:
+            return Const.Header.multipartHeader
+        case .login:
+            return .none
+        case .logout, .withdrawal:
+            let sessionId = ""
+            // UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
+            let authorizationHeader = ["Content-Type": "application/json", "Authorization": sessionId]
+            return authorizationHeader
+        }
+    }
 }
