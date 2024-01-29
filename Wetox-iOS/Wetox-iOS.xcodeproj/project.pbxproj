@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,7 +27,11 @@
 		55A777652B66262C007FAEBF /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 55A777642B66262C007FAEBF /* Moya */; };
 		55A777672B66262C007FAEBF /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 55A777662B66262C007FAEBF /* ReactiveMoya */; };
 		55A777692B66262C007FAEBF /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 55A777682B66262C007FAEBF /* RxMoya */; };
-		BF7209BB2B5F8BCB001D76CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */; };
+		BF2FE0242B64C742009C3C73 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2FE0232B64C742009C3C73 /* Constants.swift */; };
+		BF2FE0262B64CBC9009C3C73 /* ScreenTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2FE0252B64CBC9009C3C73 /* ScreenTime.swift */; };
+		BF6B12DC2B64B9170031165E /* ScreenTimeInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6B12DB2B64B9170031165E /* ScreenTimeInputViewController.swift */; };
+		BF6B12DE2B64B9B40031165E /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6B12DD2B64B9B40031165E /* CustomUISlider.swift */; };
+		BF0EBDDF2B6529D000AEF19D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */; };
 		BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */; };
 		BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */; };
 		BF7209C42B5F8BCD001D76CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7209C32B5F8BCD001D76CB /* Assets.xcassets */; };
@@ -44,6 +48,11 @@
 		BF7209FC2B5F928D001D76CB /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = BF7209FB2B5F928D001D76CB /* RxRelay */; };
 		BF7209FE2B5F928D001D76CB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF7209FD2B5F928D001D76CB /* RxSwift */; };
 		BF832F182B60059A0005355F /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = BF832F172B60059A0005355F /* .gitkeep */; };
+		BFB317A32B665744007F0A9A /* StrokeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A22B665744007F0A9A /* StrokeLabel.swift */; };
+		BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A42B6666AF007F0A9A /* TimeConverter.swift */; };
+		BFB317A82B666962007F0A9A /* ScreenTimeInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A72B666962007F0A9A /* ScreenTimeInputViewModel.swift */; };
+		BFB317AA2B669358007F0A9A /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A92B669358007F0A9A /* BottomSheetView.swift */; };
+		BFB317AC2B6693A4007F0A9A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317AB2B6693A4007F0A9A /* View+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +86,10 @@
 		554F27482B6391E20050B6D9 /* SocialSignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignUpResponse.swift; sourceTree = "<group>"; };
 		557F3EA12B60983A007C7247 /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		558601972B6629A6007EA357 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		BF2FE0232B64C742009C3C73 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BF2FE0252B64CBC9009C3C73 /* ScreenTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTime.swift; sourceTree = "<group>"; };
+		BF6B12DB2B64B9170031165E /* ScreenTimeInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeInputViewController.swift; sourceTree = "<group>"; };
+		BF6B12DD2B64B9B40031165E /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
 		BF7209B72B5F8BCB001D76CB /* Wetox-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wetox-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +107,11 @@
 		BF7209F42B5F923F001D76CB /* FriendsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF7209F62B5F926B001D76CB /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		BF832F172B60059A0005355F /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		BFB317A22B665744007F0A9A /* StrokeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeLabel.swift; sourceTree = "<group>"; };
+		BFB317A42B6666AF007F0A9A /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
+		BFB317A72B666962007F0A9A /* ScreenTimeInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeInputViewModel.swift; sourceTree = "<group>"; };
+		BFB317A92B669358007F0A9A /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		BFB317AB2B6693A4007F0A9A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +150,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF2FE0222B64C731009C3C73 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				BF2FE0232B64C742009C3C73 /* Constants.swift */,
+				BFB317A22B665744007F0A9A /* StrokeLabel.swift */,
+				BFB317A42B6666AF007F0A9A /* TimeConverter.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		BF6B12DA2B64B8FF0031165E /* ScreenTimeInputView */ = {
+			isa = PBXGroup;
+			children = (
+				BF6B12DB2B64B9170031165E /* ScreenTimeInputViewController.swift */,
+				BF6B12DD2B64B9B40031165E /* CustomUISlider.swift */,
+			);
+			path = ScreenTimeInputView;
+			sourceTree = "<group>";
+		};
 		5514CE5B2B65F6F8006B2700 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +258,8 @@
 			children = (
 				5514CE5B2B65F6F8006B2700 /* NetworkService */,
 				554F273E2B638ECF0050B6D9 /* NetworkModel */,
+				BFB317A62B666953007F0A9A /* ViewModel */,
+				BF2FE0222B64C731009C3C73 /* Utility */,
 				BF7209EC2B5F8C9B001D76CB /* Model */,
 				BF7209EB2B5F8C95001D76CB /* View */,
 				BF7209EA2B5F8C8F001D76CB /* Extension */,
@@ -256,6 +295,7 @@
 				BF7209ED2B5F8CB6001D76CB /* Label+Extension.swift */,
 				BF7209EF2B5F8CCB001D76CB /* Color+Extension.swift */,
 				557F3EA12B60983A007C7247 /* Button+Extension.swift */,
+				BFB317AB2B6693A4007F0A9A /* View+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -263,11 +303,13 @@
 		BF7209EB2B5F8C95001D76CB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BF6B12DA2B64B8FF0031165E /* ScreenTimeInputView */,
 				5544128F2B608CA9001B8CBA /* LoginViewController.swift */,
 				552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */,
 				BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */,
 				BF7209F42B5F923F001D76CB /* FriendsCollectionViewCell.swift */,
 				BF7209F62B5F926B001D76CB /* CircularProgressBar.swift */,
+				BFB317A92B669358007F0A9A /* BottomSheetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -276,8 +318,17 @@
 			isa = PBXGroup;
 			children = (
 				BF832F172B60059A0005355F /* .gitkeep */,
+				BF2FE0252B64CBC9009C3C73 /* ScreenTime.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BFB317A62B666953007F0A9A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BFB317A72B666962007F0A9A /* ScreenTimeInputViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,7 +424,7 @@
 				};
 			};
 			buildConfigurationList = BF7209B22B5F8BCB001D76CB /* Build configuration list for PBXProject "Wetox-iOS" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -437,19 +488,28 @@
 				BF7209F52B5F923F001D76CB /* FriendsCollectionViewCell.swift in Sources */,
 				554F27432B63908E0050B6D9 /* LoginResponse.swift in Sources */,
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
+				BFB317AC2B6693A4007F0A9A /* View+Extension.swift in Sources */,
 				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
+				BF0EBDDF2B6529D000AEF19D /* AppDelegate.swift in Sources */,
+				BFB317A82B666962007F0A9A /* ScreenTimeInputViewModel.swift in Sources */,
+				BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */,
+				BFB317A32B665744007F0A9A /* StrokeLabel.swift in Sources */,
 				BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */,
 				558601982B6629A6007EA357 /* Const.swift in Sources */,
 				554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */,
 				5514CE642B65F891006B2700 /* MoyaLoggerPlugin.swift in Sources */,
 				BF7209F72B5F926B001D76CB /* CircularProgressBar.swift in Sources */,
 				5514CE682B65F95D006B2700 /* GenericResponse.swift in Sources */,
-				BF7209BB2B5F8BCB001D76CB /* AppDelegate.swift in Sources */,
+				BFB317AA2B669358007F0A9A /* BottomSheetView.swift in Sources */,
 				BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */,
 				554F27492B6391E20050B6D9 /* SocialSignUpResponse.swift in Sources */,
 				557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */,
 				554F27412B638EE60050B6D9 /* LoginRequest.swift in Sources */,
 				5514CE602B65F721006B2700 /* AuthService.swift in Sources */,
+				BF2FE0262B64CBC9009C3C73 /* ScreenTime.swift in Sources */,
+				BF2FE0242B64C742009C3C73 /* Constants.swift in Sources */,
+				BF6B12DC2B64B9170031165E /* ScreenTimeInputViewController.swift in Sources */,
+				BF6B12DE2B64B9B40031165E /* CustomUISlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,7 +609,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -606,7 +666,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -621,6 +681,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D9CAJN27UH;
@@ -631,6 +692,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -649,6 +711,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D9CAJN27UH;
@@ -659,6 +722,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -10,6 +10,8 @@ import SnapKit
 
 class MainViewController: UIViewController {
     
+    // TODO: constants 값 변경하기
+    // TODO: collectionView Compositional 로 변경하기
     private var segmentedControl: UISegmentedControl = {
         let items = ["week", "daily", "badge"]
         let segmentedControl = UISegmentedControl(items: items)
@@ -22,6 +24,8 @@ class MainViewController: UIViewController {
         segmentedControl.tintColor = .gray
         return segmentedControl
     }()
+    
+    private let bottomSheetView = BottomSheetView()
     
     private var friendsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -37,7 +41,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        [segmentedControl, friendsCollectionView].forEach { view.addSubview($0) }
+        [segmentedControl, friendsCollectionView, bottomSheetView].forEach { view.addSubview($0) }
         configureLayout()
         configureUnselectedSegmentedControl()
         setupCollectionView()
@@ -54,9 +58,14 @@ class MainViewController: UIViewController {
             make.top.equalTo(segmentedControl.snp_bottomMargin).offset(16)
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.bottom.equalTo(bottomSheetView.snp.top).offset(2)
+        }
+        
+        bottomSheetView.snp.makeConstraints {
+            $0.leading.bottom.trailing.equalTo(view)
+            $0.height.equalTo(102)
         }
     }
-    
     
     @objc func tappedSegmentedControl(_ segmentedControl: UISegmentedControl) {
         configureUnselectedSegmentedControl()
@@ -100,8 +109,6 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = (collectionView.frame.width - 32) / 3
-        print("collectionViewCell의 CGSize: \(cellWidth)")
         return CGSize(width: cellWidth, height: cellWidth)
     }
 }
-                                  

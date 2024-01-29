@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "slider-track-image.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
