@@ -39,7 +39,6 @@ class CircularProgressBar: UIView {
                           startAngle: 0,
                           endAngle: .pi * 2,
                           clockwise: true)
-        print("draw내의 rect 값: \(rect.midX) \(rect.midY)")
         bezierPath.lineWidth = 4
         UIColor.profileBackgroundGrayColor.set() // 남아있는 시간의 색상
         bezierPath.stroke()
@@ -60,7 +59,6 @@ class CircularProgressBar: UIView {
         self.subviews.forEach { $0.removeFromSuperview() }
         self.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
 
-        print("setProgress내의 rect 값: \(rect.midX) \(rect.midY)")
         let bezierPath = UIBezierPath()
         bezierPath.addArc(withCenter: CGPoint(x: rect.midX, y: rect.midY),
                           radius: cornerRadiusProgressRatio * (rect.midX - (lineWidth / 2)),

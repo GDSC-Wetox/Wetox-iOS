@@ -83,7 +83,6 @@ class ScreenTimeInputViewController: UIViewController {
     private func bind() {
         screenTimeInputViewModel.totalSliderValue
             .subscribe(onNext: { [weak self] totalValue in
-            print("totalValue: \(totalValue)")
                 if Int(totalValue) > Constants.Time.maxMinutes {
                     self?.infoTitleLabel.text = Constants.ScreenTimeInput.timeoverTitleMessage
                     self?.infoContentLabel.text = Constants.ScreenTimeInput.timeoverInfoMessage
