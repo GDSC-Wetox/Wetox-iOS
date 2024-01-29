@@ -37,6 +37,8 @@
 		BFB317A32B665744007F0A9A /* StrokeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A22B665744007F0A9A /* StrokeLabel.swift */; };
 		BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A42B6666AF007F0A9A /* TimeConverter.swift */; };
 		BFB317A82B666962007F0A9A /* ScreenTimeInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A72B666962007F0A9A /* ScreenTimeInputViewModel.swift */; };
+		BFB317AA2B669358007F0A9A /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A92B669358007F0A9A /* BottomSheetView.swift */; };
+		BFB317AC2B6693A4007F0A9A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317AB2B6693A4007F0A9A /* View+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		BFB317A22B665744007F0A9A /* StrokeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeLabel.swift; sourceTree = "<group>"; };
 		BFB317A42B6666AF007F0A9A /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 		BFB317A72B666962007F0A9A /* ScreenTimeInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeInputViewModel.swift; sourceTree = "<group>"; };
+		BFB317A92B669358007F0A9A /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		BFB317AB2B6693A4007F0A9A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +201,7 @@
 				BF7209ED2B5F8CB6001D76CB /* Label+Extension.swift */,
 				BF7209EF2B5F8CCB001D76CB /* Color+Extension.swift */,
 				557F3EA12B60983A007C7247 /* Button+Extension.swift */,
+				BFB317AB2B6693A4007F0A9A /* View+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 				BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */,
 				BF7209F42B5F923F001D76CB /* FriendsCollectionViewCell.swift */,
 				BF7209F62B5F926B001D76CB /* CircularProgressBar.swift */,
+				BFB317A92B669358007F0A9A /* BottomSheetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 				BF7209EE2B5F8CB6001D76CB /* Label+Extension.swift in Sources */,
 				BF7209F52B5F923F001D76CB /* FriendsCollectionViewCell.swift in Sources */,
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
+				BFB317AC2B6693A4007F0A9A /* View+Extension.swift in Sources */,
 				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
 				BF0EBDDF2B6529D000AEF19D /* AppDelegate.swift in Sources */,
 				BFB317A82B666962007F0A9A /* ScreenTimeInputViewModel.swift in Sources */,
@@ -387,6 +394,7 @@
 				BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */,
 				554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */,
 				BF7209F72B5F926B001D76CB /* CircularProgressBar.swift in Sources */,
+				BFB317AA2B669358007F0A9A /* BottomSheetView.swift in Sources */,
 				BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */,
 				557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */,
 				BF2FE0262B64CBC9009C3C73 /* ScreenTime.swift in Sources */,
