@@ -37,13 +37,22 @@ struct Constants {
         static let timeoverInfoMessage = "모든 사용시간을 더해 봤더니 24시간이 넘어가요\n입력한 내용을 다시 한 번 확인해주세요!"
     }
     
+    struct Text {
+        static let bottomSheetTitle = "스크린타임 입력하기"
+    }
+    
     struct font {
+        /// 18
         static let semiTitleSize: Int = 18
+        /// 16
         static let contentSize: Int = 16
+        /// 14
         static let profileNameSize: Int = 14
+        /// 24
         static let emphasisSize: Int = 24
+        /// 10
         static let descriptionSize: Int = 10
-            }
+    }
     
     struct Category {
         static let categories = [
