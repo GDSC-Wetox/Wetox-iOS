@@ -46,6 +46,7 @@ class ScreenTimeInputViewController: UIViewController {
         customizeLabel()
         configureLayout()
         bind()
+        configureNavigation()
     }
 
     private func customizeLabel() {
@@ -57,10 +58,23 @@ class ScreenTimeInputViewController: UIViewController {
         infoContentLabel.numberOfLines = 0
     }
     
+    private func configureNavigation() {
+        title = "스크린타임 입력하기"
+        
+        // TODO: 데이터 저장 및 메인에 적용 구현
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissViewController))
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissViewController))
+    }
+    
+    @objc private func dismissViewController() {
+        dismiss(animated: true)
+    }
+    
     private func configureLayout() {
         
         infoTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(Constants.Padding.defaultPadding)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.equalTo(view).inset(Constants.Padding.defaultPadding)
         }
         
@@ -73,7 +87,7 @@ class ScreenTimeInputViewController: UIViewController {
         
         for slider in sliders {
             slider.snp.makeConstraints {
-                $0.top.equalTo(previousSlider.snp.bottom).offset(14)
+                $0.top.equalTo(previousSlider.snp.bottom).offset(Constants.Padding.narrowPadding)
                 $0.leading.trailing.equalTo(view).inset(Constants.Padding.defaultPadding)
             }
             previousSlider = slider
@@ -92,6 +106,5 @@ class ScreenTimeInputViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
-        
     }
 }

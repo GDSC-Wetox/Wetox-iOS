@@ -25,7 +25,21 @@ class MainViewController: UIViewController {
         return segmentedControl
     }()
     
-    private let bottomSheetView = BottomSheetView()
+    private let bottomSheetView: BottomSheetView = {
+        let view = BottomSheetView()
+        view.isUserInteractionEnabled = true
+        
+        return view
+    }()
+    
+    private let dragIndicatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .unselectedTintColor
+        view.layer.cornerRadius = 1.5
+        view.clipsToBounds = true
+        view.alpha = 0.5
+        return view
+    }()
     
     private var friendsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -42,9 +56,11 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         [segmentedControl, friendsCollectionView, bottomSheetView].forEach { view.addSubview($0) }
+        bottomSheetView.addSubview(dragIndicatorView)
         configureLayout()
         configureUnselectedSegmentedControl()
         setupCollectionView()
+        recognizeGesture()
     }
     
     private func configureLayout() {
@@ -63,7 +79,14 @@ class MainViewController: UIViewController {
         
         bottomSheetView.snp.makeConstraints {
             $0.leading.bottom.trailing.equalTo(view)
-            $0.height.equalTo(102)
+            $0.height.equalTo(96)
+        }
+        
+        dragIndicatorView.snp.makeConstraints {
+            $0.top.equalTo(bottomSheetView.snp.top).inset(10)
+            $0.centerX.equalTo(bottomSheetView.snp.centerX)
+            $0.width.equalTo(30)
+            $0.height.equalTo(3)
         }
     }
     
@@ -91,6 +114,20 @@ class MainViewController: UIViewController {
         friendsCollectionView.register(FriendsCollectionViewCell.self, forCellWithReuseIdentifier: FriendsCollectionViewCell.cellIdentifier)
         friendsCollectionView.dataSource = self
         friendsCollectionView.delegate = self
+    }
+    
+    private func recognizeGesture() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttomSheetViewTapped(_:)))
+        self.bottomSheetView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func buttomSheetViewTapped(_ sender: UITapGestureRecognizer) {
+        let screenTimeInputViewController = ScreenTimeInputViewController()
+        let navigationController = UINavigationController(rootViewController: screenTimeInputViewController)
+        navigationController.modalPresentationStyle = .formSheet
+        navigationController.sheetPresentationController?.prefersGrabberVisible = true
+        navigationController.modalTransitionStyle = .coverVertical
+        self.present(navigationController, animated: true)
     }
 }
 
