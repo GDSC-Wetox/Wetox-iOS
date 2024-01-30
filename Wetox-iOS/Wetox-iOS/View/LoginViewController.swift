@@ -39,6 +39,13 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
+        UserDefaults.standard.set("sessionID",
+                                  forKey: Const.UserDefaultsKey.sessionId)
+        print("야호")
+        print(Const.UserDefaultsKey.sessionId)
+        UserDefaults.standard.set("카카오",
+                                  forKey: Const.UserDefaultsKey.socialType)
+        
         [subTitleLabel, titleLabel, kakaoLoginButton, appleLoginButton, googleLoginButton, guidingBoldLabel, guidingLightLabel].forEach { view.addSubview($0) }
         
         kakaoLoginButton.addTarget(self, action: #selector(kakaoLoginButtonTapped), for: .touchUpInside)
@@ -206,7 +213,6 @@ class LoginViewController: UIViewController {
                         // 회원가입 API
                         self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "")
                     }
-                    
                 }
             }
         }
@@ -217,16 +223,25 @@ class LoginViewController: UIViewController {
                     print(error)
                 }
                 else {
-                    print("loginWithKakaoAccount() success.")
-                    _ = oauthToken
-                    print("this is oauthToken \(oauthToken!)")
-                    self.socialSignUp(accessToken: oauthToken?.accessToken ?? "")
+                    UserDefaults.standard.set(oauthToken!.accessToken,
+                                              forKey: Const.UserDefaultsKey.accessToken)
+  
+                    if sessionId != nil && socialType == "카카오" {
+                        // 로그인 API
+                        print("UserDefaults의 sessionId로 로그인을 시도합니다")
+                        self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
+                        self.navigationController?.pushViewController(MainViewController(), animated: true)
+                    } else {
+                        // 회원가입 API
+                        self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "")
+                    }
                 }
             }
     }
     
     func socialSignUp(accessToken: String) {
         print("회원가입을 진행합니다.")
+        print(accessToken)
         let profileSettingViewContorller = ProfileSettingViewContorller()
         profileSettingViewContorller.accessToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? ""
         self.navigationController?.pushViewController(profileSettingViewContorller, animated: true)
