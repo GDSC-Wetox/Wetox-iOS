@@ -42,5 +42,30 @@ class ProfileSettingViewContorller: UIViewController {
         
         setupLabelLayout()
     }
-    
+}
+
+extension ProfileSettingViewContorller {
+    func socialSignUpWithAPI(socialSignUpRequest: SocialSignUpRequest, profileImage: UIImage?) {
+        AuthAPI.shared.socialSignUp(socialSignUpRequest: socialSignUpRequest, profileImage: profileImage) { response in
+            switch response {
+            case .success(let socialSignUpData):
+                if let data = socialSignUpData as? SocialSignUpResponse {
+                    UserDefaults.standard.set(socialSignUpRequest.socialType, forKey: Const.UserDefaultsKey.socialType)
+                    UserDefaults.standard.set(data.accessToken, forKey: Const.UserDefaultsKey.accessToken)
+                    UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
+                    UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
+                    self.navigationController?.pushViewController(MainViewController(), animated: true)
+                }
+                print("socialSignUpWithAPI - success")
+            case .requestError(let resultCode, let message):
+                print("socialSignUpWithAPI - requestError: [\(resultCode)] \(message)")
+            case .pathError:
+                print("socialSignUpWithAPI - pathError")
+            case .serverError:
+                print("socialSignUpWithAPI - serverError")
+            case .networkFail:
+                print("socialSignUpWithAPI - networkFail")
+            }
+        }
+    }
 }

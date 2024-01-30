@@ -14,7 +14,7 @@ public class AuthAPI {
     
     public init() { }
     
-    // MARK: - 소셜 회원가입
+    // MARK: - 회원가입
     func socialSignUp(socialSignUpRequest: SocialSignUpRequest, profileImage: UIImage?, completion: @escaping (NetworkResult<Any>) -> Void) {
         authProvider.request(.socialSignUp(SocialSignUpRequest: socialSignUpRequest, profileImage: profileImage)) { (result) in
             switch result {

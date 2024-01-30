@@ -24,6 +24,17 @@ class LoginViewController: UIViewController {
     private let guidingBoldLabel: UILabel = UILabel()
     private let guidingLightLabel: UILabel = UILabel()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let isLogin = UserDefaults.standard.bool(forKey: Const.UserDefaultsKey.isLogin)
+        let accessToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken)
+        
+        if isLogin && accessToken != nil {
+            self.navigationController?.pushViewController(MainViewController(), animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -134,8 +145,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc func kakaoLoginButtonTapped() {
-        print("tapped")
-
+        let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
+        let socialType = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType)
+        
         // 카카오 로그인 요청 시 사용할 수 있는 추가 기능 for openid
         UserApi.shared.me() { (user, error) in
             if let error = error {
@@ -162,7 +174,7 @@ class LoginViewController: UIViewController {
                                     else {
                                         print("me() success.")
                                         _ = user
-                                        print(user)
+                                        print(user!)
                                     }
                                 }
                             }
@@ -182,12 +194,18 @@ class LoginViewController: UIViewController {
                     print(error)
                 }
                 else {
-                    print("loginWithKakaoTalk() success.")
-
-                    //do something
-                    _ = oauthToken
+                    UserDefaults.standard.set(oauthToken!.accessToken, 
+                                              forKey: Const.UserDefaultsKey.accessToken)
                     
-                    self.socialSignUp(accessToken: oauthToken!.accessToken)
+                    if sessionId != nil && socialType == "카카오" {
+                        // 로그인 API
+                        print("UserDefaults의 sessionId로 로그인을 시도합니다")
+                        self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
+                        self.navigationController?.pushViewController(MainViewController(), animated: true)
+                    } else {
+                        // 회원가입 API
+                        self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "")
+                    }
                     
                 }
             }
@@ -202,36 +220,40 @@ class LoginViewController: UIViewController {
                     print("loginWithKakaoAccount() success.")
                     _ = oauthToken
                     print("this is oauthToken \(oauthToken!)")
-                    
                     self.socialSignUp(accessToken: oauthToken?.accessToken ?? "")
                 }
             }
     }
     
     func socialSignUp(accessToken: String) {
+        print("회원가입을 진행합니다.")
         let profileSettingViewContorller = ProfileSettingViewContorller()
-        profileSettingViewContorller.accessToken = UserDefaults.standard.string(forKey: "") ?? ""
+        profileSettingViewContorller.accessToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? ""
         self.navigationController?.pushViewController(profileSettingViewContorller, animated: true)
     }
 }
 
-/*
- 
- loginWithKakaoAccount() success.
- 
- // 카카오로부터 응답으로 받은 oauthToken 내용
- 
- OAuthToken(
- tokenType: "bearer",
- accessToken: "6tJO9FBb-d2z-niI0mSZHfW4UOWx3HAYhLMKKwynAAABjUCOugL7Ewsnpgvovw",
- expiresIn: 43199.0,
- expiredAt: 2024-01-26 00:18:31 +0000,
- refreshToken: "VipufcYGxxoISgnwSboYu7WiaNjybO1Jx-QKKwynAAABjUCOuf_7Ewsnpgvovw",
- refreshTokenExpiresIn: 5183999.0,
- refreshTokenExpiredAt: 2024-03-25 12:18:31 +0000,
- scope: Optional("openid"),
- scopes: Optional(["openid"]),
- idToken: Optional("eyJraWQiOiI5ZjI1MmRhZGQ1ZjIzM2Y5M2QyZmE1MjhkMTJmZWEiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiYWZlMDZmYWUxOGEzOGFkNDlhZDYyYWM0MDdkMjg1ZiIsInN1YiI6IjMzMDE4MzUxNDMiLCJhdXRoX3RpbWUiOjE3MDYxODUxMTIsImlzcyI6Imh0dHBzOi8va2F1dGgua2FrYW8uY29tIiwiZXhwIjoxNzA2MjI4MzEyLCJpYXQiOjE3MDYxODUxMTJ9.S83myeppnJ3VLFvi3oISMVZCjxmqS7Qr6lblXCqyVATglHab65p47ZouvI_LZmEHM2URez3T74ts2dd20kipJceQuiK27zrfabt_jv99yRtqtHRqG9TL71lEpOuFQGEGAKbrkXtc2XBwlb8eqW-yanPPoB6K6FOuFzKTqe-HMRbyH4eWAhQMeEswzjJGaH405aP5Ee27Fl764bzcFInOkN_2r-QYSXhrpYBM-S2b3Qm6coCvwSaiSHdIEE9R_OINIDPtgEO_BYeCz5swuCpecXtOOOcEqRLzBTEM4Sx5o8K3CQAsCHNlBpU-vAx8lI_6I0kGt2J8XH4axdcf0j4SHg")
- )
- 
- */
+extension LoginViewController {
+    func loginWithAPI(loginRequest: LoginRequest) {
+        AuthAPI.shared.login(loginRequest: loginRequest) { response in
+            switch response {
+            case .success(let loginData):
+                if let data = loginData as? LoginResponse {
+                    UserDefaults.standard.set(loginRequest.socialType, forKey: Const.UserDefaultsKey.socialType)
+                    UserDefaults.standard.set(data.accessToken, forKey: Const.UserDefaultsKey.accessToken)
+                    UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
+                    UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
+                }
+            case .requestError(let resultCode, let message):
+                print("loginWithAPI - requestError: [\(resultCode)] \(message)")
+            case .pathError:
+                print("loginWithAPI - pathError")
+            case .serverError:
+                print("loginWithAPI - serverError")
+            case .networkFail:
+                print("loginWithAPI - networkFail")
+            }
+        }
+    }
+}
+

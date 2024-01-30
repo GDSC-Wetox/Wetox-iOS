@@ -25,7 +25,7 @@ extension AuthService: TargetType {
     var path: String {
         switch self {
         case .socialSignUp:
-            return "/auth/social-signup"
+            return "/auth/register"
         case .login:
             return "/auth/login"
         case .logout:
