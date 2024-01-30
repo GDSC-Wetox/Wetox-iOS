@@ -14,33 +14,41 @@ class ProfileSettingViewContorller: UIViewController {
     var nickname = ""
     var image: UIImage?
 
-    var titleLabel: UILabel = UILabel()
-    
-    private func setupLabelLayout() {
-        
-    }
+    private let nicknameLabel: UILabel = UILabel()
+    let nicknameTextField = UITextField()
+    var duplicateCheckButton: UIButton = UIButton()
+    private let guidingLabel: UILabel = UILabel()
+
+
+    private let profileLabel: UILabel = UILabel()
+    var profileImageView: UIImageView = UIImageView(image: .checkmark)
+    var AIGenerationButton: UIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        
-        let doneButton = UILabel()
-        doneButton.text = "완료"
-        doneButton.textColor = .systemBlue
-        
         self.navigationItem.title = "프로필 설정"
-        self.navigationItem.setRightBarButton(UIBarButtonItem(customView: doneButton), animated: false)
         
-        doneButton.isUserInteractionEnabled = true
-        
-//        // 제스처인식기 생성
-//        let doneLblTappedRecognizer = UITapGestureRecognizer(target: self, action: #selector(doneLblTapped(tapGestureRecognizer:)))
-//        // 상호작용 설정
-//        doneLlb.isUserInteractionEnabled = true
-//        // 제스처인식기 연결
-//        doneLlb.addGestureRecognizer(doneLblTappedRecognizer)
+        [nicknameLabel, nicknameTextField, duplicateCheckButton, guidingLabel, profileLabel, profileImageView, AIGenerationButton].forEach { view.addSubview($0) }
         
         setupLabelLayout()
+        configureLayout()
+    }
+    
+    
+    private func setupLabelLayout() {
+        nicknameLabel.setLabel(labelText: "닉네임",
+                               backgroundColor: .clear,
+                               weight: .bold,
+                               textSize: 17,
+                               labelColor: .black)
+    }
+    
+    private func configureLayout() {
+        nicknameLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(141)
+            make.leading.trailing.equalToSuperview().inset(20)
+        }
     }
 }
 

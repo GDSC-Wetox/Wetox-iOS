@@ -39,13 +39,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        UserDefaults.standard.set("sessionID",
-                                  forKey: Const.UserDefaultsKey.sessionId)
-        print("야호")
-        print(Const.UserDefaultsKey.sessionId)
-        UserDefaults.standard.set("카카오",
-                                  forKey: Const.UserDefaultsKey.socialType)
-        
         [subTitleLabel, titleLabel, kakaoLoginButton, appleLoginButton, googleLoginButton, guidingBoldLabel, guidingLightLabel].forEach { view.addSubview($0) }
         
         kakaoLoginButton.addTarget(self, action: #selector(kakaoLoginButtonTapped), for: .touchUpInside)
