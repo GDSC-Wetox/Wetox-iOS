@@ -7,8 +7,6 @@
 
 import Foundation
 
-// 수정 Need (회의)
 struct SocialSignUpResponse: Codable {
-    let sessionId: String
-    let memberId: Int
+    let accessToken: String
 }
