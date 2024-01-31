@@ -21,6 +21,7 @@
 		554F27432B63908E0050B6D9 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27422B63908E0050B6D9 /* LoginResponse.swift */; };
 		554F27472B6391D80050B6D9 /* SocialSignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27462B6391D80050B6D9 /* SocialSignUpRequest.swift */; };
 		554F27492B6391E20050B6D9 /* SocialSignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27482B6391E20050B6D9 /* SocialSignUpResponse.swift */; };
+		556AA2D02B6A3B2B00F2AE79 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556AA2CF2B6A3B2B00F2AE79 /* TextField+Extension.swift */; };
 		557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F3EA12B60983A007C7247 /* Button+Extension.swift */; };
 		558601982B6629A6007EA357 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558601972B6629A6007EA357 /* Const.swift */; };
 		55A777632B66262C007FAEBF /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 55A777622B66262C007FAEBF /* CombineMoya */; };
@@ -84,6 +85,7 @@
 		554F27422B63908E0050B6D9 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		554F27462B6391D80050B6D9 /* SocialSignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignUpRequest.swift; sourceTree = "<group>"; };
 		554F27482B6391E20050B6D9 /* SocialSignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignUpResponse.swift; sourceTree = "<group>"; };
+		556AA2CF2B6A3B2B00F2AE79 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
 		557F3EA12B60983A007C7247 /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		558601972B6629A6007EA357 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		BF2FE0232B64C742009C3C73 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -150,25 +152,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BF2FE0222B64C731009C3C73 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				BF2FE0232B64C742009C3C73 /* Constants.swift */,
-				BFB317A22B665744007F0A9A /* StrokeLabel.swift */,
-				BFB317A42B6666AF007F0A9A /* TimeConverter.swift */,
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
-		BF6B12DA2B64B8FF0031165E /* ScreenTimeInputView */ = {
-			isa = PBXGroup;
-			children = (
-				BF6B12DB2B64B9170031165E /* ScreenTimeInputViewController.swift */,
-				BF6B12DD2B64B9B40031165E /* CustomUISlider.swift */,
-			);
-			path = ScreenTimeInputView;
-			sourceTree = "<group>";
-		};
 		5514CE5B2B65F6F8006B2700 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +214,25 @@
 				554F27482B6391E20050B6D9 /* SocialSignUpResponse.swift */,
 			);
 			path = SocialSignUp;
+			sourceTree = "<group>";
+		};
+		BF2FE0222B64C731009C3C73 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				BF2FE0232B64C742009C3C73 /* Constants.swift */,
+				BFB317A22B665744007F0A9A /* StrokeLabel.swift */,
+				BFB317A42B6666AF007F0A9A /* TimeConverter.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		BF6B12DA2B64B8FF0031165E /* ScreenTimeInputView */ = {
+			isa = PBXGroup;
+			children = (
+				BF6B12DB2B64B9170031165E /* ScreenTimeInputViewController.swift */,
+				BF6B12DD2B64B9B40031165E /* CustomUISlider.swift */,
+			);
+			path = ScreenTimeInputView;
 			sourceTree = "<group>";
 		};
 		BF7209AE2B5F8BCB001D76CB = {
@@ -296,6 +298,7 @@
 				BF7209EF2B5F8CCB001D76CB /* Color+Extension.swift */,
 				557F3EA12B60983A007C7247 /* Button+Extension.swift */,
 				BFB317AB2B6693A4007F0A9A /* View+Extension.swift */,
+				556AA2CF2B6A3B2B00F2AE79 /* TextField+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
 				BFB317AC2B6693A4007F0A9A /* View+Extension.swift in Sources */,
 				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
+				556AA2D02B6A3B2B00F2AE79 /* TextField+Extension.swift in Sources */,
 				BF0EBDDF2B6529D000AEF19D /* AppDelegate.swift in Sources */,
 				BFB317A82B666962007F0A9A /* ScreenTimeInputViewModel.swift in Sources */,
 				BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */,
