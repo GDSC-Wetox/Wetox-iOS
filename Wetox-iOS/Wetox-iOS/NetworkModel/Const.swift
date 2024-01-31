@@ -23,10 +23,9 @@ extension Const {
 
 extension Const {
     struct UserDefaultsKey {
-        static let socialType = "socialType"
+        static let oauthProvider = "oauthProvider"
         static let accessToken = "accessToken"
-        static let sessionId = "sessionId"
-        static let memberId = "memberId"
+        static let openId = "openId"
         static let updatedAt = "updatedAt"
         static let isLogin = "isLogin"
     }

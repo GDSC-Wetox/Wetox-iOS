@@ -145,8 +145,8 @@ class LoginViewController: UIViewController {
     }
     
     @objc func kakaoLoginButtonTapped() {
-        let sessionId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
-        let socialType = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.socialType)
+        let openId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId)
+        let oauthProvider = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.oauthProvider)
         
         // 카카오 로그인 요청 시 사용할 수 있는 추가 기능 for openid
         UserApi.shared.me() { (user, error) in
@@ -197,10 +197,10 @@ class LoginViewController: UIViewController {
                     UserDefaults.standard.set(oauthToken!.accessToken, 
                                               forKey: Const.UserDefaultsKey.accessToken)
                     
-                    if sessionId != nil && socialType == "카카오" {
+                    if openId != nil && oauthProvider == "카카오" {
                         // 로그인 API
                         print("UserDefaults의 sessionId로 로그인을 시도합니다")
-                        self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
+                        self.loginWithAPI(loginRequest: LoginRequest(oauthProvider: "카카오", openId: openId!))
                         self.navigationController?.pushViewController(MainViewController(), animated: true)
                     } else {
                         // 회원가입 API
@@ -219,10 +219,10 @@ class LoginViewController: UIViewController {
                     UserDefaults.standard.set(oauthToken!.accessToken,
                                               forKey: Const.UserDefaultsKey.accessToken)
   
-                    if sessionId != nil && socialType == "카카오" {
+                    if openId != nil && oauthProvider == "카카오" {
                         // 로그인 API
                         print("UserDefaults의 sessionId로 로그인을 시도합니다")
-                        self.loginWithAPI(loginRequest: LoginRequest(token: oauthToken!.accessToken, socialType: "카카오"))
+                        self.loginWithAPI(loginRequest: LoginRequest(oauthProvider: "카카오", openId: openId!))
                         self.navigationController?.pushViewController(MainViewController(), animated: true)
                     } else {
                         // 회원가입 API
@@ -235,8 +235,9 @@ class LoginViewController: UIViewController {
     func socialSignUp(accessToken: String) {
         print("회원가입을 진행합니다.")
         print(accessToken)
-        let profileSettingViewContorller = ProfileSettingViewContorller()
+        var profileSettingViewContorller = ProfileSettingViewContorller()
         profileSettingViewContorller.accessToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? ""
+        // TODO: push가 안되는 오류
         self.navigationController?.pushViewController(profileSettingViewContorller, animated: true)
     }
 }
@@ -247,7 +248,7 @@ extension LoginViewController {
             switch response {
             case .success(let loginData):
                 if let data = loginData as? LoginResponse {
-                    UserDefaults.standard.set(loginRequest.socialType, forKey: Const.UserDefaultsKey.socialType)
+                    UserDefaults.standard.set(loginRequest.oauthProvider, forKey: Const.UserDefaultsKey.oauthProvider)
                     UserDefaults.standard.set(data.accessToken, forKey: Const.UserDefaultsKey.accessToken)
                     UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
                     UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)

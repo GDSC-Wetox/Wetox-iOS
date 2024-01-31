@@ -12,7 +12,7 @@ class ProfileSettingViewContorller: UIViewController {
     
     var accessToken = ""
     var nickname = ""
-    var image: UIImage?
+    var generatedAIImage: UIImage?
 
     private let nicknameLabel: UILabel = UILabel()
     let nicknameTextField = UITextField()
@@ -130,7 +130,7 @@ extension ProfileSettingViewContorller {
             switch response {
             case .success(let socialSignUpData):
                 if let data = socialSignUpData as? SocialSignUpResponse {
-                    UserDefaults.standard.set(socialSignUpRequest.socialType, forKey: Const.UserDefaultsKey.socialType)
+                    UserDefaults.standard.set(socialSignUpRequest.oauthProvider, forKey: Const.UserDefaultsKey.oauthProvider)
                     UserDefaults.standard.set(data.accessToken, forKey: Const.UserDefaultsKey.accessToken)
                     UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
                     UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
