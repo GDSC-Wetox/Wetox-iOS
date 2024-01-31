@@ -8,7 +8,7 @@
 import Foundation
 
 struct SocialSignUpRequest: Codable {
-    let OpenID: String
     let nickname: String
-    let socialType: String
+    let oauthProvider: String
+    let openId: String
 }
