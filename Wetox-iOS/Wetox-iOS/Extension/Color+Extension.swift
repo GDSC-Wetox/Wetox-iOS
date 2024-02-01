@@ -72,8 +72,8 @@ extension UIColor {
         return UIColor(hexCode: "30DB5B")
     }
     
-    static var textFieldLineColor: UIColor {
-        return UIColor(hexCode: "3C3C43").withAlphaComponent(0.36)
+    static var textDeleteButtonColor: UIColor {
+        return UIColor(hexCode: "8E8E93")
     }
     
     // MARK: - Profile Colors
