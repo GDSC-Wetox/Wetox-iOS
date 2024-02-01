@@ -7,10 +7,22 @@
 
 import Foundation
 
+/*
+
+ NetworkResult<T>
+
+ success: 서버 통신 성공
+ requestError: 요청 에러 발생
+ pathError: 경로 에러
+ serverError: 서버 내부적 에러
+ networkFail: 네트워크 연결 실패
+ 
+ */
+
 enum NetworkResult<T> {
-    case success(T) // 서버 통신 성공
-    case requestError(T, T) // 요청 에러 발생
-    case pathError // 경로 에러
-    case serverError // 서버 내부적 에러
-    case networkFail // 네트워크 연결 실패
+    case success(T)
+    case requestError(T, T)
+    case pathError
+    case serverError
+    case networkFail
 }
