@@ -10,7 +10,7 @@ import SnapKit
 
 class ProfileSettingViewContorller: UIViewController {
     
-    var accessToken = ""
+    var openId = ""
     var nickname = ""
     var generatedAIImage: UIImage?
 
@@ -36,7 +36,7 @@ class ProfileSettingViewContorller: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationItem.title = "프로필 설정"
-
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigationButton)
         
         [navigationButton, nicknameLabel, nicknameTextField, nameDeleteButton, duplicateCheckButton, guidingLabel, profileLabel, profileImageView, AIGenerationButton].forEach { view.addSubview($0) }
@@ -103,7 +103,7 @@ class ProfileSettingViewContorller: UIViewController {
     }
 
     @objc func duplicateCheckButtonTapped() {
-        // TODO: API 연결 코드 구현
+        // TODO: API 연결 구현
         // TODO: Alert view 구현
     }
 
@@ -112,7 +112,9 @@ class ProfileSettingViewContorller: UIViewController {
     }
     
     @objc func navigationButtonTapped() {
-        // TODO: 회원가입 완료 API 구현
+        let nickname = nicknameTextField.text!
+        let registerRequest = RegisterRequest(nickname: nickname, oauthProvider: "KAKAO", openId: self.openId)
+        registerWithAPI(registerRequest: registerRequest, profileImage: generatedAIImage)
     }
     
     private func configureLayout() {
@@ -169,26 +171,23 @@ class ProfileSettingViewContorller: UIViewController {
 }
 
 extension ProfileSettingViewContorller {
-    func socialSignUpWithAPI(socialSignUpRequest: SocialSignUpRequest, profileImage: UIImage?) {
-        AuthAPI.shared.socialSignUp(socialSignUpRequest: socialSignUpRequest, profileImage: profileImage) { response in
+    func registerWithAPI(registerRequest: RegisterRequest, profileImage: UIImage?) {
+        AuthAPI.shared.register(registerRequest: registerRequest, profileImage: profileImage) { response in
             switch response {
-            case .success(let socialSignUpData):
-                if let data = socialSignUpData as? SocialSignUpResponse {
-                    UserDefaults.standard.set(socialSignUpRequest.oauthProvider, forKey: Const.UserDefaultsKey.oauthProvider)
+            case .success(let registerData):
+                if let data = registerData as? RegisterResponse {
                     UserDefaults.standard.set(data.accessToken, forKey: Const.UserDefaultsKey.accessToken)
-                    UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
-                    UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
                     self.navigationController?.pushViewController(MainViewController(), animated: true)
                 }
-                print("socialSignUpWithAPI - success")
+                print("registerWithAPI - success")
             case .requestError(let resultCode, let message):
-                print("socialSignUpWithAPI - requestError: [\(resultCode)] \(message)")
+                print("registerWithAPI - requestError: [\(resultCode)] \(message)")
             case .pathError:
-                print("socialSignUpWithAPI - pathError")
+                print("registerWithAPI - pathError")
             case .serverError:
-                print("socialSignUpWithAPI - serverError")
+                print("registerWithAPI - serverError")
             case .networkFail:
-                print("socialSignUpWithAPI - networkFail")
+                print("registerWithAPI - networkFail")
             }
         }
     }

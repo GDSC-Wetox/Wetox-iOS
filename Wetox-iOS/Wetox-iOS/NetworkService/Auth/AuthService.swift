@@ -44,12 +44,11 @@ extension AuthService: TargetType {
             var multipartFormData: [MultipartFormData] = []
             
             let requestData = try? JSONEncoder().encode(registerRequest)
-            multipartFormData.append(MultipartFormData(provider: .data(requestData!), name: "socialSignUpRequest", mimeType: "application/json"))
+            multipartFormData.append(MultipartFormData(provider: .data(requestData!), name: "registerRequest", mimeType: "application/json"))
             if profileImage != nil {
                 let imageData = profileImage!.jpegData(compressionQuality: 1.0)
                 multipartFormData.append(MultipartFormData(provider: .data(imageData!), name: "profileImage", fileName: "image.jpg", mimeType: "image/gif"))
             }
-            
             return .uploadMultipart(multipartFormData)
             
         case .login(let loginRequest):

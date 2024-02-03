@@ -194,17 +194,17 @@ class LoginViewController: UIViewController {
                     print(error)
                 }
                 else {
-                    UserDefaults.standard.set(oauthToken!.accessToken, 
-                                              forKey: Const.UserDefaultsKey.accessToken)
+                    UserDefaults.standard.set(oauthToken!.idToken,
+                                              forKey: Const.UserDefaultsKey.openId)
                     
-                    if openId != nil && oauthProvider == "카카오" {
+                    if openId != nil && oauthProvider == "KAKAO" {
                         // 로그인 API
-                        print("UserDefaults의 sessionId로 로그인을 시도합니다")
-                        self.loginWithAPI(loginRequest: LoginRequest(oauthProvider: "카카오", openId: openId!))
+                        print("UserDefaults의 openId로 로그인을 시도합니다")
+                        self.loginWithAPI(loginRequest: TokenRequest(oauthProvider: "KAKAO", openId: openId!))
                         self.navigationController?.pushViewController(MainViewController(), animated: true)
                     } else {
                         // 회원가입 API
-                        self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "")
+                        self.register(openId: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? "")
                     }
                 }
             }
@@ -216,38 +216,37 @@ class LoginViewController: UIViewController {
                     print(error)
                 }
                 else {
-                    UserDefaults.standard.set(oauthToken!.accessToken,
-                                              forKey: Const.UserDefaultsKey.accessToken)
+                    UserDefaults.standard.set(oauthToken!.idToken,
+                                              forKey: Const.UserDefaultsKey.openId)
   
-                    if openId != nil && oauthProvider == "카카오" {
+                    if openId != nil && oauthProvider == "KAKAO" {
                         // 로그인 API
-                        print("UserDefaults의 sessionId로 로그인을 시도합니다")
-                        self.loginWithAPI(loginRequest: LoginRequest(oauthProvider: "카카오", openId: openId!))
+                        print("UserDefaults의 openId로 로그인을 시도합니다")
+                        self.loginWithAPI(loginRequest: TokenRequest(oauthProvider: "KAKAO", openId: openId!))
                         self.navigationController?.pushViewController(MainViewController(), animated: true)
                     } else {
                         // 회원가입 API
-                        self.socialSignUp(accessToken: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? "")
+                        self.register(openId: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? "")
                     }
                 }
             }
     }
     
-    func socialSignUp(accessToken: String) {
+    func register(openId: String) {
         print("회원가입을 진행합니다.")
-        print(accessToken)
-        var profileSettingViewContorller = ProfileSettingViewContorller()
-        profileSettingViewContorller.accessToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken) ?? ""
-        // TODO: push가 안되는 오류
+        print(openId)
+        let profileSettingViewContorller = ProfileSettingViewContorller()
+        profileSettingViewContorller.openId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? ""
         self.navigationController?.pushViewController(profileSettingViewContorller, animated: true)
     }
 }
 
 extension LoginViewController {
-    func loginWithAPI(loginRequest: LoginRequest) {
+    func loginWithAPI(loginRequest: TokenRequest) {
         AuthAPI.shared.login(loginRequest: loginRequest) { response in
             switch response {
             case .success(let loginData):
-                if let data = loginData as? LoginResponse {
+                if let data = loginData as? TokenResponse {
                     UserDefaults.standard.set(loginRequest.oauthProvider, forKey: Const.UserDefaultsKey.oauthProvider)
                     UserDefaults.standard.set(data.accessToken, forKey: Const.UserDefaultsKey.accessToken)
                     UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)

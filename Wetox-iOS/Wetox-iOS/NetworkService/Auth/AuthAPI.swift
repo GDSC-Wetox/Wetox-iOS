@@ -21,7 +21,7 @@ public class AuthAPI {
             case .success(let response):
                 let statusCode = response.statusCode
                 let data = response.data
-                let networkResult = self.judgeSocialSignUpStatus(by: statusCode, data)
+                let networkResult = self.judgeRegisterStatus(by: statusCode, data)
                 completion(networkResult)
                 
             case .failure(let error):
@@ -60,7 +60,7 @@ public class AuthAPI {
         }
     }
     
-    private func judgeSocialSignUpStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
+    private func judgeRegisterStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
         guard let decodedData = try? decoder.decode(GenericResponse<RegisterResponse>.self, from: data) else { return .pathError }
         
