@@ -7,15 +7,15 @@
 
 import Foundation
 
-/*
+/**
 
  NetworkResult<T>
 
- success: 서버 통신 성공
- requestError: 요청 에러 발생
- pathError: 경로 에러
- serverError: 서버 내부적 에러
- networkFail: 네트워크 연결 실패
+ - success: 서버 통신 성공
+ - requestError: 요청 에러 발생
+ - pathError: 경로 에러
+ - serverError: 서버 내부적 에러
+ - networkFail: 네트워크 연결 실패
  
  */
 

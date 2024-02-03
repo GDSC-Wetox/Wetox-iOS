@@ -59,15 +59,15 @@ final class MoyaLoggerPlugin: PluginType {
         print(log)
       }
         
-      func onFail(_ error: MoyaError, target: TargetType) {
+    func onFail(_ error: MoyaError, target: TargetType) {
         if let response = error.response {
-          onSuceed(response, target: target, isFromError: true)
-          return
+            onSuceed(response, target: target, isFromError: true)
+            return
         }
         var log = "네트워크 오류"
         log.append("<-- \(error.errorCode) \(target)\n")
         log.append("\(error.failureReason ?? error.errorDescription ?? "unknown error")\n")
         log.append("<-- END HTTP")
         print(log)
-      }
+    }
 }

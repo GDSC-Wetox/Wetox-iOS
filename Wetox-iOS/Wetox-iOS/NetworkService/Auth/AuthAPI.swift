@@ -15,8 +15,8 @@ public class AuthAPI {
     public init() { }
     
     // MARK: - 회원가입
-    func socialSignUp(socialSignUpRequest: SocialSignUpRequest, profileImage: UIImage?, completion: @escaping (NetworkResult<Any>) -> Void) {
-        authProvider.request(.socialSignUp(SocialSignUpRequest: socialSignUpRequest, profileImage: profileImage)) { (result) in
+    func register(registerRequest: RegisterRequest, profileImage: UIImage?, completion: @escaping (NetworkResult<Any>) -> Void) {
+        authProvider.request(.register(registerRequest: registerRequest, profileImage: profileImage)) { (result) in
             switch result {
             case .success(let response):
                 let statusCode = response.statusCode
@@ -30,8 +30,7 @@ public class AuthAPI {
         }
     }
     
-    // MARK: - 로그인
-    func login(loginRequest: LoginRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func login(loginRequest: TokenRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
         authProvider.request(.login(loginRequest: loginRequest)) { (result) in
             switch result {
             case .success(let response):
@@ -46,7 +45,6 @@ public class AuthAPI {
         }
     }
     
-    // MARK: - 로그아웃
     func logout(completion: @escaping (NetworkResult<Any>) -> Void) {
         authProvider.request(.logout) { (result) in
             switch result {
@@ -62,26 +60,9 @@ public class AuthAPI {
         }
     }
     
-    // MARK: - 회원 탈퇴
-    func withdrawal(completion: @escaping (NetworkResult<Any>) -> Void) {
-        authProvider.request(.withdrawal) { (result) in
-            switch result {
-            case .success(let response):
-                let statusCode = response.statusCode
-                let data = response.data
-                
-                let networkResult = self.judgeWithdrawalStatus(by: statusCode, data)
-                completion(networkResult)
-                
-            case .failure(let error):
-                print("error: \(error)")
-            }
-        }
-    }
-    
     private func judgeSocialSignUpStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<SocialSignUpResponse>.self, from: data) else { return .pathError }
+        guard let decodedData = try? decoder.decode(GenericResponse<RegisterResponse>.self, from: data) else { return .pathError }
         
         switch statusCode {
         case 200:
@@ -97,7 +78,7 @@ public class AuthAPI {
     
     private func judgeLoginStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<LoginResponse>.self, from: data) else { return .pathError }
+        guard let decodedData = try? decoder.decode(GenericResponse<TokenResponse>.self, from: data) else { return .pathError }
         
         switch statusCode {
         case 200:
@@ -118,22 +99,6 @@ public class AuthAPI {
         switch statusCode {
         case 200:
             return .success(decodedData.data ?? "None-data")
-        case 400..<500:
-            return .requestError(decodedData.resultCode, decodedData.message)
-        case 500:
-            return .serverError
-        default:
-            return .networkFail
-        }
-    }
-    
-    private func judgeWithdrawalStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
-        let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<String>.self, from: data) else { return .pathError }
-        
-        switch statusCode {
-        case 200:
-            return .success(decodedData)
         case 400..<500:
             return .requestError(decodedData.resultCode, decodedData.message)
         case 500:
