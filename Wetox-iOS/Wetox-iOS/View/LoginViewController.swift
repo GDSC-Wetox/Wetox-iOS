@@ -103,43 +103,43 @@ class LoginViewController: UIViewController {
     
     private func configureLayout() {
         subTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(138)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(58)
             make.leading.trailing.equalToSuperview().inset(24)
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(162)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(82)
             make.leading.trailing.equalToSuperview().inset(24)
         }
         
         kakaoLoginButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(510)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(430)
             make.leading.trailing.equalToSuperview().inset(24)
             make.width.equalTo(323)
             make.height.equalTo(49)
         }
         
         appleLoginButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(568)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(488)
             make.leading.trailing.equalToSuperview().inset(24)
             make.width.equalTo(323)
             make.height.equalTo(49)
         }
         
         googleLoginButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(626)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(546)
             make.leading.trailing.equalToSuperview().inset(24)
             make.width.equalTo(323)
             make.height.equalTo(49)
         }
         
         guidingBoldLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(702)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(622)
             make.leading.trailing.equalToSuperview().inset(36)
         }
         
         guidingLightLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(715)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(635)
             make.leading.trailing.equalToSuperview().inset(36)
         }
     }
