@@ -10,8 +10,8 @@ import Moya
 
 enum AuthService {
     case register(registerRequest: RegisterRequest, profileImage: UIImage?)
-    case login(loginRequest: TokenRequest) // 로그인
-    case logout // 로그아웃
+    case login(tokenRequest: TokenRequest)
+    case logout
 }
 
 extension AuthService: TargetType {
@@ -66,9 +66,8 @@ extension AuthService: TargetType {
         case .login:
             return .none
         case .logout:
-            let sessionId = ""
-            // UserDefaults.standard.string(forKey: Const.UserDefaultsKey.sessionId)
-            let authorizationHeader = ["Content-Type": "application/json", "Authorization": sessionId]
+            let accessToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken)!
+            let authorizationHeader = ["Content-Type": "application/json", "Authorization": accessToken]
             return authorizationHeader
         }
     }

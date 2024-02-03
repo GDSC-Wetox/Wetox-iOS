@@ -30,8 +30,8 @@ public class AuthAPI {
         }
     }
     
-    func login(loginRequest: TokenRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
-        authProvider.request(.login(loginRequest: loginRequest)) { (result) in
+    func login(tokenRequest: TokenRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
+        authProvider.request(.login(tokenRequest: tokenRequest)) { (result) in
             switch result {
             case .success(let response):
                 let statusCode = response.statusCode

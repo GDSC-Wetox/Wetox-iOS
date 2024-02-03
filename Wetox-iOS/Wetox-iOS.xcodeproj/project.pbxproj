@@ -189,31 +189,31 @@
 			path = NetworkModel;
 			sourceTree = "<group>";
 		};
-		554F273F2B638EDA0050B6D9 /* Login */ = {
+		554F273F2B638EDA0050B6D9 /* Token */ = {
 			isa = PBXGroup;
 			children = (
 				554F27402B638EE60050B6D9 /* TokenRequest.swift */,
 				554F27422B63908E0050B6D9 /* TokenResponse.swift */,
 			);
-			path = Login;
+			path = Token;
 			sourceTree = "<group>";
 		};
 		554F27442B6390BE0050B6D9 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				554F27452B63919D0050B6D9 /* SocialSignUp */,
-				554F273F2B638EDA0050B6D9 /* Login */,
+				554F27452B63919D0050B6D9 /* Register */,
+				554F273F2B638EDA0050B6D9 /* Token */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		554F27452B63919D0050B6D9 /* SocialSignUp */ = {
+		554F27452B63919D0050B6D9 /* Register */ = {
 			isa = PBXGroup;
 			children = (
 				554F27462B6391D80050B6D9 /* RegisterRequest.swift */,
 				554F27482B6391E20050B6D9 /* RegisterResponse.swift */,
 			);
-			path = SocialSignUp;
+			path = Register;
 			sourceTree = "<group>";
 		};
 		BF2FE0222B64C731009C3C73 /* Utility */ = {

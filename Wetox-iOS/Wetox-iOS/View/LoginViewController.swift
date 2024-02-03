@@ -200,7 +200,7 @@ class LoginViewController: UIViewController {
                     if openId != nil && oauthProvider == "KAKAO" {
                         // 로그인 API
                         print("UserDefaults의 openId로 로그인을 시도합니다")
-                        self.loginWithAPI(loginRequest: TokenRequest(oauthProvider: "KAKAO", openId: openId!))
+                        self.loginWithAPI(tokenRequest: TokenRequest(oauthProvider: "KAKAO", openId: openId!))
                         self.navigationController?.pushViewController(MainViewController(), animated: true)
                     } else {
                         // 회원가입 API
@@ -222,7 +222,7 @@ class LoginViewController: UIViewController {
                     if openId != nil && oauthProvider == "KAKAO" {
                         // 로그인 API
                         print("UserDefaults의 openId로 로그인을 시도합니다")
-                        self.loginWithAPI(loginRequest: TokenRequest(oauthProvider: "KAKAO", openId: openId!))
+                        self.loginWithAPI(tokenRequest: TokenRequest(oauthProvider: "KAKAO", openId: openId!))
                         self.navigationController?.pushViewController(MainViewController(), animated: true)
                     } else {
                         // 회원가입 API
@@ -233,21 +233,19 @@ class LoginViewController: UIViewController {
     }
     
     func register(openId: String) {
-        print("회원가입을 진행합니다.")
-        print(openId)
         let profileSettingViewContorller = ProfileSettingViewContorller()
-        profileSettingViewContorller.openId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? ""
+        profileSettingViewContorller.openId = openId
         self.navigationController?.pushViewController(profileSettingViewContorller, animated: true)
     }
 }
 
 extension LoginViewController {
-    func loginWithAPI(loginRequest: TokenRequest) {
-        AuthAPI.shared.login(loginRequest: loginRequest) { response in
+    func loginWithAPI(tokenRequest: TokenRequest) {
+        AuthAPI.shared.login(tokenRequest: tokenRequest) { response in
             switch response {
             case .success(let loginData):
                 if let data = loginData as? TokenResponse {
-                    UserDefaults.standard.set(loginRequest.oauthProvider, forKey: Const.UserDefaultsKey.oauthProvider)
+                    UserDefaults.standard.set(tokenRequest.oauthProvider, forKey: Const.UserDefaultsKey.oauthProvider)
                     UserDefaults.standard.set(data.accessToken, forKey: Const.UserDefaultsKey.accessToken)
                     UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
                     UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
