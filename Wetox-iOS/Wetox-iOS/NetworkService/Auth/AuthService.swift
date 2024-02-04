@@ -41,10 +41,12 @@ extension AuthService: TargetType {
     var task: Moya.Task {
         switch self {
         case .register(let registerRequest, let profileImage):
-            var multipartFormData: [MultipartFormData] = []
+            var multipartFormData: [Moya.MultipartFormData] = []
             
-            let requestData = try? JSONEncoder().encode(registerRequest)
-            multipartFormData.append(MultipartFormData(provider: .data(requestData!), name: "registerRequest", mimeType: "application/json"))
+            multipartFormData.append(MultipartFormData(provider: .data(registerRequest.nickname.data(using: .utf8)!), name: "nickname"))
+            multipartFormData.append(MultipartFormData(provider: .data(registerRequest.oauthProvider.data(using: .utf8)!), name: "oauthProvider"))
+            multipartFormData.append(MultipartFormData(provider: .data(registerRequest.openId.data(using: .utf8)!), name: "openId"))
+            
             if profileImage != nil {
                 let imageData = profileImage!.jpegData(compressionQuality: 1.0)
                 multipartFormData.append(MultipartFormData(provider: .data(imageData!), name: "profileImage", fileName: "image.jpg", mimeType: "image/gif"))
