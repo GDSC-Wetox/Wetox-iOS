@@ -17,9 +17,9 @@ class LoginViewController: UIViewController {
     private let subTitleLabel: UILabel = UILabel()
     private let titleLabel: UILabel = UILabel()
     
-    var kakaoLoginButton: UIButton = UIButton()
-    var appleLoginButton: UIButton = UIButton()
-    var googleLoginButton: UIButton = UIButton()
+    private var kakaoLoginButton: UIButton = UIButton()
+    private var appleLoginButton: UIButton = UIButton()
+    private var googleLoginButton: UIButton = UIButton()
     
     private let guidingBoldLabel: UILabel = UILabel()
     private let guidingLightLabel: UILabel = UILabel()
@@ -200,7 +200,7 @@ class LoginViewController: UIViewController {
                     if openId != nil && oauthProvider == "KAKAO" {
                         // 로그인 API
                         print("UserDefaults의 openId로 로그인을 시도합니다")
-                        self.loginWithAPI(tokenRequest: TokenRequest(oauthProvider: "KAKAO", openId: openId!))
+                        self.loginWithAPI(tokenRequest: TokenRequest(oauthProvider: oauthProvider!, openId: openId!))
                         self.navigationController?.pushViewController(MainViewController(), animated: true)
                     } else {
                         // 회원가입 API
@@ -222,7 +222,7 @@ class LoginViewController: UIViewController {
                     if openId != nil && oauthProvider == "KAKAO" {
                         // 로그인 API
                         print("UserDefaults의 openId로 로그인을 시도합니다")
-                        self.loginWithAPI(tokenRequest: TokenRequest(oauthProvider: "KAKAO", openId: openId!))
+                        self.loginWithAPI(tokenRequest: TokenRequest(oauthProvider: oauthProvider!, openId: openId!))
                         self.navigationController?.pushViewController(MainViewController(), animated: true)
                     } else {
                         // 회원가입 API

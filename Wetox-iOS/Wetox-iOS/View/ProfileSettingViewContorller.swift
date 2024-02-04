@@ -14,18 +14,18 @@ class ProfileSettingViewContorller: UIViewController {
     var nickname = ""
     var generatedAIImage: UIImage?
 
-    var navigationButton: UIButton = UIButton()
+    private var navigationButton: UIButton = UIButton()
 
     private let nicknameLabel: UILabel = UILabel()
-    let nicknameTextField = UITextField()
-    var nameDeleteButton: UIButton = UIButton()
+    private let nicknameTextField = UITextField()
+    private var nameDeleteButton: UIButton = UIButton()
 
-    var duplicateCheckButton: UIButton = UIButton()
+    private var duplicateCheckButton: UIButton = UIButton()
     private let guidingLabel: UILabel = UILabel()
 
     private let profileLabel: UILabel = UILabel()
-    var profileImageView: UIImageView = UIImageView(image: UIImage(named: "default-profile-icon"))
-    var AIGenerationButton: UIButton = UIButton()
+    private var profileImageView: UIImageView = UIImageView(image: UIImage(named: "default-profile-icon"))
+    private var AIGenerationButton: UIButton = UIButton()
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
