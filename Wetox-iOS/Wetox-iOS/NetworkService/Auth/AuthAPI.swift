@@ -21,7 +21,12 @@ public class AuthAPI {
             case .success(let response):
                 let statusCode = response.statusCode
                 let data = response.data
+                
+                print(data)
                 let networkResult = self.judgeRegisterStatus(by: statusCode, data)
+                
+                print("networkResult")
+                print(networkResult)
                 completion(networkResult)
                 
             case .failure(let error):
@@ -62,13 +67,16 @@ public class AuthAPI {
     
     private func judgeRegisterStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<RegisterResponse>.self, from: data) else { return .pathError }
+        guard let decodedData = try? decoder.decode(RegisterResponse.self, from: data) else { return .pathError }
+        
+        print(decodedData)
+        // TODO: 디코딩 에러 수정         
         
         switch statusCode {
         case 200:
-            return .success(decodedData.data ?? "None-data")
+            return .success(decodedData)
         case 400..<500:
-            return .requestError(decodedData.resultCode, decodedData.message)
+            return .requestError
         case 500:
             return .serverError
         default:
@@ -84,7 +92,7 @@ public class AuthAPI {
         case 200:
             return .success(decodedData.data ?? "None-data")
         case 400..<500:
-            return .requestError(decodedData.resultCode, decodedData.message)
+            return .requestError
         case 500:
             return .serverError
         default:
@@ -100,7 +108,7 @@ public class AuthAPI {
         case 200:
             return .success(decodedData.data ?? "None-data")
         case 400..<500:
-            return .requestError(decodedData.resultCode, decodedData.message)
+            return .requestError
         case 500:
             return .serverError
         default:

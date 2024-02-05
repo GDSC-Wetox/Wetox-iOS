@@ -21,7 +21,7 @@ import Foundation
 
 enum NetworkResult<T> {
     case success(T)
-    case requestError(T, T)
+    case requestError
     case pathError
     case serverError
     case networkFail

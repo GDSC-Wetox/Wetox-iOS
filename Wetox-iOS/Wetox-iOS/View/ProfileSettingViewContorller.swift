@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class ProfileSettingViewContorller: UIViewController {
+    // TODO: RX로 버튼 반응 코드 작성하기, 토큰 메인 뷰로 넘기기 
     
     var openId = ""
     var nickname = ""
@@ -115,6 +116,8 @@ class ProfileSettingViewContorller: UIViewController {
         let nickname = nicknameTextField.text!
         let registerRequest = RegisterRequest(nickname: nickname, oauthProvider: "KAKAO", openId: self.openId)
         registerWithAPI(registerRequest: registerRequest, profileImage: UIImage(named: "default-profile-icon"))
+        
+        
     }
     
     private func configureLayout() {
@@ -180,8 +183,8 @@ extension ProfileSettingViewContorller {
                     self.navigationController?.pushViewController(MainViewController(), animated: true)
                 }
                 print("registerWithAPI - success")
-            case .requestError(let resultCode, let message):
-                print("registerWithAPI - requestError: [\(resultCode)] \(message)")
+            case .requestError:
+                print("registerWithAPI - requestError")
             case .pathError:
                 print("registerWithAPI - pathError")
             case .serverError:

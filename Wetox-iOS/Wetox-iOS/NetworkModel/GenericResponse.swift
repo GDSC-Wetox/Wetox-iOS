@@ -12,6 +12,7 @@ struct GenericResponse<T: Codable>: Codable {
     let message: String
     let data: T?
     
+    // TODO: 코딩 키가 이게 아님
     enum CodingKeys: String, CodingKey {
         case resultCode
         case message
