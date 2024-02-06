@@ -234,7 +234,6 @@ class LoginViewController: UIViewController {
     
     func register(openId: String) {
         let profileSettingViewContorller = ProfileSettingViewContorller()
-        profileSettingViewContorller.openId = openId
         self.navigationController?.pushViewController(profileSettingViewContorller, animated: true)
     }
 }

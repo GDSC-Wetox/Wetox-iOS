@@ -9,10 +9,8 @@ import UIKit
 import SnapKit
 
 class ProfileSettingViewContorller: UIViewController {
-    // TODO: RX로 버튼 반응 코드 작성하기, 토큰 메인 뷰로 넘기기 
+    // TODO: RX로 버튼 반응 코드 작성하기
     
-    var openId = ""
-    var nickname = ""
     var generatedAIImage: UIImage?
 
     private var navigationButton: UIButton = UIButton()
@@ -106,6 +104,7 @@ class ProfileSettingViewContorller: UIViewController {
     @objc func duplicateCheckButtonTapped() {
         // TODO: API 연결 구현
         // TODO: Alert view 구현
+        // TODO: TextField nickname UserDefaults 설정 구현
     }
 
     @objc func AIGenerationButtonTapped() {
@@ -113,10 +112,10 @@ class ProfileSettingViewContorller: UIViewController {
     }
     
     @objc func navigationButtonTapped() {
-        let nickname = nicknameTextField.text!
-        // TODO: deviceToken 연동
-        let deviceToken = UserDefaults.standard.string(forKey: "deviceToken")!
-        let registerRequest = RegisterRequest(nickname: nickname, oauthProvider: "KAKAO", openId: self.openId, deviceToken: deviceToken)
+        let nickname = nicknameTextField.text ?? String()
+        let deviceToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.deviceToken) ?? String()
+        let openId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? String()
+        let registerRequest = RegisterRequest(nickname: nickname, oauthProvider: "KAKAO", openId: openId, deviceToken: deviceToken)
         registerWithAPI(registerRequest: registerRequest, profileImage: UIImage(named: "default-profile-icon"))
     }
     

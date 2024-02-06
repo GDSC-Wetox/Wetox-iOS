@@ -26,6 +26,7 @@ extension Const {
         static let oauthProvider = "oauthProvider"
         static let accessToken = "accessToken"
         static let openId = "openId"
+        static let deviceToken = "deviceToken"
         static let updatedAt = "updatedAt"
         static let isLogin = "isLogin"
     }

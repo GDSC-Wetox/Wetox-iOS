@@ -71,13 +71,11 @@ extension AppDelegate: MessagingDelegate {
     /// 현재 등록 토큰 가져오기.
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         
-        // TODO: - 디바이스 토큰을 보내는 서버통신 구현
-        
         Messaging.messaging().token { token, error in
             if let error = error {
                 print("Error fetching FCM registration token: \(error)")
             } else if let deviceToken = token {
-                UserDefaults.standard.set(deviceToken, forKey: "deviceToken")
+                UserDefaults.standard.set(deviceToken, forKey: Const.UserDefaultsKey.deviceToken)
             }
         }
     }
