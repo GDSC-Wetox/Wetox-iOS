@@ -180,6 +180,8 @@ extension ProfileSettingViewContorller {
             case .success(let registerData):
                 if let data = registerData as? RegisterResponse {
                     UserDefaults.standard.set(data.accessToken, forKey: Const.UserDefaultsKey.accessToken)
+                    print("accessToken 값 입니다. ")
+                    print(data.accessToken) // 확인
                     self.navigationController?.pushViewController(MainViewController(), animated: true)
                 }
                 print("registerWithAPI - success")

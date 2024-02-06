@@ -11,7 +11,6 @@
 		5514CE602B65F721006B2700 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514CE5F2B65F721006B2700 /* AuthService.swift */; };
 		5514CE642B65F891006B2700 /* MoyaLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514CE632B65F891006B2700 /* MoyaLoggerPlugin.swift */; };
 		5514CE662B65F91F006B2700 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514CE652B65F91F006B2700 /* NetworkResult.swift */; };
-		5514CE682B65F95D006B2700 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514CE672B65F95D006B2700 /* GenericResponse.swift */; };
 		552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */; };
 		552FE1772B611C1000A4F568 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 552FE1762B611C1000A4F568 /* KakaoSDK */; };
 		552FE1792B611C1000A4F568 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 552FE1782B611C1000A4F568 /* KakaoSDKAuth */; };
@@ -78,7 +77,6 @@
 		5514CE5F2B65F721006B2700 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		5514CE632B65F891006B2700 /* MoyaLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggerPlugin.swift; sourceTree = "<group>"; };
 		5514CE652B65F91F006B2700 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
-		5514CE672B65F95D006B2700 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewContorller.swift; sourceTree = "<group>"; };
 		5544128F2B608CA9001B8CBA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		554F27402B638EE60050B6D9 /* TokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequest.swift; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 			children = (
 				554F27442B6390BE0050B6D9 /* Auth */,
 				5514CE652B65F91F006B2700 /* NetworkResult.swift */,
-				5514CE672B65F95D006B2700 /* GenericResponse.swift */,
 				558601972B6629A6007EA357 /* Const.swift */,
 			);
 			path = NetworkModel;
@@ -503,7 +500,6 @@
 				554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */,
 				5514CE642B65F891006B2700 /* MoyaLoggerPlugin.swift in Sources */,
 				BF7209F72B5F926B001D76CB /* CircularProgressBar.swift in Sources */,
-				5514CE682B65F95D006B2700 /* GenericResponse.swift in Sources */,
 				BFB317AA2B669358007F0A9A /* BottomSheetView.swift in Sources */,
 				BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */,
 				554F27492B6391E20050B6D9 /* RegisterResponse.swift in Sources */,

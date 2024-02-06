@@ -250,8 +250,8 @@ extension LoginViewController {
                     UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
                     UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
                 }
-            case .requestError(let resultCode, let message):
-                print("loginWithAPI - requestError: [\(resultCode)] \(message)")
+            case .requestError:
+                print("loginWithAPI - requestError")
             case .pathError:
                 print("loginWithAPI - pathError")
             case .serverError:
