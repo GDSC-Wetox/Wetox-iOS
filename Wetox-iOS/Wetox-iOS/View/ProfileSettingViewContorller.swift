@@ -114,10 +114,9 @@ class ProfileSettingViewContorller: UIViewController {
     
     @objc func navigationButtonTapped() {
         let nickname = nicknameTextField.text!
-        let registerRequest = RegisterRequest(nickname: nickname, oauthProvider: "KAKAO", openId: self.openId)
+        // TODO: deviceToken 연동
+        let registerRequest = RegisterRequest(nickname: nickname, oauthProvider: "KAKAO", openId: self.openId, deviceToken: "deviceToken")
         registerWithAPI(registerRequest: registerRequest, profileImage: UIImage(named: "default-profile-icon"))
-        
-        
     }
     
     private func configureLayout() {

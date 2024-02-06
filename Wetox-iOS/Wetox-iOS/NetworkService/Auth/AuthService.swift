@@ -46,11 +46,13 @@ extension AuthService: TargetType {
             multipartFormData.append(MultipartFormData(provider: .data(registerRequest.nickname.data(using: .utf8)!), name: "nickname"))
             multipartFormData.append(MultipartFormData(provider: .data(registerRequest.oauthProvider.data(using: .utf8)!), name: "oauthProvider"))
             multipartFormData.append(MultipartFormData(provider: .data(registerRequest.openId.data(using: .utf8)!), name: "openId"))
+            multipartFormData.append(MultipartFormData(provider: .data(registerRequest.deviceToken.data(using: .utf8)!), name: "deviceToken"))
             
             if profileImage != nil {
                 let imageData = profileImage!.jpegData(compressionQuality: 1.0)
                 multipartFormData.append(MultipartFormData(provider: .data(imageData!), name: "profileImage", fileName: "image.jpg", mimeType: "image/gif"))
             }
+            
             return .uploadMultipart(multipartFormData)
             
         case .login(let loginRequest):

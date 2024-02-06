@@ -11,4 +11,5 @@ struct RegisterRequest: Codable {
     let nickname: String
     let oauthProvider: String
     let openId: String
+    let deviceToken: String
 }
