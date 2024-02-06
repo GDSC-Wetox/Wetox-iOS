@@ -145,7 +145,6 @@ class LoginViewController: UIViewController {
     }
     
     @objc func kakaoLoginButtonTapped() {
-        let openId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId)
         let oauthProvider = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.oauthProvider)
         
         // 카카오 로그인 요청 시 사용할 수 있는 추가 기능 for openid
@@ -179,57 +178,32 @@ class LoginViewController: UIViewController {
                                 }
                             }
                         }
-                    }
-                    else {
+                    } else {
                         print("사용자의 추가 동의가 필요하지 않습니다.")
                     }
                 }
             }
         }
-        
-        // 카카오톡 어플 실행 가능 여부 확인
-        if (UserApi.isKakaoTalkLoginAvailable()) {
-            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
-                if let error = error {
-                    print(error)
-                }
-                else {
-                    UserDefaults.standard.set(oauthToken!.idToken,
-                                              forKey: Const.UserDefaultsKey.openId)
-                    
-                    if openId != nil && oauthProvider == "KAKAO" {
-                        // 로그인 API
-                        print("UserDefaults의 openId로 로그인을 시도합니다")
-                        self.loginWithAPI(tokenRequest: TokenRequest(oauthProvider: oauthProvider!, openId: openId!))
-                        self.navigationController?.pushViewController(MainViewController(), animated: true)
-                    } else {
-                        // 회원가입 API
-                        self.register(openId: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? "")
-                    }
+
+        // 카카오 계정으로 로그인
+        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+            if let error = error {
+                print("카톡앱이 없을때 실행되는 부분 : \(error)")
+            } else {
+                UserDefaults.standard.set(oauthToken!.idToken,
+                                          forKey: Const.UserDefaultsKey.openId)
+                
+                if UserDefaults.standard.value(forKey: Const.UserDefaultsKey.openId) != nil && oauthProvider == "KAKAO" {
+                    // 로그인 API
+                    print("UserDefaults의 openId로 로그인을 시도합니다")
+                    self.loginWithAPI(tokenRequest: TokenRequest(oauthProvider: oauthProvider!, openId: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? String()))
+                    self.navigationController?.pushViewController(MainViewController(), animated: true)
+                } else {
+                    // 회원가입 API
+                    self.register(openId: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? "")
                 }
             }
         }
-        
-        // 카카오 계정으로 로그인
-        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-                if let error = error {
-                    print(error)
-                }
-                else {
-                    UserDefaults.standard.set(oauthToken!.idToken,
-                                              forKey: Const.UserDefaultsKey.openId)
-  
-                    if openId != nil && oauthProvider == "KAKAO" {
-                        // 로그인 API
-                        print("UserDefaults의 openId로 로그인을 시도합니다")
-                        self.loginWithAPI(tokenRequest: TokenRequest(oauthProvider: oauthProvider!, openId: openId!))
-                        self.navigationController?.pushViewController(MainViewController(), animated: true)
-                    } else {
-                        // 회원가입 API
-                        self.register(openId: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? "")
-                    }
-                }
-            }
     }
     
     func register(openId: String) {
@@ -242,21 +216,21 @@ extension LoginViewController {
     func loginWithAPI(tokenRequest: TokenRequest) {
         AuthAPI.shared.login(tokenRequest: tokenRequest) { response in
             switch response {
-            case .success(let loginData):
-                if let data = loginData as? TokenResponse {
-                    UserDefaults.standard.set(tokenRequest.oauthProvider, forKey: Const.UserDefaultsKey.oauthProvider)
-                    UserDefaults.standard.set(data.accessToken, forKey: Const.UserDefaultsKey.accessToken)
-                    UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
-                    UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
-                }
-            case .requestError:
-                print("loginWithAPI - requestError")
-            case .pathError:
-                print("loginWithAPI - pathError")
-            case .serverError:
-                print("loginWithAPI - serverError")
-            case .networkFail:
-                print("loginWithAPI - networkFail")
+                case .success(let loginData):
+                    if let data = loginData as? TokenResponse {
+                        UserDefaults.standard.set(tokenRequest.oauthProvider, forKey: Const.UserDefaultsKey.oauthProvider)
+                        UserDefaults.standard.set(data.accessToken, forKey: Const.UserDefaultsKey.accessToken)
+                        UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
+                        UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
+                    }
+                case .requestError:
+                    print("loginWithAPI - requestError")
+                case .pathError:
+                    print("loginWithAPI - pathError")
+                case .serverError:
+                    print("loginWithAPI - serverError")
+                case .networkFail:
+                    print("loginWithAPI - networkFail")
             }
         }
     }
