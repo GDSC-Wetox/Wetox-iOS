@@ -30,7 +30,7 @@ extension UIColor {
 
 extension UIColor {
     
-    // MARK: - Login Button Colors
+    // MARK: - LoginViewController
     static var kakaoTitleColor: UIColor {
         return UIColor(hexCode: "000000")
     }
@@ -57,6 +57,23 @@ extension UIColor {
     
     static var googleBorderColor: UIColor {
         return UIColor(hexCode: "747775")
+    }
+    
+    // MARK: - ProfileSettingViewController
+    static var guidingGrayColor: UIColor {
+        return UIColor(hexCode: "818181")
+    }
+    
+    static var blockedButtonColor: UIColor {
+        return UIColor(hexCode: "CCCCCC")
+    }
+    
+    static var allowedButtonColor: UIColor {
+        return UIColor(hexCode: "30DB5B")
+    }
+    
+    static var textDeleteButtonColor: UIColor {
+        return UIColor(hexCode: "8E8E93")
     }
     
     // MARK: - Profile Colors
