@@ -34,6 +34,10 @@
 		BF2FE0262B64CBC9009C3C73 /* ScreenTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2FE0252B64CBC9009C3C73 /* ScreenTime.swift */; };
 		BF6B12DC2B64B9170031165E /* ScreenTimeInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6B12DB2B64B9170031165E /* ScreenTimeInputViewController.swift */; };
 		BF6B12DE2B64B9B40031165E /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6B12DD2B64B9B40031165E /* CustomUISlider.swift */; };
+		BF7181D12B7358CA00ACEA0D /* CategoryDurationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181D02B7358C900ACEA0D /* CategoryDurationRequest.swift */; };
+		BF7181D42B749EC400ACEA0D /* ScreenTimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181D32B749EC400ACEA0D /* ScreenTimeService.swift */; };
+		BF7181D62B74A0F800ACEA0D /* CategoryDurationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181D52B74A0F800ACEA0D /* CategoryDurationResponse.swift */; };
+		BF7181D82B74A13100ACEA0D /* ScreenTimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181D72B74A13100ACEA0D /* ScreenTimeAPI.swift */; };
 		BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */; };
 		BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */; };
 		BF7209C42B5F8BCD001D76CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7209C32B5F8BCD001D76CB /* Assets.xcassets */; };
@@ -94,6 +98,10 @@
 		BF2FE0252B64CBC9009C3C73 /* ScreenTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTime.swift; sourceTree = "<group>"; };
 		BF6B12DB2B64B9170031165E /* ScreenTimeInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeInputViewController.swift; sourceTree = "<group>"; };
 		BF6B12DD2B64B9B40031165E /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
+		BF7181D02B7358C900ACEA0D /* CategoryDurationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDurationRequest.swift; sourceTree = "<group>"; };
+		BF7181D32B749EC400ACEA0D /* ScreenTimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeService.swift; sourceTree = "<group>"; };
+		BF7181D52B74A0F800ACEA0D /* CategoryDurationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDurationResponse.swift; sourceTree = "<group>"; };
+		BF7181D72B74A13100ACEA0D /* ScreenTimeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeAPI.swift; sourceTree = "<group>"; };
 		BF7209B72B5F8BCB001D76CB /* Wetox-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wetox-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +166,7 @@
 		5514CE5B2B65F6F8006B2700 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				BF7181D22B749EA800ACEA0D /* ScreenTime */,
 				5514CE622B65F87F006B2700 /* Plugin */,
 				5514CE5C2B65F704006B2700 /* Auth */,
 			);
@@ -184,6 +193,7 @@
 		554F273E2B638ECF0050B6D9 /* NetworkModel */ = {
 			isa = PBXGroup;
 			children = (
+				BF7181CF2B73588800ACEA0D /* ScreenTime */,
 				554F27442B6390BE0050B6D9 /* Auth */,
 				5514CE652B65F91F006B2700 /* NetworkResult.swift */,
 				558601972B6629A6007EA357 /* Const.swift */,
@@ -235,6 +245,24 @@
 				BF6B12DD2B64B9B40031165E /* CustomUISlider.swift */,
 			);
 			path = ScreenTimeInputView;
+			sourceTree = "<group>";
+		};
+		BF7181CF2B73588800ACEA0D /* ScreenTime */ = {
+			isa = PBXGroup;
+			children = (
+				BF7181D02B7358C900ACEA0D /* CategoryDurationRequest.swift */,
+				BF7181D52B74A0F800ACEA0D /* CategoryDurationResponse.swift */,
+			);
+			path = ScreenTime;
+			sourceTree = "<group>";
+		};
+		BF7181D22B749EA800ACEA0D /* ScreenTime */ = {
+			isa = PBXGroup;
+			children = (
+				BF7181D32B749EC400ACEA0D /* ScreenTimeService.swift */,
+				BF7181D72B74A13100ACEA0D /* ScreenTimeAPI.swift */,
+			);
+			path = ScreenTime;
 			sourceTree = "<group>";
 		};
 		BF7209AE2B5F8BCB001D76CB = {
@@ -501,7 +529,10 @@
 				BFB317AC2B6693A4007F0A9A /* View+Extension.swift in Sources */,
 				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
 				556AA2D02B6A3B2B00F2AE79 /* TextField+Extension.swift in Sources */,
+				BF7181D12B7358CA00ACEA0D /* CategoryDurationRequest.swift in Sources */,
+				BF7181D82B74A13100ACEA0D /* ScreenTimeAPI.swift in Sources */,
 				BF0EBDDF2B6529D000AEF19D /* AppDelegate.swift in Sources */,
+				BF7181D62B74A0F800ACEA0D /* CategoryDurationResponse.swift in Sources */,
 				BFB317A82B666962007F0A9A /* ScreenTimeInputViewModel.swift in Sources */,
 				BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */,
 				BFB317A32B665744007F0A9A /* StrokeLabel.swift in Sources */,
@@ -513,6 +544,7 @@
 				BFB317AA2B669358007F0A9A /* BottomSheetView.swift in Sources */,
 				BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */,
 				554F27492B6391E20050B6D9 /* RegisterResponse.swift in Sources */,
+				BF7181D42B749EC400ACEA0D /* ScreenTimeService.swift in Sources */,
 				557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */,
 				554F27412B638EE60050B6D9 /* TokenRequest.swift in Sources */,
 				5514CE602B65F721006B2700 /* AuthService.swift in Sources */,
