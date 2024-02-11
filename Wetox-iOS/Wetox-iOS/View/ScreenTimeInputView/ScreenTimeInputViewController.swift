@@ -62,13 +62,18 @@ class ScreenTimeInputViewController: UIViewController {
         title = "스크린타임 입력하기"
         
         // TODO: 데이터 저장 및 메인에 적용 구현
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissViewController))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissViewController))
     }
     
     @objc private func dismissViewController() {
         dismiss(animated: true)
+    }
+    
+    @objc private func doneButtonTapped() {
+        screenTimeInputViewModel.postScreenTimeData()
+        dismissViewController()
     }
     
     private func configureLayout() {
