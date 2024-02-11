@@ -131,7 +131,7 @@ class CustomUISlider: UISlider {
     private func colorForValue(_ value: Float) -> UIColor {
         let maxValue = Float(Constants.Time.maxMinutes)
         let minValue = Float(Constants.Time.minMinutes)
-        let colorStep = Float(maxValue / 4)
+        let colorStep = maxValue / 4
         
         switch value {
             case minValue..<colorStep:
