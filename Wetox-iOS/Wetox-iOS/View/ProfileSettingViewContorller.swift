@@ -10,10 +10,9 @@ import SnapKit
 import RxSwift
 
 class ProfileSettingViewContorller: UIViewController {
-    // TODO: RX로 버튼 반응 코드 작성하기
+    let disposeBag = DisposeBag()
     
     var generatedAIImage: UIImage?
-    private let disposeBag = DisposeBag()
 
     private var navigationButton: UIButton = UIButton()
 
@@ -118,7 +117,7 @@ class ProfileSettingViewContorller: UIViewController {
         let deviceToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.deviceToken) ?? String()
         let openId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? String()
         let registerRequest = RegisterRequest(nickname: nickname, oauthProvider: "KAKAO", openId: openId, deviceToken: deviceToken)
-        registerWithAPIUsingRX(registerRequest: registerRequest, profileImage: UIImage(named: "default-profile-icon"))
+        registerWithAPI(registerRequest: registerRequest, profileImage: UIImage(named: "default-profile-icon"))
     }
     
     private func configureLayout() {
@@ -175,52 +174,17 @@ class ProfileSettingViewContorller: UIViewController {
 }
 
 extension ProfileSettingViewContorller {
-//    func registerWithAPI(registerRequest: RegisterRequest, profileImage: UIImage?) {
-//        AuthAPI.shared.register(registerRequest: registerRequest, profileImage: profileImage) { response in
-//            switch response {
-//            case .success(let registerData):
-//                if let data = registerData as? RegisterResponse {
-//                    UserDefaults.standard.set(data.accessToken, forKey: Const.UserDefaultsKey.accessToken)
-//                    print("accessToken 값 입니다. ")
-//                    print(data.accessToken) // 확인
-//                    self.navigationController?.pushViewController(MainViewController(), animated: true)
-//                }
-//                print("registerWithAPI - success")
-//            case .requestError:
-//                print("registerWithAPI - requestError")
-//            case .pathError:
-//                print("registerWithAPI - pathError")
-//            case .serverError:
-//                print("registerWithAPI - serverError")
-//            case .networkFail:
-//                print("registerWithAPI - networkFail")
-//            }
-//        }
-//    }
-    
-    func registerWithAPIUsingRX(registerRequest: RegisterRequest, profileImage: UIImage?) {
-            AuthAPI.shared.rx.register(registerRequest: registerRequest, profileImage: profileImage)
-                .subscribe(onNext: { [weak self] response in
-                    guard let self = self else { return }
-                    switch response {
-                    case .success(let registerData):
-                        if let data = registerData as? RegisterResponse {
-                            UserDefaults.standard.set(data.accessToken, forKey: Const.UserDefaultsKey.accessToken)
-                            print("accessToken 값 입니다. ")
-                            print(data.accessToken) // 확인
-                            self.navigationController?.pushViewController(MainViewController(), animated: true)
-                        }
-                        print("registerWithAPI - success")
-                    case .requestError:
-                        print("registerWithAPI - requestError")
-                    case .pathError:
-                        print("registerWithAPI - pathError")
-                    case .serverError:
-                        print("registerWithAPI - serverError")
-                    case .networkFail:
-                        print("registerWithAPI - networkFail")
-                    }
-                })
-                .disposed(by: disposeBag)
-        }
+    func registerWithAPI(registerRequest: RegisterRequest, profileImage: UIImage?) {
+        AuthAPI.register(registerRequest: registerRequest, profileImage: profileImage)
+            .subscribe(onNext: { registerResponse in
+                UserDefaults.standard.set(registerResponse.accessToken, forKey: Const.UserDefaultsKey.accessToken)
+                print("accessToken 값 입니다. ")
+                print(registerResponse.accessToken) // 확인
+                self.navigationController?.pushViewController(MainViewController(), animated: true)
+                print("회원가입 성공: \(registerResponse)")
+            }, onError: { error in
+                print("회원가입 실패: \(error.localizedDescription)")
+            })
+            .disposed(by: disposeBag)
+    }
 }

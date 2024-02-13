@@ -13,7 +13,7 @@ import RxMoya
 public class AuthAPI {
     static let authProvider = MoyaProvider<AuthService>(plugins: [MoyaLoggerPlugin()])
     
-    func register(registerRequest: RegisterRequest, profileImage: UIImage?) -> Observable<RegisterResponse> {
+    static func register(registerRequest: RegisterRequest, profileImage: UIImage?) -> Observable<RegisterResponse> {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         
@@ -38,8 +38,7 @@ public class AuthAPI {
             }
     }
     
-    func login(tokenRequest: TokenRequest) -> Observable<TokenResponse> {
-        
+    static func login(tokenRequest: TokenRequest) -> Observable<TokenResponse> {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         
