@@ -47,23 +47,24 @@ public class AuthAPI {
             .asObservable()
             .catch { error in
                 handleTokenError(error: error, request: .login(tokenRequest: tokenRequest))
-        }
+            }
     }
     
-    static func handleTokenError<T>(error: Error, request: AuthService) -> Observable<T> {
+    static func handleTokenError(error: Error, request: AuthService) -> Observable<TokenResponse> {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        
         if let moyaError = error as? MoyaError, moyaError.response?.statusCode == 401 {
-            // 토큰 관련 오류 (예: 만료) 발생 시 재발급 로직 수행
-            // 토큰 재발급 로직에 따라 새로운 토큰을 얻고 해당 request를 재시도합니다.
-            // 여기서는 예시로 새로운 토큰을 요청하는 로직을 작성했습니다.
+            print("만료된 토큰에 대하여 재발급을 시도합니다.")
             
-            // 새로운 토큰을 가져오는 로직 (예: refreshToken 사용 등)
-            // 토큰을 가져오는 비동기 작업을 Observable로 wrapping
+            let refreshTokenRequest = TokenRequest(oauthProvider:
+                                                    UserDefaults.standard.string(forKey: Const.UserDefaultsKey.oauthProvider) ?? String(), openId: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? String())
             
-            // 여기서는 예시로 에러를 방출하지 않고, 빈 Observable을 반환합니다.
-            print("토큰 재발급")
-            return Observable.empty()
-        } else {
-            // 다른 유형의 에러인 경우, 해당 에러를 그대로 방출합니다.
+            return AuthAPI.authProvider.rx.request(.login(tokenRequest: refreshTokenRequest))
+                .map(TokenResponse.self, using: decoder)
+                .asObservable()
+        }
+        else {
             return Observable.error(error)
         }
     }
