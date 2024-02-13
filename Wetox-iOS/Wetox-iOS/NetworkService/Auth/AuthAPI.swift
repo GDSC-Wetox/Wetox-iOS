@@ -8,104 +8,59 @@
 import UIKit
 import Moya
 import RxSwift
+import RxMoya
 
 public class AuthAPI {
-    static let shared = AuthAPI()
-    var authProvider = MoyaProvider<AuthService>(plugins: [MoyaLoggerPlugin()])
+    static let authProvider = MoyaProvider<AuthService>(plugins: [MoyaLoggerPlugin()])
     
-    public init() { }
-    
-    // MARK: - 회원가입
-    func register(registerRequest: RegisterRequest, profileImage: UIImage?, completion: @escaping (NetworkResult<Any>) -> Void) {
-        authProvider.request(.register(registerRequest: registerRequest, profileImage: profileImage)) { (result) in
-            switch result {
-            case .success(let response):
-                let statusCode = response.statusCode
-                let data = response.data
-                let networkResult = self.judgeRegisterStatus(by: statusCode, data)
-                completion(networkResult)
-                
-            case .failure(let error):
-                print("error: \(error)")
-            }
-        }
-    }
-    
-    func login(tokenRequest: TokenRequest, completion: @escaping (NetworkResult<Any>) -> Void) {
-        authProvider.request(.login(tokenRequest: tokenRequest)) { (result) in
-            switch result {
-            case .success(let response):
-                let statusCode = response.statusCode
-                let data = response.data
-                let networkResult = self.judgeLoginStatus(by: statusCode, data)
-                completion(networkResult)
-                
-            case .failure(let error):
-                print("error: \(error)")
-            }
-        }
-    }
-    
-    func logout(completion: @escaping (NetworkResult<Any>) -> Void) {
-        authProvider.request(.logout) { (result) in
-            switch result {
-            case .success(let response):
-                let statusCode = response.statusCode
-                let data = response.data
-                let networkResult = self.judgeLoginStatus(by: statusCode, data)
-                completion(networkResult)
-                
-            case .failure(let error):
-                print("error: \(error)")
-            }
-        }
-    }
-    
-    private func judgeRegisterStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
+    func register(registerRequest: RegisterRequest, profileImage: UIImage?) -> Observable<RegisterResponse> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(RegisterResponse.self, from: data) else { return .pathError }
+        decoder.dateDecodingStrategy = .iso8601
         
-        switch statusCode {
-        case 200:
-            return .success(decodedData)
-        case 400..<500:
-            return .requestError
-        case 500:
-            return .serverError
-        default:
-            return .networkFail
-        }
+        return AuthAPI.authProvider.rx.request(.register(registerRequest: registerRequest, profileImage: profileImage))
+            .map(RegisterResponse.self, using: decoder)
+            .asObservable()
+            .catch { error in
+                if let moyaError = error as? MoyaError {
+                    switch moyaError {
+                    case .statusCode(let response):
+                        // HTTP 상태 코드에 따른 처리
+                        print("HTTP Status Code: \(response.statusCode)")
+                    case .jsonMapping(let response):
+                        // JSON 매핑 에러 처리
+                        print("JSON Mapping Error for Response: \(response)")
+                    default:
+                        // 기타 Moya 에러 처리
+                        print("Other MoyaError: \(moyaError.localizedDescription)")
+                    }
+                }
+                return Observable.error(error)
+            }
     }
     
-    private func judgeLoginStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
-        let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(TokenResponse.self, from: data) else { return .pathError }
+    func login(tokenRequest: TokenRequest) -> Observable<TokenResponse> {
         
-        switch statusCode {
-        case 200:
-            return .success(decodedData)
-        case 400..<500:
-            return .requestError
-        case 500:
-            return .serverError
-        default:
-            return .networkFail
-        }
-    }
-    
-    private func judgeLogoutStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(String.self, from: data) else { return .pathError }
+        decoder.dateDecodingStrategy = .iso8601
         
-        switch statusCode {
-        case 200:
-            return .success(decodedData)
-        case 400..<500:
-            return .requestError
-        case 500:
-            return .serverError
-        default:
-            return .networkFail
+        return AuthAPI.authProvider.rx.request(.login(tokenRequest: tokenRequest))
+            .map(TokenResponse.self, using: decoder)
+            .asObservable()
+            .catch { error in
+                if let moyaError = error as? MoyaError {
+                    switch moyaError {
+                    case .statusCode(let response):
+                        // HTTP 상태 코드에 따른 처리
+                        print("HTTP Status Code: \(response.statusCode)")
+                    case .jsonMapping(let response):
+                        // JSON 매핑 에러 처리
+                        print("JSON Mapping Error for Response: \(response)")
+                    default:
+                        // 기타 Moya 에러 처리
+                        print("Other MoyaError: \(moyaError.localizedDescription)")
+                    }
+                }
+                return Observable.error(error)
         }
     }
 }

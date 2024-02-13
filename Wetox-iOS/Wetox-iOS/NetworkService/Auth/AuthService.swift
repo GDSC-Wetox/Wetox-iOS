@@ -11,7 +11,6 @@ import Moya
 enum AuthService {
     case register(registerRequest: RegisterRequest, profileImage: UIImage?)
     case login(tokenRequest: TokenRequest)
-    case logout
 }
 
 extension AuthService: TargetType {
@@ -25,14 +24,12 @@ extension AuthService: TargetType {
             return "/auth/register"
         case .login:
             return "/auth/login"
-        case .logout:
-            return "/auth/logout"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .register, .login, .logout:
+        case .register, .login:
             return .post
         }
     }
@@ -57,9 +54,6 @@ extension AuthService: TargetType {
             
         case .login(let loginRequest):
             return .requestJSONEncodable(loginRequest)
-            
-        case .logout:
-            return .requestPlain
         }
     }
     
@@ -69,10 +63,6 @@ extension AuthService: TargetType {
             return Const.Header.multipartHeader
         case .login:
             return .none
-        case .logout:
-            let accessToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken)!
-            let authorizationHeader = ["Content-Type": "application/json", "Authorization": accessToken]
-            return authorizationHeader
         }
     }
 }
