@@ -41,8 +41,8 @@
 		BF7181DA2B78E4DD00ACEA0D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181D92B78E4DD00ACEA0D /* MainViewModel.swift */; };
 		BF7181DD2B7A2EB300ACEA0D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181DC2B7A2EB300ACEA0D /* UserService.swift */; };
 		BF7181DF2B7A2EBB00ACEA0D /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181DE2B7A2EBB00ACEA0D /* UserAPI.swift */; };
-		BF7181E22B7A2F7D00ACEA0D /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181E12B7A2F7D00ACEA0D /* UserRequest.swift */; };
 		BF7181E42B7A2F8900ACEA0D /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181E32B7A2F8900ACEA0D /* UserResponse.swift */; };
+		BF7181E62B7B56D600ACEA0D /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181E52B7B56D600ACEA0D /* DateFormatter+Extension.swift */; };
 		BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */; };
 		BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */; };
 		BF7209C42B5F8BCD001D76CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7209C32B5F8BCD001D76CB /* Assets.xcassets */; };
@@ -110,8 +110,8 @@
 		BF7181D92B78E4DD00ACEA0D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		BF7181DC2B7A2EB300ACEA0D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		BF7181DE2B7A2EBB00ACEA0D /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
-		BF7181E12B7A2F7D00ACEA0D /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		BF7181E32B7A2F8900ACEA0D /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		BF7181E52B7B56D600ACEA0D /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		BF7209B72B5F8BCB001D76CB /* Wetox-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wetox-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -289,7 +289,6 @@
 		BF7181E02B7A2F6E00ACEA0D /* User */ = {
 			isa = PBXGroup;
 			children = (
-				BF7181E12B7A2F7D00ACEA0D /* UserRequest.swift */,
 				BF7181E32B7A2F8900ACEA0D /* UserResponse.swift */,
 			);
 			path = User;
@@ -361,6 +360,7 @@
 				557F3EA12B60983A007C7247 /* Button+Extension.swift */,
 				BFB317AB2B6693A4007F0A9A /* View+Extension.swift */,
 				556AA2CF2B6A3B2B00F2AE79 /* TextField+Extension.swift */,
+				BF7181E52B7B56D600ACEA0D /* DateFormatter+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -552,7 +552,6 @@
 			files = (
 				BF7209EE2B5F8CB6001D76CB /* Label+Extension.swift in Sources */,
 				5514CE5E2B65F719006B2700 /* AuthAPI.swift in Sources */,
-				BF7181E22B7A2F7D00ACEA0D /* UserRequest.swift in Sources */,
 				554F27472B6391D80050B6D9 /* RegisterRequest.swift in Sources */,
 				5514CE662B65F91F006B2700 /* NetworkResult.swift in Sources */,
 				BF7209F52B5F923F001D76CB /* FriendsCollectionViewCell.swift in Sources */,
@@ -565,6 +564,7 @@
 				BF7181D82B74A13100ACEA0D /* ScreenTimeAPI.swift in Sources */,
 				BF7181E42B7A2F8900ACEA0D /* UserResponse.swift in Sources */,
 				BF0EBDDF2B6529D000AEF19D /* AppDelegate.swift in Sources */,
+				BF7181E62B7B56D600ACEA0D /* DateFormatter+Extension.swift in Sources */,
 				BF7181D62B74A0F800ACEA0D /* CategoryDurationResponse.swift in Sources */,
 				BFB317A82B666962007F0A9A /* ScreenTimeInputViewModel.swift in Sources */,
 				BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */,
