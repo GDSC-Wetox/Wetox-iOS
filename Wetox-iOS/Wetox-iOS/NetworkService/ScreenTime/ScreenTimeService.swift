@@ -11,6 +11,7 @@ import Moya
 enum ScreenTimeService {
     case postCategoryDuration(data: [CategoryDurationRequest])
     case getScreenTime
+    case getUserScreenTime(userId: String)
 }
 
 extension ScreenTimeService: TargetType {
@@ -22,6 +23,8 @@ extension ScreenTimeService: TargetType {
         switch self {
             case .postCategoryDuration, .getScreenTime:
                 return "/screentime"
+            case .getUserScreenTime(let userId):
+                return "/screentime/\(userId)"
         }
     }
     
@@ -29,7 +32,7 @@ extension ScreenTimeService: TargetType {
         switch self {
             case .postCategoryDuration:
                 return .post
-            case .getScreenTime:
+            case .getScreenTime, .getUserScreenTime:
                 return .get
         }
     }
@@ -38,7 +41,7 @@ extension ScreenTimeService: TargetType {
         switch self {
             case .postCategoryDuration(let data):
                 return .requestJSONEncodable(data)
-            case .getScreenTime:
+            case .getScreenTime, .getUserScreenTime:
                 return .requestPlain
         }
     }
