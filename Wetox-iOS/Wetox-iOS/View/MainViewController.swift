@@ -59,16 +59,22 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        [segmentedControl, friendsCollectionView, bottomSheetView].forEach { view.addSubview($0) }
         mainViewModel = MainViewModel()
+//        subscribeToUserInfo()
+        [segmentedControl, friendsCollectionView, bottomSheetView].forEach { view.addSubview($0) }
+        
         bottomSheetView.addSubview(dragIndicatorView)
         configureLayout()
         configureUnselectedSegmentedControl()
         setupCollectionView()
         recognizeGesture()
-        subscribeToUserInfo()
-        navigationController?.isNavigationBarHidden = true
         
+        
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
     }
     
@@ -138,17 +144,6 @@ class MainViewController: UIViewController {
         navigationController.modalTransitionStyle = .coverVertical
         self.present(navigationController, animated: true)
     }
-    
-    private func bindViewModel() {
-        mainViewModel.myProfile
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] nickname, imageName in
-                
-//                self?.nicknameLabel.text = nickname
-//                self?.userImageView.image = UIImage(named: imageName)
-            })
-            .disposed(by: disposeBag)
-    }
 }
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -165,26 +160,26 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         if indexPath.row == 0 {
             
+            mainViewModel.myProfile
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { [weak self] myProfile in
+                    cell.nicknameLabel.text = myProfile.nickname
+                    cell.circularProfileProgressBar.profileImageView.image = UIImage(named: myProfile.imageName)
+                })
+                .disposed(by: disposeBag)
+            
+            mainViewModel.percentage
+                 .observe(on: MainScheduler.instance)
+                 .subscribe(onNext: { [weak self] percentage in
+                     cell.circularProfileProgressBar.value = percentage
+                 })
+                 .disposed(by: disposeBag)
         }
-    
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = (collectionView.frame.width - 32) / 3
         return CGSize(width: cellWidth, height: cellWidth)
-    }
-}
-
-extension MainViewController {
-    func subscribeToUserInfo() {
-        mainViewModel.myProfile
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] myProfile in
-                guard let cell = self?.friendsCollectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as? FriendsCollectionViewCell else { return }
-                cell.nicknameLabel.text = myProfile.nickname
-                cell.circularProfileProgressBar.profileImageView.image = UIImage(named: myProfile.imageName)
-            })
-            .disposed(by: disposeBag)
     }
 }
