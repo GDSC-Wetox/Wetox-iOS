@@ -7,6 +7,7 @@
 
 import UIKit
 import Moya
+import RxSwift
 
 public class AuthAPI {
     static let shared = AuthAPI()
