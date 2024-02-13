@@ -7,8 +7,12 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 class MainViewController: UIViewController {
+    
+    var mainViewModel: MainViewModel!
+    var disposeBag = DisposeBag()
     
     // TODO: constants 값 변경하기
     // TODO: collectionView Compositional 로 변경하기
@@ -56,11 +60,16 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         [segmentedControl, friendsCollectionView, bottomSheetView].forEach { view.addSubview($0) }
+        mainViewModel = MainViewModel()
         bottomSheetView.addSubview(dragIndicatorView)
         configureLayout()
         configureUnselectedSegmentedControl()
         setupCollectionView()
         recognizeGesture()
+        subscribeToUserInfo()
+        navigationController?.isNavigationBarHidden = true
+        
+        
     }
     
     private func configureLayout() {
@@ -129,6 +138,17 @@ class MainViewController: UIViewController {
         navigationController.modalTransitionStyle = .coverVertical
         self.present(navigationController, animated: true)
     }
+    
+    private func bindViewModel() {
+        mainViewModel.myProfile
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] nickname, imageName in
+                
+//                self?.nicknameLabel.text = nickname
+//                self?.userImageView.image = UIImage(named: imageName)
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -139,7 +159,13 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendsCollectionViewCell.cellIdentifier, for: indexPath) as! FriendsCollectionViewCell
         // 셀의 내용 설정 또는 데이터 로딩
+        cell.nicknameLabel.text = ""
+        cell.circularProfileProgressBar.profileImageView.image = UIImage(systemName: "person")
         cell.circularProfileProgressBar.value = 0.64
+        
+        if indexPath.row == 0 {
+            
+        }
     
         return cell
     }
@@ -147,5 +173,18 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = (collectionView.frame.width - 32) / 3
         return CGSize(width: cellWidth, height: cellWidth)
+    }
+}
+
+extension MainViewController {
+    func subscribeToUserInfo() {
+        mainViewModel.myProfile
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] myProfile in
+                guard let cell = self?.friendsCollectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as? FriendsCollectionViewCell else { return }
+                cell.nicknameLabel.text = myProfile.nickname
+                cell.circularProfileProgressBar.profileImageView.image = UIImage(named: myProfile.imageName)
+            })
+            .disposed(by: disposeBag)
     }
 }
