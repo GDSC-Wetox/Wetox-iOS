@@ -23,7 +23,7 @@ extension AuthService: TargetType {
         case .register:
             return "/auth/register"
         case .login:
-            return "/auth/login"
+            return "/auth/token"
         }
     }
     
