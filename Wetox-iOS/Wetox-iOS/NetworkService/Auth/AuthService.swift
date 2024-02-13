@@ -34,7 +34,6 @@ extension AuthService: TargetType {
         }
     }
     
-    /// MultipartFormData - Image 전송
     var task: Moya.Task {
         switch self {
         case .register(let registerRequest, let profileImage):

@@ -10,7 +10,6 @@
 		5514CE5E2B65F719006B2700 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514CE5D2B65F719006B2700 /* AuthAPI.swift */; };
 		5514CE602B65F721006B2700 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514CE5F2B65F721006B2700 /* AuthService.swift */; };
 		5514CE642B65F891006B2700 /* MoyaLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514CE632B65F891006B2700 /* MoyaLoggerPlugin.swift */; };
-		5514CE662B65F91F006B2700 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5514CE652B65F91F006B2700 /* NetworkResult.swift */; };
 		552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */; };
 		552FE1772B611C1000A4F568 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 552FE1762B611C1000A4F568 /* KakaoSDK */; };
 		552FE1792B611C1000A4F568 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 552FE1782B611C1000A4F568 /* KakaoSDKAuth */; };
@@ -78,7 +77,6 @@
 		5514CE5D2B65F719006B2700 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		5514CE5F2B65F721006B2700 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		5514CE632B65F891006B2700 /* MoyaLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggerPlugin.swift; sourceTree = "<group>"; };
-		5514CE652B65F91F006B2700 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewContorller.swift; sourceTree = "<group>"; };
 		5544128F2B608CA9001B8CBA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		554F27402B638EE60050B6D9 /* TokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequest.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				554F27442B6390BE0050B6D9 /* Auth */,
-				5514CE652B65F91F006B2700 /* NetworkResult.swift */,
 				558601972B6629A6007EA357 /* Const.swift */,
 			);
 			path = NetworkModel;
@@ -494,7 +491,6 @@
 				BF7209EE2B5F8CB6001D76CB /* Label+Extension.swift in Sources */,
 				5514CE5E2B65F719006B2700 /* AuthAPI.swift in Sources */,
 				554F27472B6391D80050B6D9 /* RegisterRequest.swift in Sources */,
-				5514CE662B65F91F006B2700 /* NetworkResult.swift in Sources */,
 				BF7209F52B5F923F001D76CB /* FriendsCollectionViewCell.swift in Sources */,
 				554F27432B63908E0050B6D9 /* TokenResponse.swift in Sources */,
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
