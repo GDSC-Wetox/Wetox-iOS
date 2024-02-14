@@ -11,8 +11,10 @@ import SnapKit
 import KakaoSDKUser
 import KakaoSDKAuth
 import AuthenticationServices
+import RxSwift
 
 class LoginViewController: UIViewController {
+    let disposeBag = DisposeBag()
     
     private let subTitleLabel: UILabel = UILabel()
     private let titleLabel: UILabel = UILabel()
@@ -214,25 +216,16 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     func loginWithAPI(tokenRequest: TokenRequest) {
-        AuthAPI.shared.login(tokenRequest: tokenRequest) { response in
-            switch response {
-                case .success(let loginData):
-                    if let data = loginData as? TokenResponse {
-                        UserDefaults.standard.set(tokenRequest.oauthProvider, forKey: Const.UserDefaultsKey.oauthProvider)
-                        UserDefaults.standard.set(data.accessToken, forKey: Const.UserDefaultsKey.accessToken)
-                        UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
-                        UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
-                    }
-                case .requestError:
-                    print("loginWithAPI - requestError")
-                case .pathError:
-                    print("loginWithAPI - pathError")
-                case .serverError:
-                    print("loginWithAPI - serverError")
-                case .networkFail:
-                    print("loginWithAPI - networkFail")
-            }
-        }
+        AuthAPI.login(tokenRequest: tokenRequest)
+            .subscribe(onNext: { tokenResponse in
+                UserDefaults.standard.set(tokenRequest.oauthProvider, forKey: Const.UserDefaultsKey.oauthProvider)
+                UserDefaults.standard.set(tokenResponse.accessToken, forKey: Const.UserDefaultsKey.accessToken)
+                UserDefaults.standard.set(Date(), forKey: Const.UserDefaultsKey.updatedAt)
+                UserDefaults.standard.set(true, forKey: Const.UserDefaultsKey.isLogin)
+                print("로그인 성공: \(tokenResponse)")
+            }, onError: { error in
+                print("로그인 실패: \(error.localizedDescription)")
+            })
+            .disposed(by: disposeBag)
     }
 }
-

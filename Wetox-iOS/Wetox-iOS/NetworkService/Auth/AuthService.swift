@@ -11,7 +11,6 @@ import Moya
 enum AuthService {
     case register(registerRequest: RegisterRequest, profileImage: UIImage?)
     case login(tokenRequest: TokenRequest)
-    case logout
 }
 
 extension AuthService: TargetType {
@@ -24,20 +23,17 @@ extension AuthService: TargetType {
         case .register:
             return "/auth/register"
         case .login:
-            return "/auth/login"
-        case .logout:
-            return "/auth/logout"
+            return "/auth/token"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .register, .login, .logout:
+        case .register, .login:
             return .post
         }
     }
     
-    /// MultipartFormData - Image 전송
     var task: Moya.Task {
         switch self {
         case .register(let registerRequest, let profileImage):
@@ -57,9 +53,6 @@ extension AuthService: TargetType {
             
         case .login(let loginRequest):
             return .requestJSONEncodable(loginRequest)
-            
-        case .logout:
-            return .requestPlain
         }
     }
     
@@ -69,10 +62,6 @@ extension AuthService: TargetType {
             return Const.Header.multipartHeader
         case .login:
             return .none
-        case .logout:
-            let accessToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken)!
-            let authorizationHeader = ["Content-Type": "application/json", "Authorization": accessToken]
-            return authorizationHeader
         }
     }
 }
