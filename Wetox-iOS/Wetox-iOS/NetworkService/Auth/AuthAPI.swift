@@ -46,26 +46,7 @@ public class AuthAPI {
             .map(TokenResponse.self, using: decoder)
             .asObservable()
             .catch { error in
-                handleTokenError(error: error, request: .login(tokenRequest: tokenRequest))
+                Utils.shared.handleTokenError(error: error, request: .login(tokenRequest: tokenRequest))
             }
-    }
-    
-    static func handleTokenError(error: Error, request: AuthService) -> Observable<TokenResponse> {
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        
-        if let moyaError = error as? MoyaError, moyaError.response?.statusCode == 401 {
-            print("만료된 토큰에 대하여 재발급을 시도합니다.")
-            
-            let refreshTokenRequest = TokenRequest(oauthProvider:
-                                                    UserDefaults.standard.string(forKey: Const.UserDefaultsKey.oauthProvider) ?? String(), openId: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? String())
-            
-            return AuthAPI.authProvider.rx.request(.login(tokenRequest: refreshTokenRequest))
-                .map(TokenResponse.self, using: decoder)
-                .asObservable()
-        }
-        else {
-            return Observable.error(error)
-        }
     }
 }
