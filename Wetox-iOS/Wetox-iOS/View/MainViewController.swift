@@ -60,22 +60,13 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         mainViewModel = MainViewModel()
-//        subscribeToUserInfo()
         [segmentedControl, friendsCollectionView, bottomSheetView].forEach { view.addSubview($0) }
-        
         bottomSheetView.addSubview(dragIndicatorView)
         configureLayout()
         configureUnselectedSegmentedControl()
         setupCollectionView()
         recognizeGesture()
-        
-        
         navigationController?.isNavigationBarHidden = true
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
     }
     
     private func configureLayout() {
