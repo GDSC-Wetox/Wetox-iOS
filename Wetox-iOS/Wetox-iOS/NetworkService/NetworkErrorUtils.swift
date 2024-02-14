@@ -1,5 +1,5 @@
 //
-//  Utils.swift
+//  NetworkErrorUtils.swift
 //  Wetox-iOS
 //
 //  Created by 김소현 on 2/14/24.
@@ -11,9 +11,9 @@ import KakaoSDKAuth
 import RxSwift
 import Moya
 
-class Utils {
+class NetworkErrorUtils {
     // 전역 함수 호출에 대한 싱글톤 객체
-    static let shared = Utils()
+    static let shared = NetworkErrorUtils()
     
     func handleTokenError(error: Error, request: AuthService) -> Observable<TokenResponse> {
         let decoder = JSONDecoder()
