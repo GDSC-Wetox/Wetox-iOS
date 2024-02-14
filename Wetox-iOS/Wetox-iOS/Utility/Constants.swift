@@ -25,8 +25,8 @@ struct Constants {
     
     struct Time {
         /// 24시간 * 60분
-        static let maxMinutes = 1440
-        static let minMinutes = 0
+        static let maxMinutes: Int = 1440
+        static let minMinutes: Int = 0
     }
     
     struct ScreenTimeInput {
@@ -55,11 +55,30 @@ struct Constants {
     }
     
     struct Category {
+        /*
         static let categories = [
             "엔터테인먼트", "소셜미디어", "생산성 및 금융", "게임",
             "여행", "정보 및 도서", "유틸리티", "쇼핑 및 음식",
             "교육", "창의력", "건강 및 피트니스", "기타"
         ]
+         */
+        
+        static let categoriesKoreanToEnglish: [String: String] = [
+            "엔터테인먼트": "ENTERTAINEMENT",
+            "소셜미디어": "SOCIAL_MEDIA",
+            "생산성 및 금융": "PRODUCTIVITY_AND_FINANCE",
+            "게임": "GAME",
+            "여행": "TRAVEL",
+            "정보 및 도서": "INFORMATION_AND_BOOK",
+            "유틸리티": "UTILITY",
+            "쇼핑 및 음식": "SHOPPING_AND_FOOD",
+            "교육": "EDUCATION",
+            "창의력": "CREATIVITY",
+            "건강 및 피트니스": "HEALTH_AND_FEATNESS",
+            "기타": "OTHERS"
+        ]
+        
+        static let categories = Array(categoriesKoreanToEnglish.keys)
     }
     
     struct Slider {

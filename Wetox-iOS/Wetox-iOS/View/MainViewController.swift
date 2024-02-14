@@ -7,8 +7,12 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 class MainViewController: UIViewController {
+    
+    var mainViewModel: MainViewModel!
+    var disposeBag = DisposeBag()
     
     // TODO: constants 값 변경하기
     // TODO: collectionView Compositional 로 변경하기
@@ -55,12 +59,14 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        mainViewModel = MainViewModel()
         [segmentedControl, friendsCollectionView, bottomSheetView].forEach { view.addSubview($0) }
         bottomSheetView.addSubview(dragIndicatorView)
         configureLayout()
         configureUnselectedSegmentedControl()
         setupCollectionView()
         recognizeGesture()
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func configureLayout() {
@@ -139,8 +145,27 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendsCollectionViewCell.cellIdentifier, for: indexPath) as! FriendsCollectionViewCell
         // 셀의 내용 설정 또는 데이터 로딩
+        cell.nicknameLabel.text = ""
+        cell.circularProfileProgressBar.profileImageView.image = UIImage(systemName: "person")
         cell.circularProfileProgressBar.value = 0.64
-    
+        
+        if indexPath.row == 0 {
+            
+            mainViewModel.myProfile
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { [weak self] myProfile in
+                    cell.nicknameLabel.text = myProfile.nickname
+                    cell.circularProfileProgressBar.profileImageView.image = UIImage(named: myProfile.imageName)
+                })
+                .disposed(by: disposeBag)
+            
+            mainViewModel.percentage
+                 .observe(on: MainScheduler.instance)
+                 .subscribe(onNext: { [weak self] percentage in
+                     cell.circularProfileProgressBar.value = percentage
+                 })
+                 .disposed(by: disposeBag)
+        }
         return cell
     }
     
