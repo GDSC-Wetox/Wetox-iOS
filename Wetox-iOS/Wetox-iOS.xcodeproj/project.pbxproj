@@ -27,6 +27,13 @@
 		55A777652B66262C007FAEBF /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 55A777642B66262C007FAEBF /* Moya */; };
 		55A777672B66262C007FAEBF /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 55A777662B66262C007FAEBF /* ReactiveMoya */; };
 		55A777692B66262C007FAEBF /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 55A777682B66262C007FAEBF /* RxMoya */; };
+		55EC6D812B7DE8530018128D /* FriendshipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EC6D802B7DE8530018128D /* FriendshipViewController.swift */; };
+		55EC6D852B7DFC7E0018128D /* FriendshipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EC6D842B7DFC7E0018128D /* FriendshipService.swift */; };
+		55EC6D872B7DFC8A0018128D /* FriendshipAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EC6D862B7DFC8A0018128D /* FriendshipAPI.swift */; };
+		55EC6D892B7E07CB0018128D /* requestFriendshipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EC6D882B7E07CB0018128D /* requestFriendshipResponse.swift */; };
+		55EC6D8B2B7E07DA0018128D /* acceptFriendshipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EC6D8A2B7E07DA0018128D /* acceptFriendshipResponse.swift */; };
+		55EC6D8D2B7E07E50018128D /* getFriendsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EC6D8C2B7E07E50018128D /* getFriendsListResponse.swift */; };
+		55EC6D8F2B7E07F10018128D /* getFriendRequestsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EC6D8E2B7E07F10018128D /* getFriendRequestsListResponse.swift */; };
 		55F42F722B72347800ECDA2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55F42F712B72347800ECDA2E /* GoogleService-Info.plist */; };
 		55F42F752B7235B800ECDA2E /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 55F42F742B7235B800ECDA2E /* FirebaseMessaging */; };
 		BF0EBDDF2B6529D000AEF19D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */; };
@@ -97,6 +104,13 @@
 		558601972B6629A6007EA357 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		55A097A62B7CC6B400F1D43E /* NetworkErrorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorUtils.swift; sourceTree = "<group>"; };
 		55EA5F432B72368F00788E0A /* Wetox-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wetox-iOS.entitlements"; sourceTree = "<group>"; };
+		55EC6D802B7DE8530018128D /* FriendshipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendshipViewController.swift; sourceTree = "<group>"; };
+		55EC6D842B7DFC7E0018128D /* FriendshipService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendshipService.swift; sourceTree = "<group>"; };
+		55EC6D862B7DFC8A0018128D /* FriendshipAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendshipAPI.swift; sourceTree = "<group>"; };
+		55EC6D882B7E07CB0018128D /* requestFriendshipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestFriendshipResponse.swift; sourceTree = "<group>"; };
+		55EC6D8A2B7E07DA0018128D /* acceptFriendshipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceptFriendshipResponse.swift; sourceTree = "<group>"; };
+		55EC6D8C2B7E07E50018128D /* getFriendsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFriendsListResponse.swift; sourceTree = "<group>"; };
+		55EC6D8E2B7E07F10018128D /* getFriendRequestsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFriendRequestsListResponse.swift; sourceTree = "<group>"; };
 		55F42F712B72347800ECDA2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF2FE0232B64C742009C3C73 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BF2FE0252B64CBC9009C3C73 /* ScreenTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTime.swift; sourceTree = "<group>"; };
@@ -175,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				55A097A62B7CC6B400F1D43E /* NetworkErrorUtils.swift */,
+				55EC6D822B7DE8860018128D /* Friendship */,
 				BF7181DB2B7A2EA500ACEA0D /* User */,
 				BF7181D22B749EA800ACEA0D /* ScreenTime */,
 				5514CE622B65F87F006B2700 /* Plugin */,
@@ -186,8 +201,8 @@
 		5514CE5C2B65F704006B2700 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				5514CE5D2B65F719006B2700 /* AuthAPI.swift */,
 				5514CE5F2B65F721006B2700 /* AuthService.swift */,
+				5514CE5D2B65F719006B2700 /* AuthAPI.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -203,6 +218,7 @@
 		554F273E2B638ECF0050B6D9 /* NetworkModel */ = {
 			isa = PBXGroup;
 			children = (
+				55EC6D832B7DE88E0018128D /* Friendship */,
 				BF7181E02B7A2F6E00ACEA0D /* User */,
 				BF7181CF2B73588800ACEA0D /* ScreenTime */,
 				554F27442B6390BE0050B6D9 /* Auth */,
@@ -236,6 +252,26 @@
 				554F27482B6391E20050B6D9 /* RegisterResponse.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		55EC6D822B7DE8860018128D /* Friendship */ = {
+			isa = PBXGroup;
+			children = (
+				55EC6D842B7DFC7E0018128D /* FriendshipService.swift */,
+				55EC6D862B7DFC8A0018128D /* FriendshipAPI.swift */,
+			);
+			path = Friendship;
+			sourceTree = "<group>";
+		};
+		55EC6D832B7DE88E0018128D /* Friendship */ = {
+			isa = PBXGroup;
+			children = (
+				55EC6D882B7E07CB0018128D /* requestFriendshipResponse.swift */,
+				55EC6D8A2B7E07DA0018128D /* acceptFriendshipResponse.swift */,
+				55EC6D8C2B7E07E50018128D /* getFriendsListResponse.swift */,
+				55EC6D8E2B7E07F10018128D /* getFriendRequestsListResponse.swift */,
+			);
+			path = Friendship;
 			sourceTree = "<group>";
 		};
 		BF2FE0222B64C731009C3C73 /* Utility */ = {
@@ -368,6 +404,7 @@
 			children = (
 				BF6B12DA2B64B8FF0031165E /* ScreenTimeInputView */,
 				5544128F2B608CA9001B8CBA /* LoginViewController.swift */,
+				55EC6D802B7DE8530018128D /* FriendshipViewController.swift */,
 				552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */,
 				BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */,
 				BF7209F42B5F923F001D76CB /* FriendsCollectionViewCell.swift */,
@@ -550,31 +587,38 @@
 				5514CE5E2B65F719006B2700 /* AuthAPI.swift in Sources */,
 				554F27472B6391D80050B6D9 /* RegisterRequest.swift in Sources */,
 				BF7209F52B5F923F001D76CB /* FriendsCollectionViewCell.swift in Sources */,
+				55EC6D872B7DFC8A0018128D /* FriendshipAPI.swift in Sources */,
 				554F27432B63908E0050B6D9 /* TokenResponse.swift in Sources */,
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
 				BFB317AC2B6693A4007F0A9A /* View+Extension.swift in Sources */,
 				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
 				556AA2D02B6A3B2B00F2AE79 /* TextField+Extension.swift in Sources */,
+				55EC6D892B7E07CB0018128D /* requestFriendshipResponse.swift in Sources */,
 				BF7181D12B7358CA00ACEA0D /* CategoryDurationRequest.swift in Sources */,
 				BF7181D82B74A13100ACEA0D /* ScreenTimeAPI.swift in Sources */,
 				BF7181E42B7A2F8900ACEA0D /* UserResponse.swift in Sources */,
+				55EC6D8B2B7E07DA0018128D /* acceptFriendshipResponse.swift in Sources */,
 				BF0EBDDF2B6529D000AEF19D /* AppDelegate.swift in Sources */,
 				BF7181E62B7B56D600ACEA0D /* DateFormatter+Extension.swift in Sources */,
 				BF7181D62B74A0F800ACEA0D /* CategoryDurationResponse.swift in Sources */,
 				BFB317A82B666962007F0A9A /* ScreenTimeInputViewModel.swift in Sources */,
 				BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */,
 				55A097A72B7CC6B400F1D43E /* NetworkErrorUtils.swift in Sources */,
+				55EC6D8D2B7E07E50018128D /* getFriendsListResponse.swift in Sources */,
 				BFB317A32B665744007F0A9A /* StrokeLabel.swift in Sources */,
 				BF7181DF2B7A2EBB00ACEA0D /* UserAPI.swift in Sources */,
 				BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */,
 				558601982B6629A6007EA357 /* Const.swift in Sources */,
+				55EC6D8F2B7E07F10018128D /* getFriendRequestsListResponse.swift in Sources */,
 				554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */,
+				55EC6D852B7DFC7E0018128D /* FriendshipService.swift in Sources */,
 				5514CE642B65F891006B2700 /* MoyaLoggerPlugin.swift in Sources */,
 				BF7181DD2B7A2EB300ACEA0D /* UserService.swift in Sources */,
 				BF7209F72B5F926B001D76CB /* CircularProgressBar.swift in Sources */,
 				BFB317AA2B669358007F0A9A /* BottomSheetView.swift in Sources */,
 				BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */,
 				554F27492B6391E20050B6D9 /* RegisterResponse.swift in Sources */,
+				55EC6D812B7DE8530018128D /* FriendshipViewController.swift in Sources */,
 				BF7181DA2B78E4DD00ACEA0D /* MainViewModel.swift in Sources */,
 				BF7181D42B749EC400ACEA0D /* ScreenTimeService.swift in Sources */,
 				557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */,
