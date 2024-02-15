@@ -1,8 +1,8 @@
 //
-//  AuthAPI.swift
+//  FriendshipAPI.swift
 //  Wetox-iOS
 //
-//  Created by 김소현 on 1/28/24.
+//  Created by 김소현 on 2/15/24.
 //
 
 import UIKit
@@ -10,8 +10,8 @@ import Moya
 import RxSwift
 import RxMoya
 
-public class AuthAPI {
-    static let authProvider = MoyaProvider<AuthService>(plugins: [MoyaLoggerPlugin()])
+public class FriendshipAPI {
+    static let friendshipProvider = MoyaProvider<FriendshipService>(plugins: [MoyaLoggerPlugin()])
     
     static func register(registerRequest: RegisterRequest, profileImage: UIImage?) -> Observable<RegisterResponse> {
         let decoder = JSONDecoder()
