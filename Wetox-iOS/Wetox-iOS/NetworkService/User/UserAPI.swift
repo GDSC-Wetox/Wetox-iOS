@@ -37,4 +37,6 @@ class UserAPI {
                 return Observable.error(error)
             }
     }
+    
+    // TODO: 친구 목록 받아오기 API 구현 
 }
