@@ -34,6 +34,7 @@
 		55EC6D8B2B7E07DA0018128D /* acceptFriendshipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EC6D8A2B7E07DA0018128D /* acceptFriendshipResponse.swift */; };
 		55EC6D8D2B7E07E50018128D /* getFriendsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EC6D8C2B7E07E50018128D /* getFriendsListResponse.swift */; };
 		55EC6D8F2B7E07F10018128D /* getFriendRequestsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EC6D8E2B7E07F10018128D /* getFriendRequestsListResponse.swift */; };
+		55EC6D912B7E10A70018128D /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EC6D902B7E10A70018128D /* AlertViewController.swift */; };
 		55F42F722B72347800ECDA2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55F42F712B72347800ECDA2E /* GoogleService-Info.plist */; };
 		55F42F752B7235B800ECDA2E /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 55F42F742B7235B800ECDA2E /* FirebaseMessaging */; };
 		BF0EBDDF2B6529D000AEF19D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */; };
@@ -111,6 +112,7 @@
 		55EC6D8A2B7E07DA0018128D /* acceptFriendshipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = acceptFriendshipResponse.swift; sourceTree = "<group>"; };
 		55EC6D8C2B7E07E50018128D /* getFriendsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFriendsListResponse.swift; sourceTree = "<group>"; };
 		55EC6D8E2B7E07F10018128D /* getFriendRequestsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFriendRequestsListResponse.swift; sourceTree = "<group>"; };
+		55EC6D902B7E10A70018128D /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		55F42F712B72347800ECDA2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF2FE0232B64C742009C3C73 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BF2FE0252B64CBC9009C3C73 /* ScreenTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTime.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 			children = (
 				BF6B12DA2B64B8FF0031165E /* ScreenTimeInputView */,
 				5544128F2B608CA9001B8CBA /* LoginViewController.swift */,
+				55EC6D902B7E10A70018128D /* AlertViewController.swift */,
 				55EC6D802B7DE8530018128D /* FriendshipViewController.swift */,
 				552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */,
 				BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */,
@@ -594,6 +597,7 @@
 				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
 				556AA2D02B6A3B2B00F2AE79 /* TextField+Extension.swift in Sources */,
 				55EC6D892B7E07CB0018128D /* requestFriendshipResponse.swift in Sources */,
+				55EC6D912B7E10A70018128D /* AlertViewController.swift in Sources */,
 				BF7181D12B7358CA00ACEA0D /* CategoryDurationRequest.swift in Sources */,
 				BF7181D82B74A13100ACEA0D /* ScreenTimeAPI.swift in Sources */,
 				BF7181E42B7A2F8900ACEA0D /* UserResponse.swift in Sources */,

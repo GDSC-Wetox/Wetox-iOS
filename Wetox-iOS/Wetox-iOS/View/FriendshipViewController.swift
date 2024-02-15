@@ -57,5 +57,14 @@ class FriendshipViewController: UIViewController {
         
     }
     
+    private func setupButtonLayout() {
+        
+    }
     
+    private func configureLayout() {
+        nicknameLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(81)
+            make.leading.equalToSuperview().inset(20)
+        }
+    }
 }
