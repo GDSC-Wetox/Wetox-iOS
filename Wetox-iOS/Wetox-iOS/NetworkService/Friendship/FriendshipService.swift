@@ -35,7 +35,9 @@ extension FriendshipService: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .requestFriendship, .acceptFriendship, .getFriendsList, .getFriendRequestsList:
+        case .requestFriendship, .acceptFriendship:
+            return .post
+        case .getFriendsList, .getFriendRequestsList:
             return .get
         }
     }

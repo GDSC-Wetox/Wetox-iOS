@@ -29,10 +29,8 @@ extension UserService: TargetType {
     
     var method: Moya.Method {
         switch self {
-            case .getUserInfo:
+            case .getUserInfo, .nicknameSearch:
                 return .get
-            case .nicknameSearch:
-                return .get // post?
         }
     }
     
@@ -41,8 +39,8 @@ extension UserService: TargetType {
             case .getUserInfo:
                 return .requestPlain
             case .nicknameSearch:
+                // TODO: 수정 need
                 return .requestPlain
-            // TODO: nicknameSearch Task 수정
         }
     }
     
