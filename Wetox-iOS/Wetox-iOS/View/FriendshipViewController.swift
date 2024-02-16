@@ -34,13 +34,13 @@ class FriendshipViewController: UIViewController {
         configureLayout()
         
         searchTextField.becomeFirstResponder()
-        searchTextField.rx.text
-                   .map { $0 ?? "" } 
-                   .map { $0.isEmpty }
-                   .subscribe(onNext: { [weak self] isEmpty in
-                       self?.checkingLabel.textColor = isEmpty ? .clear : UIColor.allowedButtonColor
-                   })
-                   .disposed(by: disposeBag)
+//        searchTextField.rx.text
+//                   .map { $0 ?? "" } 
+//                   .map { $0.isEmpty }
+//                   .subscribe(onNext: { [weak self] isEmpty in
+//                       self?.checkingLabel.textColor = isEmpty ? .clear : UIColor.allowedButtonColor
+//                   })
+//                   .disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -95,6 +95,10 @@ class FriendshipViewController: UIViewController {
     
     @objc func friendSearchButtonTapped() {
         // TODO: API 호출 need
+        
+        let alertController = UIAlertController(title: "친구 추가 성공", message: "친구 신청이 완료되었습니다.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
     
     private func configureLayout() {
@@ -127,4 +131,27 @@ class FriendshipViewController: UIViewController {
             make.leading.equalToSuperview().inset(19)
         }
     }
+}
+
+extension FriendshipViewController {
+    func searchFriendAPI(nicknameText: String) {
+        // UserAPI에 추가되어야 하는 함수
+        
+    }
+    
+    /*
+    func registerWithAPI(registerRequest: RegisterRequest, profileImage: UIImage?) {
+        AuthAPI.register(registerRequest: registerRequest, profileImage: profileImage)
+            .subscribe(onNext: { registerResponse in
+                UserDefaults.standard.set(registerResponse.accessToken, forKey: Const.UserDefaultsKey.accessToken)
+                print("accessToken 값 입니다. ")
+                print(registerResponse.accessToken) // 확인
+                self.navigationController?.pushViewController(MainViewController(), animated: true)
+                print("회원가입 성공: \(registerResponse)")
+            }, onError: { error in
+                print("회원가입 실패: \(error.localizedDescription)")
+            })
+            .disposed(by: disposeBag)
+    }
+     */
 }
