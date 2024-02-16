@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "book-week.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
