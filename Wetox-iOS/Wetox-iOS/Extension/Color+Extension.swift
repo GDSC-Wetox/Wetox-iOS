@@ -72,6 +72,10 @@ extension UIColor {
         return UIColor(hexCode: "30DB5B")
     }
     
+    static var checkRedButtonColor: UIColor {
+        return UIColor(hexCode: "FF6961")
+    }
+    
     static var textDeleteButtonColor: UIColor {
         return UIColor(hexCode: "8E8E93")
     }

@@ -7,24 +7,26 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 class FriendshipViewController: UIViewController {
+    let disposeBag = DisposeBag()
     
     private var navigationButton: UIButton = UIButton()
-
     private let nicknameLabel: UILabel = UILabel()
     private let searchTextField = UITextField()
     private var textDeleteButton: UIButton = UIButton()
+    private var friendSearchButton: UIButton = UIButton()
     private let checkingLabel: UILabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        
         self.navigationItem.title = "친구 추가"
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigationButton)
-        
-        [navigationButton, nicknameLabel, searchTextField, textDeleteButton, checkingLabel].forEach { view.addSubview($0) }
+
+        [navigationButton, nicknameLabel, searchTextField, textDeleteButton, friendSearchButton, checkingLabel].forEach { view.addSubview($0) }
         
         setupLabelLayout()
         setupTextFieldLayout()
@@ -32,6 +34,13 @@ class FriendshipViewController: UIViewController {
         configureLayout()
         
         searchTextField.becomeFirstResponder()
+        searchTextField.rx.text
+                   .map { $0 ?? "" } 
+                   .map { $0.isEmpty }
+                   .subscribe(onNext: { [weak self] isEmpty in
+                       self?.checkingLabel.textColor = isEmpty ? .clear : UIColor.allowedButtonColor
+                   })
+                   .disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -54,17 +63,68 @@ class FriendshipViewController: UIViewController {
     }
     
     private func setupTextFieldLayout() {
-        
+        searchTextField.placeholder = "친구의 닉네임을 입력해주세요"
+        searchTextField.backgroundColor = .clear
     }
     
     private func setupButtonLayout() {
+        navigationButton.setTitle("완료", for: .normal)
+        navigationButton.setTitleColor(.systemBlue, for: .normal)
+        navigationButton.addTarget(self, action: #selector(navigationButtonTapped), for: .touchUpInside)
         
+        textDeleteButton.setBackgroundImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        textDeleteButton.tintColor = UIColor.textDeleteButtonColor
+        textDeleteButton.addTarget(self, action: #selector(textDeleteButtonTapped), for: .touchUpInside)
+        
+        friendSearchButton.setRooundedButton(title: "찾기",
+                                               titleSize: 12,
+                                               titleColor: .white,
+                                             backgroundColor: UIColor.checkRedButtonColor,
+                                               radius: 7)
+        friendSearchButton.addTarget(self, action: #selector(friendSearchButtonTapped), for: .touchUpInside)
+        
+    }
+    
+    @objc func navigationButtonTapped() {
+        self.navigationController?.popViewController(animated: false)
+    }
+    
+    @objc func textDeleteButtonTapped() {
+        searchTextField.text = String()
+    }
+    
+    @objc func friendSearchButtonTapped() {
+        // TODO: API 호출 need
     }
     
     private func configureLayout() {
         nicknameLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(81)
             make.leading.equalToSuperview().inset(20)
+        }
+        
+        searchTextField.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(110)
+            make.leading.equalToSuperview().inset(20)
+            make.width.equalTo(280)
+            make.height.equalTo(41)
+        }
+        
+        textDeleteButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(125)
+            make.leading.equalToSuperview().inset(282)
+        }
+        
+        friendSearchButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(118)
+            make.leading.equalToSuperview().inset(320)
+            make.width.equalTo(57)
+            make.height.equalTo(37)
+        }
+        
+        checkingLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(169)
+            make.leading.equalToSuperview().inset(19)
         }
     }
 }
