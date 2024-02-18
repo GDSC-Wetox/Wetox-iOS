@@ -41,10 +41,20 @@ class UserAPI {
     static func nicknameSearch(data: NicknameSearchRequest) -> Observable<NicknameSearchResponse> {
         
         let decoder = JSONDecoder()
-
+        decoder.dateDecodingStrategy = .formatted(DateFormatter().mapDateFormat())
+        
         return provider.rx.request(.nicknameSearch(data: data))
             .map(NicknameSearchResponse.self, using: decoder)
             .asObservable()
+            .do(onNext: { response in
+                // 서버 응답 데이터 출력
+                print("Server response data: \(response)")
+            }, onError: { error in
+                // 에러 발생 시 서버 응답 데이터 출력
+                if let response = (error as? MoyaError)?.response {
+                    print("Server error response data: \(response)")
+                }
+            })
             .catch { error in
                 if let moyaError = error as? MoyaError {
                     switch moyaError {
