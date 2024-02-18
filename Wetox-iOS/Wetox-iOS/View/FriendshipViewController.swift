@@ -34,13 +34,6 @@ class FriendshipViewController: UIViewController {
         configureLayout()
         
         searchTextField.becomeFirstResponder()
-//        searchTextField.rx.text
-//                   .map { $0 ?? "" } 
-//                   .map { $0.isEmpty }
-//                   .subscribe(onNext: { [weak self] isEmpty in
-//                       self?.checkingLabel.textColor = isEmpty ? .clear : UIColor.allowedButtonColor
-//                   })
-//                   .disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -59,7 +52,7 @@ class FriendshipViewController: UIViewController {
                                backgroundColor: .clear,
                                weight: .light,
                                textSize: 12,
-                               labelColor: UIColor.allowedButtonColor)
+                               labelColor: UIColor.clear)
     }
     
     private func setupTextFieldLayout() {
@@ -94,11 +87,7 @@ class FriendshipViewController: UIViewController {
     }
     
     @objc func friendSearchButtonTapped() {
-        // TODO: API 호출 need
-        
-        let alertController = UIAlertController(title: "친구 추가 성공", message: "친구 신청이 완료되었습니다.", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        present(alertController, animated: true, completion: nil)
+        self.searchFriendWithAPI(nicknameSearchRequest: NicknameSearchRequest(nickname: self.searchTextField.text ?? String()))
     }
     
     private func configureLayout() {
@@ -134,24 +123,22 @@ class FriendshipViewController: UIViewController {
 }
 
 extension FriendshipViewController {
-    func searchFriendAPI(nicknameText: String) {
-        // UserAPI에 추가되어야 하는 함수
-        
-    }
-    
-    /*
-    func registerWithAPI(registerRequest: RegisterRequest, profileImage: UIImage?) {
-        AuthAPI.register(registerRequest: registerRequest, profileImage: profileImage)
-            .subscribe(onNext: { registerResponse in
-                UserDefaults.standard.set(registerResponse.accessToken, forKey: Const.UserDefaultsKey.accessToken)
-                print("accessToken 값 입니다. ")
-                print(registerResponse.accessToken) // 확인
-                self.navigationController?.pushViewController(MainViewController(), animated: true)
-                print("회원가입 성공: \(registerResponse)")
+    func searchFriendWithAPI(nicknameSearchRequest: NicknameSearchRequest) {
+        UserAPI.nicknameSearch(data: nicknameSearchRequest)
+            .subscribe(onNext: { nicknameResponse in
+                print("nicknameResponse 값 입니다. ")
+                print("친구 찾기 성공: \(nicknameResponse)")
+                self.checkingLabel.textColor = UIColor.allowedButtonColor
+                
+                let alertController = UIAlertController(title: "친구 추가 성공", message: "친구 신청이 완료되었습니다.", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+                
             }, onError: { error in
-                print("회원가입 실패: \(error.localizedDescription)")
+                print("친구 찾기 실패: \(error.localizedDescription)")
+                self.checkingLabel.text = "존재하지 않는 사용자입니다."
+                self.checkingLabel.textColor = UIColor.checkRedButtonColor
             })
             .disposed(by: disposeBag)
     }
-     */
 }
