@@ -10,7 +10,7 @@ import Moya
 
 enum UserService {
     case getUserInfo
-    case nicknameSearch
+    case nicknameSearch(nickname: NicknameSearchRequest)
 }
 
 extension UserService: TargetType {
@@ -38,9 +38,8 @@ extension UserService: TargetType {
         switch self {
             case .getUserInfo:
                 return .requestPlain
-            case .nicknameSearch:
-                // TODO: 수정 need
-                return .requestPlain
+            case .nicknameSearch(let data):
+                return .requestJSONEncodable(data)
         }
     }
     
