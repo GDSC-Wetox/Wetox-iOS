@@ -38,5 +38,25 @@ class UserAPI {
             }
     }
     
-    // TODO: 친구 목록 받아오기 API 구현 
+    static func nicknameSearch(data: NicknameSearchRequest) -> Observable<NicknameSearchResponse> {
+        
+        let decoder = JSONDecoder()
+
+        return provider.rx.request(.nicknameSearch(data: data))
+            .map(NicknameSearchResponse.self, using: decoder)
+            .asObservable()
+            .catch { error in
+                if let moyaError = error as? MoyaError {
+                    switch moyaError {
+                    case .statusCode(let response):
+                        print("HTTP Status Code: \(response.statusCode)")
+                    case .jsonMapping(let response):
+                        print("JSON Mapping Error for Response: \(response)")
+                    default:
+                        print("Other MoyaError: \(moyaError.localizedDescription)")
+                    }
+                }
+                return Observable.error(error)
+            }
+    }
 }

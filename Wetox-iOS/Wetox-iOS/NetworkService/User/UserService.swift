@@ -10,7 +10,7 @@ import Moya
 
 enum UserService {
     case getUserInfo
-    case nicknameSearch(nickname: NicknameSearchRequest)
+    case nicknameSearch(data: NicknameSearchRequest)
 }
 
 extension UserService: TargetType {
