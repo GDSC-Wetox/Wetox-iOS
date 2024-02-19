@@ -20,7 +20,6 @@ struct Constants {
     
     struct Common {
         static let doneText = "Done"
-        
     }
     
     struct Time {
@@ -81,6 +80,12 @@ struct Constants {
         static let categories = Array(categoriesKoreanToEnglish.keys)
     }
     
+    struct BadgeArrays {
+        static let badgeNames: [String] = [ "book", "sns", "youtube", "game"]
+        static let isAwards = [true, false]
+        static let periods = ["day", "week", "month"]
+    }
+    
     struct Slider {
         // static let width: CGFloat = 348.0
         static let height: CGFloat = 44.0
@@ -88,5 +93,38 @@ struct Constants {
     
     struct Image {
         static let sliderTrackImageName = "slider-track-image"
+        
+        static let bookDayTrue = "book-day-true"
+        static let bookWeekTrue = "book-week-true"
+        static let bookMonthTrue = "book-month-true"
+        static let bookDayFalse = "book-day-false"
+        static let bookWeekFalse = "book-week-false"
+        static let bookMonthFalse = "book-month-false"
+        
+        static let snsDayTrue = "sns-day-true"
+        static let snsWeekTrue = "sns-week-true"
+        static let snsMonthTrue = "sns-month-true"
+        static let snsDayFalse = "sns-day-false"
+        static let snsWeekFalse = "sns-week-false"
+        static let snsMonthFalse = "sns-month-false"
+        
+        static let youtubeDayTrue = "youtube-day-true"
+        static let youtubeWeekTrue = "youtube-week-true"
+        static let youtubeMonthTrue = "youtube-month-true"
+        static let youtubeDayFalse = "youtube-day-false"
+        static let youtubeWeekFalse = "youtube-week-false"
+        static let youtubeMonthFalse = "youtube-month-false"
+        
+        static let gameDayTrue = "game-day-true"
+        static let gameWeekTrue = "game-week-true"
+        static let gameMonthTrue = "game-month-true"
+        static let gameDayFalse = "game-day-false"
+        static let gameWeekFalse = "game-week-false"
+        static let gameMonthFalse = "game-month-false"
+        
+        static let segmentIcons = ["daily-unselected-icon", "weekly-unselected-icon", "badge-unselected-icon"]
+        static let selectedSegmentIcons = ["daily-selected-icon", "weekly-selected-icon", "badge-selected-icon"]
     }
+    
+    
 }
