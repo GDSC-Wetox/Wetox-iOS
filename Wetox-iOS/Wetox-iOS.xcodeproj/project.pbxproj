@@ -20,6 +20,7 @@
 		554F27472B6391D80050B6D9 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27462B6391D80050B6D9 /* RegisterRequest.swift */; };
 		554F27492B6391E20050B6D9 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27482B6391E20050B6D9 /* RegisterResponse.swift */; };
 		556AA2D02B6A3B2B00F2AE79 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556AA2CF2B6A3B2B00F2AE79 /* TextField+Extension.swift */; };
+		556C12912B834C5D0000797B /* AlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C12902B834C5D0000797B /* AlertTableViewCell.swift */; };
 		557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F3EA12B60983A007C7247 /* Button+Extension.swift */; };
 		558601982B6629A6007EA357 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558601972B6629A6007EA357 /* Const.swift */; };
 		55A097A72B7CC6B400F1D43E /* NetworkErrorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A097A62B7CC6B400F1D43E /* NetworkErrorUtils.swift */; };
@@ -103,6 +104,7 @@
 		554F27462B6391D80050B6D9 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		554F27482B6391E20050B6D9 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		556AA2CF2B6A3B2B00F2AE79 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
+		556C12902B834C5D0000797B /* AlertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewCell.swift; sourceTree = "<group>"; };
 		557F3EA12B60983A007C7247 /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		558601972B6629A6007EA357 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		55A097A62B7CC6B400F1D43E /* NetworkErrorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorUtils.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				BF6B12DA2B64B8FF0031165E /* ScreenTimeInputView */,
 				5544128F2B608CA9001B8CBA /* LoginViewController.swift */,
 				55EC6D902B7E10A70018128D /* AlertViewController.swift */,
+				556C12902B834C5D0000797B /* AlertTableViewCell.swift */,
 				55EC6D802B7DE8530018128D /* FriendshipViewController.swift */,
 				552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */,
 				BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */,
@@ -616,6 +619,7 @@
 				BFB317A82B666962007F0A9A /* ScreenTimeInputViewModel.swift in Sources */,
 				BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */,
 				55A097A72B7CC6B400F1D43E /* NetworkErrorUtils.swift in Sources */,
+				556C12912B834C5D0000797B /* AlertTableViewCell.swift in Sources */,
 				55EC6D8D2B7E07E50018128D /* getFriendsListResponse.swift in Sources */,
 				BFB317A32B665744007F0A9A /* StrokeLabel.swift in Sources */,
 				BF7181DF2B7A2EBB00ACEA0D /* UserAPI.swift in Sources */,
