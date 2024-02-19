@@ -68,5 +68,11 @@ class UserAPI {
                 }
                 return Observable.error(error)
             }
+        
+        // TODO: NetworkErrorUtils 호출 시, Observable<NicknameSearchResponse> 반환 형태 불일치
+        
+        /*
+         NetworkErrorUtils.shared.handleTokenError(error: error, request: .login(tokenRequest: TokenRequest(oauthProvider: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.oauthProvider) ?? String(), openId: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? String())))
+         */
     }
 }

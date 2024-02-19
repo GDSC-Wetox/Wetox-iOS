@@ -16,7 +16,6 @@ struct acceptFriendshipResponse: Codable {
     let status: String
 }
 
-// TODO: Q
 enum status: String {
     case accept = "ACCEPT"
 }

@@ -27,7 +27,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        let accessToken = UserDefaults.standard.object(forKey: Const.UserDefaultsKey.accessToken)
+        print(accessToken!)
+        print("accessToken")
+        
+        if (accessToken as? String != String()) {
+            window?.rootViewController = UINavigationController(rootViewController: MainViewController())
+        } else {
+            window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        }
         window?.makeKeyAndVisible()
     }
 
