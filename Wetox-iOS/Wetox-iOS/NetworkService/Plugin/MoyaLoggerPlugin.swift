@@ -19,7 +19,7 @@ final class MoyaLoggerPlugin: PluginType {
         let url = httpRequest.description
         let method = httpRequest.httpMethod ?? "unknown method"
         
-        var log = "----------------------\n[\(method)] \(url)\n----------------------\n"
+        var log = "Request will send ----------------------\n[\(method)] \(url)\n----------------------\n"
         log.append("API: \(target)\n")
         if let headers = httpRequest.allHTTPHeaderFields, !headers.isEmpty {
             log.append("header: \(headers)")
@@ -64,10 +64,10 @@ final class MoyaLoggerPlugin: PluginType {
             onSuceed(response, target: target, isFromError: true)
             return
         }
-        var log = "네트워크 오류"
-        log.append("<-- \(error.errorCode) \(target)\n")
-        log.append("\(error.failureReason ?? error.errorDescription ?? "unknown error")\n")
-        log.append("<-- END HTTP")
+        var log = "------------------- 네트워크 통신 실패-------------------------------\n"
+        log.append("에러코드 : \(error.errorCode) \n \(target)\n")
+        log.append("실패이유 : \(error.failureReason ?? error.errorDescription ?? "unknown error")\n")
+        log.append("<--------- END HTTP------------->")
         print(log)
     }
 }
