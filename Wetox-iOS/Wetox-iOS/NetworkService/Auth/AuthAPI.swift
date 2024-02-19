@@ -46,7 +46,7 @@ public class AuthAPI {
             .map(TokenResponse.self, using: decoder)
             .asObservable()
             .catch { error in
-                Utils.shared.handleTokenError(error: error, request: .login(tokenRequest: tokenRequest))
+                NetworkErrorUtils.shared.handleTokenError(error: error, request: .login(tokenRequest: tokenRequest))
             }
     }
 }
