@@ -44,11 +44,10 @@ class CircularProgressBar: UIView {
         bezierPath.stroke()
     }
     
-    var profileImageView = UIImageView()
-    
-    func setImage(_ image: UIImage) {
-        profileImageView.image = image
-    }
+    lazy var profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
     
     func setProgress(_ rect: CGRect) {
         guard let value = self.value else {
@@ -77,34 +76,25 @@ class CircularProgressBar: UIView {
         shapeLayer.lineWidth = lineWidth
         
         self.layer.addSublayer(shapeLayer)
-        
-        // TODO: progress bar 중심에 프로필사진 이미지 삽입 필요
-        let profileImageView = UIImageView()
         let imageSize = (rect.midX - (lineWidth / 2)) * cornerRadiusRatio * 1.96
-        profileImageView.setProfileImage("person.fill")
-        profileImageView.backgroundColor = .systemIndigo
-        profileImageView.tintColor = .white
-        
-        profileImageView.contentMode = .center
-        
         profileImageView.layer.cornerRadius = imageSize / 2
+        setupProfileImageView()
+        profileImageView.snp.makeConstraints {
+//            $0.center.equalTo(self.snp.center)
+            $0.width.height.equalTo(imageSize)
+        }
+    }
+    
+    private func setupProfileImageView() {
+        profileImageView.backgroundColor = .clear
+        profileImageView.tintColor = .clear
+        profileImageView.contentMode = .center
         profileImageView.layer.masksToBounds = true
         profileImageView.clipsToBounds = true
-        
-        
+//        profileImageView.contentMode = .scaleAspectFit
         self.addSubview(profileImageView)
-        
         profileImageView.snp.makeConstraints {
-            $0.center.equalTo(self.snp.center)
-            $0.width.height.equalTo(imageSize)
-                   
+            $0.center.equalToSuperview()
         }
-        
-    }
-}
-
-extension UIImageView {
-    func setProfileImage(_ imageName: String) {
-        self.image = UIImage(systemName: imageName)
     }
 }

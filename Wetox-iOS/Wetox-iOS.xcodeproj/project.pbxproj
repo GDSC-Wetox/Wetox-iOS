@@ -42,6 +42,7 @@
 		BF0EBDDF2B6529D000AEF19D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */; };
 		BF2FE0242B64C742009C3C73 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2FE0232B64C742009C3C73 /* Constants.swift */; };
 		BF2FE0262B64CBC9009C3C73 /* ScreenTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2FE0252B64CBC9009C3C73 /* ScreenTime.swift */; };
+		BF461DEB2B80ADEE00B3C2A2 /* BadgeStatesEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF461DEA2B80ADEE00B3C2A2 /* BadgeStatesEnums.swift */; };
 		BF6B12DC2B64B9170031165E /* ScreenTimeInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6B12DB2B64B9170031165E /* ScreenTimeInputViewController.swift */; };
 		BF6B12DE2B64B9B40031165E /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6B12DD2B64B9B40031165E /* CustomUISlider.swift */; };
 		BF7181D12B7358CA00ACEA0D /* CategoryDurationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181D02B7358C900ACEA0D /* CategoryDurationRequest.swift */; };
@@ -53,8 +54,12 @@
 		BF7181DF2B7A2EBB00ACEA0D /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181DE2B7A2EBB00ACEA0D /* UserAPI.swift */; };
 		BF7181E42B7A2F8900ACEA0D /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181E32B7A2F8900ACEA0D /* UserResponse.swift */; };
 		BF7181E62B7B56D600ACEA0D /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181E52B7B56D600ACEA0D /* DateFormatter+Extension.swift */; };
+		BF7181E92B7E2B7E00ACEA0D /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181E82B7E2B7E00ACEA0D /* BadgeView.swift */; };
+		BF7181EB2B7E2ECF00ACEA0D /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181EA2B7E2ECF00ACEA0D /* BadgeCollectionViewCell.swift */; };
+		BF7181F42B7F11EA00ACEA0D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181F32B7F11EA00ACEA0D /* RootViewController.swift */; };
+		BF7181F62B7F426800ACEA0D /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181F52B7F426800ACEA0D /* DailyView.swift */; };
+		BF7181F82B7F42FE00ACEA0D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181F72B7F42FE00ACEA0D /* MainViewController.swift */; };
 		BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */; };
-		BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */; };
 		BF7209C42B5F8BCD001D76CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7209C32B5F8BCD001D76CB /* Assets.xcassets */; };
 		BF7209C72B5F8BCD001D76CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7209C52B5F8BCD001D76CB /* LaunchScreen.storyboard */; };
 		BF7209D22B5F8BCE001D76CB /* Wetox_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209D12B5F8BCE001D76CB /* Wetox_iOSTests.swift */; };
@@ -120,6 +125,7 @@
 		55F42F712B72347800ECDA2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF2FE0232B64C742009C3C73 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BF2FE0252B64CBC9009C3C73 /* ScreenTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTime.swift; sourceTree = "<group>"; };
+		BF461DEA2B80ADEE00B3C2A2 /* BadgeStatesEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeStatesEnums.swift; sourceTree = "<group>"; };
 		BF6B12DB2B64B9170031165E /* ScreenTimeInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeInputViewController.swift; sourceTree = "<group>"; };
 		BF6B12DD2B64B9B40031165E /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
 		BF7181D02B7358C900ACEA0D /* CategoryDurationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDurationRequest.swift; sourceTree = "<group>"; };
@@ -131,10 +137,14 @@
 		BF7181DE2B7A2EBB00ACEA0D /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		BF7181E32B7A2F8900ACEA0D /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		BF7181E52B7B56D600ACEA0D /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
+		BF7181E82B7E2B7E00ACEA0D /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		BF7181EA2B7E2ECF00ACEA0D /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF7181F32B7F11EA00ACEA0D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		BF7181F52B7F426800ACEA0D /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
+		BF7181F72B7F42FE00ACEA0D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BF7209B72B5F8BCB001D76CB /* Wetox-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wetox-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BF7209C32B5F8BCD001D76CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF7209C62B5F8BCD001D76CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF7209C82B5F8BCD001D76CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -290,6 +300,14 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		BF461DE92B80AD9600B3C2A2 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				BF461DEA2B80ADEE00B3C2A2 /* BadgeStatesEnums.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		BF6B12DA2B64B8FF0031165E /* ScreenTimeInputView */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +354,34 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		BF7181E72B7E2B6C00ACEA0D /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				BF7181E82B7E2B7E00ACEA0D /* BadgeView.swift */,
+				BF7181EA2B7E2ECF00ACEA0D /* BadgeCollectionViewCell.swift */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
+		BF7181EE2B7F0FC200ACEA0D /* DailyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BF7181F52B7F426800ACEA0D /* DailyView.swift */,
+				BF7209F42B5F923F001D76CB /* FriendsCollectionViewCell.swift */,
+				BF7209F62B5F926B001D76CB /* CircularProgressBar.swift */,
+				BFB317A92B669358007F0A9A /* BottomSheetView.swift */,
+			);
+			path = DailyViewController;
+			sourceTree = "<group>";
+		};
+		BF7181F22B7F11DD00ACEA0D /* RootView */ = {
+			isa = PBXGroup;
+			children = (
+				BF7181F32B7F11EA00ACEA0D /* RootViewController.swift */,
+			);
+			path = RootView;
+			sourceTree = "<group>";
+		};
 		BF7209AE2B5F8BCB001D76CB = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +405,7 @@
 		BF7209B92B5F8BCB001D76CB /* Wetox-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				BF461DE92B80AD9600B3C2A2 /* Enums */,
 				55EA5F432B72368F00788E0A /* Wetox-iOS.entitlements */,
 				5514CE5B2B65F6F8006B2700 /* NetworkService */,
 				554F273E2B638ECF0050B6D9 /* NetworkModel */,
@@ -410,15 +457,15 @@
 		BF7209EB2B5F8C95001D76CB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BF7181F72B7F42FE00ACEA0D /* MainViewController.swift */,
+				BF7181F22B7F11DD00ACEA0D /* RootView */,
+				BF7181EE2B7F0FC200ACEA0D /* DailyViewController */,
+				BF7181E72B7E2B6C00ACEA0D /* Badge */,
 				BF6B12DA2B64B8FF0031165E /* ScreenTimeInputView */,
 				5544128F2B608CA9001B8CBA /* LoginViewController.swift */,
 				55EC6D902B7E10A70018128D /* AlertViewController.swift */,
 				55EC6D802B7DE8530018128D /* FriendshipViewController.swift */,
 				552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */,
-				BF7209BE2B5F8BCB001D76CB /* MainViewController.swift */,
-				BF7209F42B5F923F001D76CB /* FriendsCollectionViewCell.swift */,
-				BF7209F62B5F926B001D76CB /* CircularProgressBar.swift */,
-				BFB317A92B669358007F0A9A /* BottomSheetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -592,6 +639,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF7181F62B7F426800ACEA0D /* DailyView.swift in Sources */,
+				BF7181E92B7E2B7E00ACEA0D /* BadgeView.swift in Sources */,
+				BF7181EB2B7E2ECF00ACEA0D /* BadgeCollectionViewCell.swift in Sources */,
 				BF7209EE2B5F8CB6001D76CB /* Label+Extension.swift in Sources */,
 				5514CE5E2B65F719006B2700 /* AuthAPI.swift in Sources */,
 				554F27472B6391D80050B6D9 /* RegisterRequest.swift in Sources */,
@@ -600,6 +650,7 @@
 				554F27432B63908E0050B6D9 /* TokenResponse.swift in Sources */,
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
 				BFB317AC2B6693A4007F0A9A /* View+Extension.swift in Sources */,
+				BF7181F82B7F42FE00ACEA0D /* MainViewController.swift in Sources */,
 				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
 				55BD1F2B2B8203A6009601AC /* NicknameSearchRequest.swift in Sources */,
 				556AA2D02B6A3B2B00F2AE79 /* TextField+Extension.swift in Sources */,
@@ -617,9 +668,9 @@
 				BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */,
 				55A097A72B7CC6B400F1D43E /* NetworkErrorUtils.swift in Sources */,
 				55EC6D8D2B7E07E50018128D /* getFriendsListResponse.swift in Sources */,
+				BF7181F42B7F11EA00ACEA0D /* RootViewController.swift in Sources */,
 				BFB317A32B665744007F0A9A /* StrokeLabel.swift in Sources */,
 				BF7181DF2B7A2EBB00ACEA0D /* UserAPI.swift in Sources */,
-				BF7209BF2B5F8BCB001D76CB /* MainViewController.swift in Sources */,
 				558601982B6629A6007EA357 /* Const.swift in Sources */,
 				55EC6D8F2B7E07F10018128D /* getFriendRequestsListResponse.swift in Sources */,
 				554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */,
@@ -628,6 +679,7 @@
 				BF7181DD2B7A2EB300ACEA0D /* UserService.swift in Sources */,
 				BF7209F72B5F926B001D76CB /* CircularProgressBar.swift in Sources */,
 				BFB317AA2B669358007F0A9A /* BottomSheetView.swift in Sources */,
+				BF461DEB2B80ADEE00B3C2A2 /* BadgeStatesEnums.swift in Sources */,
 				BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */,
 				554F27492B6391E20050B6D9 /* RegisterResponse.swift in Sources */,
 				55EC6D812B7DE8530018128D /* FriendshipViewController.swift in Sources */,
