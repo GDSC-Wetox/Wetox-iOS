@@ -180,7 +180,7 @@ extension ProfileSettingViewContorller {
                 UserDefaults.standard.set(registerResponse.accessToken, forKey: Const.UserDefaultsKey.accessToken)
                 print("accessToken 값 입니다. ")
                 print(registerResponse.accessToken) // 확인
-                self.navigationController?.pushViewController(MainViewController(), animated: true)
+                self.navigationController?.pushViewController(RootViewController(), animated: true)
                 print("회원가입 성공: \(registerResponse)")
             }, onError: { error in
                 print("회원가입 실패: \(error.localizedDescription)")
