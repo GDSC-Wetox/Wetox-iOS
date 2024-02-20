@@ -131,6 +131,7 @@ extension FriendshipViewController {
                 self.checkingLabel.textColor = UIColor.allowedButtonColor
                 
                 // TODO: 친구 추가 API 호출 need
+                self.sendFriendRequest(toId: nicknameResponse.userId)
                 
                 let alertController = UIAlertController(title: "친구 추가 성공", message: "친구 신청이 완료되었습니다.", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
@@ -140,6 +141,18 @@ extension FriendshipViewController {
                 print("친구 찾기 실패: \(error.localizedDescription)")
                 self.checkingLabel.text = "존재하지 않는 사용자입니다."
                 self.checkingLabel.textColor = UIColor.checkRedButtonColor
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+extension FriendshipViewController {
+    func sendFriendRequest(toId: Int64) {
+        FriendshipAPI.requestFriendshipToFriend(toId: toId)
+            .subscribe(onNext: { response in
+                print("Friend request sent successfully!")
+            }, onError: { error in
+                print("Error sending friend request: \(error.localizedDescription)")
             })
             .disposed(by: disposeBag)
     }

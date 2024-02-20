@@ -9,8 +9,8 @@ import Foundation
 import Moya
 
 enum FriendshipService {
-    case requestFriendship(toId: String)
-    case acceptFriendship(toId: String)
+    case requestFriendship(toId: Int64)
+    case acceptFriendship(toId: Int64)
     case getFriendsList
     case getFriendRequestsList
 }
