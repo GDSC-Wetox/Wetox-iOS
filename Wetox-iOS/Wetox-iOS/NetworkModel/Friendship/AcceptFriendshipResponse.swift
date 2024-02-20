@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct acceptFriendshipResponse: Codable {
+struct AcceptFriendshipResponse: Codable {
     let friendshipId: Int64
     let from: Int64
     let to: Int64

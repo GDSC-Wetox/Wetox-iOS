@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct getFriendRequestsListResponse: Codable {
+struct GetFriendRequestsListResponse: Codable {
     let FriendRequestsList: [FriendRequest]
 }
 
