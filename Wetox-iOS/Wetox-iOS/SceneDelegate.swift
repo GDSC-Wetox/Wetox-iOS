@@ -28,14 +28,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let accessToken = UserDefaults.standard.object(forKey: Const.UserDefaultsKey.accessToken)
-        print(accessToken!)
-        print("accessToken")
         
         if (accessToken as? String != String()) {
-            window?.rootViewController = UINavigationController(rootViewController: MainViewController())
+            window?.rootViewController = UINavigationController(rootViewController: RootViewController())
         } else {
             window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
         }
+
         window?.makeKeyAndVisible()
     }
 
