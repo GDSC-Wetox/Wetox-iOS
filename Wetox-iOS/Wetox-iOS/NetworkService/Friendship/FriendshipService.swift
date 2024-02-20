@@ -45,7 +45,7 @@ extension FriendshipService: TargetType {
     var task: Task {
         switch self {
         case .requestFriendship, .acceptFriendship, .getFriendsList, .getFriendRequestsList:
-                return .requestPlain
+            return .requestPlain
         }
     }
     
