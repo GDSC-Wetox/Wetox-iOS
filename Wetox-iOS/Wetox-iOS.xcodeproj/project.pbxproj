@@ -58,7 +58,6 @@
 		BF7181EB2B7E2ECF00ACEA0D /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181EA2B7E2ECF00ACEA0D /* BadgeCollectionViewCell.swift */; };
 		BF7181F42B7F11EA00ACEA0D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181F32B7F11EA00ACEA0D /* RootViewController.swift */; };
 		BF7181F62B7F426800ACEA0D /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181F52B7F426800ACEA0D /* DailyView.swift */; };
-		BF7181F82B7F42FE00ACEA0D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7181F72B7F42FE00ACEA0D /* MainViewController.swift */; };
 		BF7209BD2B5F8BCB001D76CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */; };
 		BF7209C42B5F8BCD001D76CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7209C32B5F8BCD001D76CB /* Assets.xcassets */; };
 		BF7209C72B5F8BCD001D76CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7209C52B5F8BCD001D76CB /* LaunchScreen.storyboard */; };
@@ -141,7 +140,6 @@
 		BF7181EA2B7E2ECF00ACEA0D /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF7181F32B7F11EA00ACEA0D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		BF7181F52B7F426800ACEA0D /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
-		BF7181F72B7F42FE00ACEA0D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BF7209B72B5F8BCB001D76CB /* Wetox-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wetox-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7209BA2B5F8BCB001D76CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF7209BC2B5F8BCB001D76CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -457,7 +455,6 @@
 		BF7209EB2B5F8C95001D76CB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BF7181F72B7F42FE00ACEA0D /* MainViewController.swift */,
 				BF7181F22B7F11DD00ACEA0D /* RootView */,
 				BF7181EE2B7F0FC200ACEA0D /* DailyViewController */,
 				BF7181E72B7E2B6C00ACEA0D /* Badge */,
@@ -650,7 +647,6 @@
 				554F27432B63908E0050B6D9 /* TokenResponse.swift in Sources */,
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
 				BFB317AC2B6693A4007F0A9A /* View+Extension.swift in Sources */,
-				BF7181F82B7F42FE00ACEA0D /* MainViewController.swift in Sources */,
 				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
 				55BD1F2B2B8203A6009601AC /* NicknameSearchRequest.swift in Sources */,
 				556AA2D02B6A3B2B00F2AE79 /* TextField+Extension.swift in Sources */,
