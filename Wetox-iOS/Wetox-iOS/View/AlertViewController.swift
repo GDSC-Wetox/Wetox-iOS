@@ -50,30 +50,37 @@ class AlertViewController: UIViewController {
 
 extension AlertViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10 // 예시로 10개의 셀을 표시
+        // TODO: API로 유동적으로 가져오기
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AlertTableViewCell.reuseIdentifier, for: indexPath) as! AlertTableViewCell
         
         // 셀에 데이터 설정
-        cell.nameLabel.text = "Friend \(indexPath.row + 1)"
+        cell.friendRequestLabel.text = "Friend \(indexPath.row + 1)"
         
         cell.delegate = self
         cell.indexPath = indexPath
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
 }
 
 extension AlertViewController: AlertTableViewCellDelegate {
-    func acceptButtonTapped(at indexPath: IndexPath) {
-        // 해당 indexPath에 대한 수락 처리
-        print("Accept button tapped at indexPath: \(indexPath)")
+    func presentAcceptAlertController() {
+        let alertController = UIAlertController(title: "친구 추가 완료", message: "친구 요청을 수락하였습니다.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
     
-    func rejectButtonTapped(at indexPath: IndexPath) {
-        // 해당 indexPath에 대한 거절 처리
-        print("Reject button tapped at indexPath: \(indexPath)")
+    func presentRejectAlertController() {
+        let alertController = UIAlertController(title: "친구 요청 거절", message: "친구 요청을 거절하였습니다.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }
