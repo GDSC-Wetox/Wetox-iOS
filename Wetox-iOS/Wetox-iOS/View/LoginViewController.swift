@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
         let accessToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.accessToken)
         
         if isLogin && accessToken != nil {
-            self.navigationController?.pushViewController(MainViewController(), animated: true)
+            self.navigationController?.pushViewController(RootViewController(), animated: true)
         }
     }
     
@@ -199,7 +199,7 @@ class LoginViewController: UIViewController {
                     // 로그인 API
                     print("UserDefaults의 openId로 로그인을 시도합니다")
                     self.loginWithAPI(tokenRequest: TokenRequest(oauthProvider: oauthProvider!, openId: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? String()))
-                    self.navigationController?.pushViewController(MainViewController(), animated: true)
+                    self.navigationController?.pushViewController(RootViewController(), animated: true)
                 } else {
                     // 회원가입 API
                     self.register(openId: UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? "")
