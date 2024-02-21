@@ -141,6 +141,12 @@ extension UIColor {
         return UIColor(hexCode: "0x30DB5B")
     }
     
+    // MARK: - AlertTableView Cell Colors
+    
+    static var greyRejectButton: UIColor {
+        return UIColor(hexCode: "D9D9D9", alpha: 0.47)
+    }
+    
     // MARK: - Common Colors
     
     static var opacityWhite: UIColor {

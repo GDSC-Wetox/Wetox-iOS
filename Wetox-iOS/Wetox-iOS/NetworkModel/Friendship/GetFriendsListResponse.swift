@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct getFriendsListResponse: Codable {
-    let FriendsList: [Friend]
+struct GetFriendsListResponse: Codable {
+    let friendsList: [Friend]
 }
 
 struct Friend: Codable {

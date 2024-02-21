@@ -12,5 +12,70 @@ import RxMoya
 
 public class FriendshipAPI {
     static let friendshipProvider = MoyaProvider<FriendshipService>(plugins: [MoyaLoggerPlugin()])
+    
+    static func requestFriendshipToFriend(toId: Int64) -> Observable<RequestFriendshipResponse> {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(DateFormatter().mapDateFormat())
 
+        return friendshipProvider.rx.request(.requestFriendship(toId: toId))
+            .map(RequestFriendshipResponse.self, using: decoder)
+            .asObservable()
+            .catch { error in
+                if let moyaError = error as? MoyaError {
+                    switch moyaError {
+                        case .statusCode(let response):
+                            print("HTTP Status Code: \(response.statusCode)")
+                        case .jsonMapping(let response):
+                            print("JSON Mapping Error for Response: \(response)")
+                        default:
+                            print("Other MoyaError: \(moyaError.localizedDescription)")
+                    }
+                }
+                return Observable.error(error)
+            }
+    }
+    
+    static func acceptFriendship(toId: Int64) -> Observable<AcceptFriendshipResponse> {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(DateFormatter().mapDateFormat())
+
+        return friendshipProvider.rx.request(.acceptFriendship(toId: toId))
+            .map(AcceptFriendshipResponse.self, using: decoder)
+            .asObservable()
+            .catch { error in
+                if let moyaError = error as? MoyaError {
+                    switch moyaError {
+                        case .statusCode(let response):
+                            print("HTTP Status Code: \(response.statusCode)")
+                        case .jsonMapping(let response):
+                            print("JSON Mapping Error for Response: \(response)")
+                        default:
+                            print("Other MoyaError: \(moyaError.localizedDescription)")
+                    }
+                }
+                return Observable.error(error)
+            }
+    }
+    
+    static func getAllFriendshipRequest() -> Observable<GetFriendRequestsListResponse> {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(DateFormatter().mapDateFormat())
+
+        return friendshipProvider.rx.request(.getFriendRequestsList)
+            .map(GetFriendRequestsListResponse.self, using: decoder)
+            .asObservable()
+            .catch { error in
+                if let moyaError = error as? MoyaError {
+                    switch moyaError {
+                        case .statusCode(let response):
+                            print("HTTP Status Code: \(response.statusCode)")
+                        case .jsonMapping(let response):
+                            print("JSON Mapping Error for Response: \(response)")
+                        default:
+                            print("Other MoyaError: \(moyaError.localizedDescription)")
+                    }
+                }
+                return Observable.error(error)
+            }
+    }
 }
