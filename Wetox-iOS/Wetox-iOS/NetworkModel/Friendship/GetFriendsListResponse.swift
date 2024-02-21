@@ -8,7 +8,7 @@
 import Foundation
 
 struct GetFriendsListResponse: Codable {
-    let FriendsList: [Friend]
+    let friendsList: [Friend]
 }
 
 struct Friend: Codable {

@@ -8,8 +8,8 @@
 import UIKit
 
 @objc protocol AlertTableViewCellDelegate {
-    func presentAcceptAlertController()
-    func presentRejectAlertController()
+    func presentAcceptAlertController(toId: Int64)
+    func presentRejectAlertController(toId: Int64)
 }
 
 class AlertTableViewCell: UITableViewCell {
@@ -48,6 +48,9 @@ class AlertTableViewCell: UITableViewCell {
                                        backgroundColor: UIColor.allowedButtonColor,
                                        radius: 7)
         
+        rejectButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+        acceptButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+
         acceptButton.addTarget(self, action: #selector(acceptButtonTapped), for: .touchUpInside)
         rejectButton.addTarget(self, action: #selector(rejectButtonTapped), for: .touchUpInside)
     }
@@ -55,13 +58,13 @@ class AlertTableViewCell: UITableViewCell {
     @objc func acceptButtonTapped() {
         let alertController = UIAlertController(title: "친구 추가 완료", message: "친구 요청을 수락하였습니다.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        delegate?.presentAcceptAlertController()
+//        delegate?.presentAcceptAlertController()
     }
     
     @objc func rejectButtonTapped() {
         let alertController = UIAlertController(title: "친구 요청 거절", message: "친구 요청을 거절하였습니다.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        delegate?.presentRejectAlertController()
+//        delegate?.presentRejectAlertController()
     }
     
     private func configureUI() {

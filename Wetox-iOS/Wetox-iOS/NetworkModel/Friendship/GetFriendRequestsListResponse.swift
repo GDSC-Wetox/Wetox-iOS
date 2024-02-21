@@ -8,11 +8,12 @@
 import Foundation
 
 struct GetFriendRequestsListResponse: Codable {
-    let FriendRequestsList: [FriendRequest]
+    let friendRequestsList: [friendshipRequest]
 }
 
-struct FriendRequest: Codable {
+struct friendshipRequest: Codable {
     let friendshipId: Int64
     let fromUserId: Int64
-    let requestedData: Date
+    let fromUserNickname: String
+    let requestedDate: Date
 }

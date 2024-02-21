@@ -16,6 +16,7 @@ struct AcceptFriendshipResponse: Codable {
     let status: String
 }
 
-enum status: String {
+enum FriendshipStatus: String {
     case accept = "ACCEPT"
+    case requset = "REQUEST"
 }
