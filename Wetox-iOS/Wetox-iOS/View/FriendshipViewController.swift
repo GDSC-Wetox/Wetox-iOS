@@ -79,7 +79,7 @@ class FriendshipViewController: UIViewController {
     }
     
     @objc func navigationButtonTapped() {
-        self.navigationController?.popViewController(animated: false)
+        self.dismiss(animated: true)
     }
     
     @objc func textDeleteButtonTapped() {
@@ -126,14 +126,11 @@ extension FriendshipViewController {
     func searchFriendWithAPI(nicknameSearchRequest: NicknameSearchRequest) {
         UserAPI.nicknameSearch(data: nicknameSearchRequest)
             .subscribe(onNext: { nicknameResponse in
-                print("nicknameResponse 값 입니다. ")
-                print("친구 찾기 성공: \(nicknameResponse)")
                 self.checkingLabel.textColor = UIColor.allowedButtonColor
                 
-                // TODO: 친구 추가 API 호출 need
                 self.sendFriendRequest(toId: nicknameResponse.userId)
                 
-                let alertController = UIAlertController(title: "친구 추가 성공", message: "친구 신청이 완료되었습니다.", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "친구 신청 완료", message: "친구 신청이 완료되었습니다.", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
                 
