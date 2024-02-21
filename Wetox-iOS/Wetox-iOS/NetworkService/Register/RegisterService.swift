@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum RegisterService {
-    case postNicknameCheck
+    case postNicknameValidRequest(nickname: NicknameValidRequest)
     case getAIImage
 }
 
@@ -20,7 +20,7 @@ extension RegisterService: TargetType {
     
     var path: String {
         switch self {
-            case .postNicknameCheck:
+            case .postNicknameValidRequest:
                 return "/auth/valid/nickname"
             case .getAIImage:
                 return "/ai/image/profile"
@@ -29,7 +29,7 @@ extension RegisterService: TargetType {
     
     var method: Moya.Method {
         switch self {
-            case .postNicknameCheck:
+            case .postNicknameValidRequest:
                 return .post
             case .getAIImage:
                 return .get
@@ -38,8 +38,8 @@ extension RegisterService: TargetType {
     
     var task: Task {
         switch self {
-            case .postNicknameCheck:
-                return .requestJSONEncodable()
+            case .postNicknameValidRequest(let data):
+                return .requestJSONEncodable(data)
             case .getAIImage:
                 return .requestPlain
         }
