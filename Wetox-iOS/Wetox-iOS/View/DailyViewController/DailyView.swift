@@ -145,4 +145,16 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
         let cellWidth = (collectionView.frame.width - 32) / 3
         return CGSize(width: cellWidth, height: cellWidth)
     }
+        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.item == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
+            let friendshipViewController = FriendshipViewController()
+            let navigationController = UINavigationController(rootViewController: friendshipViewController)
+            navigationController.modalPresentationStyle = .fullScreen
+            if let viewController = self.findViewController() {
+                viewController.present(navigationController, animated: true)
+            }
+        }
+    }
 }

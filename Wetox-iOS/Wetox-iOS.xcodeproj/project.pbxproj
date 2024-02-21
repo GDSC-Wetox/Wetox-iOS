@@ -77,6 +77,10 @@
 		BF7209FA2B5F928D001D76CB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BF7209F92B5F928D001D76CB /* RxCocoa */; };
 		BF7209FC2B5F928D001D76CB /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = BF7209FB2B5F928D001D76CB /* RxRelay */; };
 		BF7209FE2B5F928D001D76CB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF7209FD2B5F928D001D76CB /* RxSwift */; };
+		BF8DA31F2B85E520001957C2 /* BadgeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8DA31E2B85E520001957C2 /* BadgeService.swift */; };
+		BF8DA3212B85E595001957C2 /* BadgeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8DA3202B85E595001957C2 /* BadgeAPI.swift */; };
+		BF8DA3262B85FF7E001957C2 /* BadgeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8DA3252B85FF7E001957C2 /* BadgeResponse.swift */; };
+		BF8DA3282B860691001957C2 /* BadgeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8DA3272B860691001957C2 /* BadgeViewModel.swift */; };
 		BFB317A32B665744007F0A9A /* StrokeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A22B665744007F0A9A /* StrokeLabel.swift */; };
 		BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A42B6666AF007F0A9A /* TimeConverter.swift */; };
 		BFB317A82B666962007F0A9A /* ScreenTimeInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A72B666962007F0A9A /* ScreenTimeInputViewModel.swift */; };
@@ -165,6 +169,10 @@
 		BF7209EF2B5F8CCB001D76CB /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		BF7209F42B5F923F001D76CB /* FriendsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF7209F62B5F926B001D76CB /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		BF8DA31E2B85E520001957C2 /* BadgeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeService.swift; sourceTree = "<group>"; };
+		BF8DA3202B85E595001957C2 /* BadgeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeAPI.swift; sourceTree = "<group>"; };
+		BF8DA3252B85FF7E001957C2 /* BadgeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeResponse.swift; sourceTree = "<group>"; };
+		BF8DA3272B860691001957C2 /* BadgeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeViewModel.swift; sourceTree = "<group>"; };
 		BFB317A22B665744007F0A9A /* StrokeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeLabel.swift; sourceTree = "<group>"; };
 		BFB317A42B6666AF007F0A9A /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 		BFB317A72B666962007F0A9A /* ScreenTimeInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeInputViewModel.swift; sourceTree = "<group>"; };
@@ -214,6 +222,7 @@
 			children = (
 				5579263F2B860518004A4443 /* Register */,
 				55A097A62B7CC6B400F1D43E /* NetworkErrorUtils.swift */,
+				BF8DA31D2B85E50F001957C2 /* Badge */,
 				55EC6D822B7DE8860018128D /* Friendship */,
 				BF7181DB2B7A2EA500ACEA0D /* User */,
 				BF7181D22B749EA800ACEA0D /* ScreenTime */,
@@ -245,6 +254,7 @@
 			children = (
 				5579263A2B8602A1004A4443 /* Register */,
 				554F27442B6390BE0050B6D9 /* Login */,
+                BF8DA3222B85FD77001957C2 /* Badge */,
 				55EC6D832B7DE88E0018128D /* Friendship */,
 				BF7181E02B7A2F6E00ACEA0D /* User */,
 				BF7181CF2B73588800ACEA0D /* ScreenTime */,
@@ -522,11 +532,29 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BF8DA31D2B85E50F001957C2 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				BF8DA31E2B85E520001957C2 /* BadgeService.swift */,
+				BF8DA3202B85E595001957C2 /* BadgeAPI.swift */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
+		BF8DA3222B85FD77001957C2 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				BF8DA3252B85FF7E001957C2 /* BadgeResponse.swift */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
 		BFB317A62B666953007F0A9A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				BFB317A72B666962007F0A9A /* ScreenTimeInputViewModel.swift */,
 				BF7181D92B78E4DD00ACEA0D /* MainViewModel.swift */,
+				BF8DA3272B860691001957C2 /* BadgeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -691,6 +719,7 @@
 				554F27472B6391D80050B6D9 /* RegisterRequest.swift in Sources */,
 				BF7209F52B5F923F001D76CB /* FriendsCollectionViewCell.swift in Sources */,
 				55EC6D872B7DFC8A0018128D /* FriendshipAPI.swift in Sources */,
+				BF8DA3282B860691001957C2 /* BadgeViewModel.swift in Sources */,
 				554F27432B63908E0050B6D9 /* TokenResponse.swift in Sources */,
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
 				BFB317AC2B6693A4007F0A9A /* View+Extension.swift in Sources */,
@@ -722,6 +751,7 @@
 				558601982B6629A6007EA357 /* Const.swift in Sources */,
 				55EC6D8F2B7E07F10018128D /* GetFriendRequestsListResponse.swift in Sources */,
 				554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */,
+				BF8DA3212B85E595001957C2 /* BadgeAPI.swift in Sources */,
 				55EC6D852B7DFC7E0018128D /* FriendshipService.swift in Sources */,
 				5514CE642B65F891006B2700 /* MoyaLoggerPlugin.swift in Sources */,
 				BF7181DD2B7A2EB300ACEA0D /* UserService.swift in Sources */,
@@ -732,7 +762,9 @@
 				554F27492B6391E20050B6D9 /* RegisterResponse.swift in Sources */,
 				55EC6D812B7DE8530018128D /* FriendshipViewController.swift in Sources */,
 				BF7181DA2B78E4DD00ACEA0D /* MainViewModel.swift in Sources */,
+				BF8DA31F2B85E520001957C2 /* BadgeService.swift in Sources */,
 				BF7181D42B749EC400ACEA0D /* ScreenTimeService.swift in Sources */,
+				BF8DA3262B85FF7E001957C2 /* BadgeResponse.swift in Sources */,
 				557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */,
 				554F27412B638EE60050B6D9 /* TokenRequest.swift in Sources */,
 				5514CE602B65F721006B2700 /* AuthService.swift in Sources */,
