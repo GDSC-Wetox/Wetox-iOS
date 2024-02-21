@@ -8,11 +8,11 @@
 import Foundation
 
 struct BadgeResponse: Codable {
-    var badgeList: [Badge]
+    let badgeList: [Badge]
 }
 
 struct Badge: Codable {
-    var badgeName: String
-    var rewardedDate: Date?
-    var rewarded: Bool
+    let badgeName: String
+    let rewardedDate: Date?
+    let rewarded: Bool
 }
