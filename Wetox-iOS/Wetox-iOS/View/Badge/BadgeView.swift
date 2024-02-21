@@ -13,10 +13,16 @@ import RxCocoa
 
 class BadgeView: UIView {
     
+    private var badgeViewModel = BadgeViewModel()
+    private var disposeBag = DisposeBag()
+    private var rewardedBadgeNames: [String] = []
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
         configureCollectionView()
+        badgeViewModel.fetchBadges()
+        bindBadge()
     }
     
     required init?(coder: NSCoder) {
@@ -41,12 +47,12 @@ class BadgeView: UIView {
     }()
     
     private func configureCollectionView() {
-        backgroundColor = .white
         addSubview(badgeCollectionView)
         
         badgeCollectionView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview().inset(4)
         }
+        
     }
 }
 
@@ -76,5 +82,18 @@ extension BadgeView: UICollectionViewDataSource, UICollectionViewDelegate, UICol
         let availableWidth = collectionView.frame.width - widthPaddingSpace
         let availableHeight = collectionView.frame.height - heightPaddingSpace
         return CGSize(width: availableWidth / 3, height: availableHeight / 4)
+    }
+}
+
+extension BadgeView {
+    func bindBadge() {
+        badgeViewModel.rewardedBadgeNames
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] badgeNames in
+                self?.rewardedBadgeNames = badgeNames
+                print("rewardedBadgeNames: \(self?.rewardedBadgeNames)")
+                // TODO: UI 업데이트 구현 
+            })
+            .disposed(by: disposeBag)
     }
 }
