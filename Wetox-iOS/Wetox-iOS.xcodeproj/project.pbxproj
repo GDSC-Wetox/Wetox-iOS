@@ -19,8 +19,12 @@
 		554F27432B63908E0050B6D9 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27422B63908E0050B6D9 /* TokenResponse.swift */; };
 		554F27472B6391D80050B6D9 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27462B6391D80050B6D9 /* RegisterRequest.swift */; };
 		554F27492B6391E20050B6D9 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27482B6391E20050B6D9 /* RegisterResponse.swift */; };
+		555C80B62B866560003BEA55 /* NicknameValidRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C80B52B866560003BEA55 /* NicknameValidRequest.swift */; };
+		555C80B82B86656D003BEA55 /* NicknameValidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C80B72B86656D003BEA55 /* NicknameValidResponse.swift */; };
 		556AA2D02B6A3B2B00F2AE79 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556AA2CF2B6A3B2B00F2AE79 /* TextField+Extension.swift */; };
 		556C12912B834C5D0000797B /* AlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C12902B834C5D0000797B /* AlertTableViewCell.swift */; };
+		557926412B86052F004A4443 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557926402B86052F004A4443 /* RegisterService.swift */; };
+		557926432B860574004A4443 /* RegisterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557926422B860574004A4443 /* RegisterAPI.swift */; };
 		557F3EA22B60983A007C7247 /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557F3EA12B60983A007C7247 /* Button+Extension.swift */; };
 		558601982B6629A6007EA357 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558601972B6629A6007EA357 /* Const.swift */; };
 		55A097A72B7CC6B400F1D43E /* NetworkErrorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A097A62B7CC6B400F1D43E /* NetworkErrorUtils.swift */; };
@@ -111,8 +115,12 @@
 		554F27422B63908E0050B6D9 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		554F27462B6391D80050B6D9 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		554F27482B6391E20050B6D9 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
+		555C80B52B866560003BEA55 /* NicknameValidRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameValidRequest.swift; sourceTree = "<group>"; };
+		555C80B72B86656D003BEA55 /* NicknameValidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameValidResponse.swift; sourceTree = "<group>"; };
 		556AA2CF2B6A3B2B00F2AE79 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
 		556C12902B834C5D0000797B /* AlertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewCell.swift; sourceTree = "<group>"; };
+		557926402B86052F004A4443 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
+		557926422B860574004A4443 /* RegisterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAPI.swift; sourceTree = "<group>"; };
 		557F3EA12B60983A007C7247 /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		558601972B6629A6007EA357 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		55A097A62B7CC6B400F1D43E /* NetworkErrorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorUtils.swift; sourceTree = "<group>"; };
@@ -212,6 +220,7 @@
 		5514CE5B2B65F6F8006B2700 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				5579263F2B860518004A4443 /* Register */,
 				55A097A62B7CC6B400F1D43E /* NetworkErrorUtils.swift */,
 				BF8DA31D2B85E50F001957C2 /* Badge */,
 				55EC6D822B7DE8860018128D /* Friendship */,
@@ -243,11 +252,12 @@
 		554F273E2B638ECF0050B6D9 /* NetworkModel */ = {
 			isa = PBXGroup;
 			children = (
-				BF8DA3222B85FD77001957C2 /* Badge */,
+				5579263A2B8602A1004A4443 /* Register */,
+				554F27442B6390BE0050B6D9 /* Login */,
+                BF8DA3222B85FD77001957C2 /* Badge */,
 				55EC6D832B7DE88E0018128D /* Friendship */,
 				BF7181E02B7A2F6E00ACEA0D /* User */,
 				BF7181CF2B73588800ACEA0D /* ScreenTime */,
-				554F27442B6390BE0050B6D9 /* Auth */,
 				558601972B6629A6007EA357 /* Const.swift */,
 			);
 			path = NetworkModel;
@@ -262,13 +272,12 @@
 			path = Token;
 			sourceTree = "<group>";
 		};
-		554F27442B6390BE0050B6D9 /* Auth */ = {
+		554F27442B6390BE0050B6D9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				554F27452B63919D0050B6D9 /* Register */,
 				554F273F2B638EDA0050B6D9 /* Token */,
 			);
-			path = Auth;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		554F27452B63919D0050B6D9 /* Register */ = {
@@ -276,6 +285,41 @@
 			children = (
 				554F27462B6391D80050B6D9 /* RegisterRequest.swift */,
 				554F27482B6391E20050B6D9 /* RegisterResponse.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		5579263A2B8602A1004A4443 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				5579263C2B8602DA004A4443 /* Nickname */,
+				5579263B2B8602B1004A4443 /* AIProfile */,
+				554F27452B63919D0050B6D9 /* Register */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		5579263B2B8602B1004A4443 /* AIProfile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AIProfile;
+			sourceTree = "<group>";
+		};
+		5579263C2B8602DA004A4443 /* Nickname */ = {
+			isa = PBXGroup;
+			children = (
+				555C80B52B866560003BEA55 /* NicknameValidRequest.swift */,
+				555C80B72B86656D003BEA55 /* NicknameValidResponse.swift */,
+			);
+			path = Nickname;
+			sourceTree = "<group>";
+		};
+		5579263F2B860518004A4443 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				557926402B86052F004A4443 /* RegisterService.swift */,
+				557926422B860574004A4443 /* RegisterAPI.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -680,21 +724,25 @@
 				BF7209F02B5F8CCB001D76CB /* Color+Extension.swift in Sources */,
 				BFB317AC2B6693A4007F0A9A /* View+Extension.swift in Sources */,
 				552FE1742B6118DE00A4F568 /* ProfileSettingViewContorller.swift in Sources */,
+				555C80B62B866560003BEA55 /* NicknameValidRequest.swift in Sources */,
 				55BD1F2B2B8203A6009601AC /* NicknameSearchRequest.swift in Sources */,
 				556AA2D02B6A3B2B00F2AE79 /* TextField+Extension.swift in Sources */,
 				55EC6D892B7E07CB0018128D /* RequestFriendshipResponse.swift in Sources */,
 				55EC6D912B7E10A70018128D /* AlertViewController.swift in Sources */,
 				BF7181D12B7358CA00ACEA0D /* CategoryDurationRequest.swift in Sources */,
 				BF7181D82B74A13100ACEA0D /* ScreenTimeAPI.swift in Sources */,
+				555C80B82B86656D003BEA55 /* NicknameValidResponse.swift in Sources */,
 				BF7181E42B7A2F8900ACEA0D /* UserResponse.swift in Sources */,
 				55EC6D8B2B7E07DA0018128D /* AcceptFriendshipResponse.swift in Sources */,
 				BF0EBDDF2B6529D000AEF19D /* AppDelegate.swift in Sources */,
 				55BD1F2D2B8203CB009601AC /* NicknameSearchResponse.swift in Sources */,
 				BF7181E62B7B56D600ACEA0D /* DateFormatter+Extension.swift in Sources */,
 				BF7181D62B74A0F800ACEA0D /* CategoryDurationResponse.swift in Sources */,
+				557926412B86052F004A4443 /* RegisterService.swift in Sources */,
 				BFB317A82B666962007F0A9A /* ScreenTimeInputViewModel.swift in Sources */,
 				BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */,
 				55A097A72B7CC6B400F1D43E /* NetworkErrorUtils.swift in Sources */,
+				557926432B860574004A4443 /* RegisterAPI.swift in Sources */,
 				556C12912B834C5D0000797B /* AlertTableViewCell.swift in Sources */,
 				55EC6D8D2B7E07E50018128D /* GetFriendsListResponse.swift in Sources */,
 				BF7181F42B7F11EA00ACEA0D /* RootViewController.swift in Sources */,

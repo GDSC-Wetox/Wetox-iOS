@@ -86,9 +86,9 @@ class ProfileSettingViewContorller: UIViewController {
         duplicateCheckButton.setRooundedButton(title: "중복검사",
                                                titleSize: 12,
                                                titleColor: .white,
-                                               backgroundColor: UIColor.blockedButtonColor,
+                                               backgroundColor: UIColor.checkRedButtonColor,
                                                radius: 7)
-        duplicateCheckButton.addTarget(self, action: #selector(duplicateCheckButtonTapped), for: .touchUpInside)
+        duplicateCheckButton.addTarget(self, action: #selector(nicknameValidButtonTapped), for: .touchUpInside)
         
         AIGenerationButton.setRooundedButton(title: "AI 사진 생성",
                                              titleSize: 14,
@@ -102,10 +102,8 @@ class ProfileSettingViewContorller: UIViewController {
         nicknameTextField.text = ""
     }
 
-    @objc func duplicateCheckButtonTapped() {
-        // TODO: API 연결 구현
-        // TODO: Alert view 구현
-        // TODO: TextField nickname UserDefaults 설정 구현
+    @objc func nicknameValidButtonTapped() {
+        checkNicknameValidity(nickname: NicknameValidRequest(nickname: nicknameTextField.text ?? String()))
     }
 
     @objc func AIGenerationButtonTapped() {
@@ -113,9 +111,12 @@ class ProfileSettingViewContorller: UIViewController {
     }
     
     @objc func navigationButtonTapped() {
-        let nickname = nicknameTextField.text ?? String()
+        let nickname = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.nickname) ?? String()
         let deviceToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.deviceToken) ?? String()
         let openId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? String()
+
+        // TODO: AI 프로필 api 연동
+        // TODO: oauthProvider setting 추후 수정하기
         let registerRequest = RegisterRequest(nickname: nickname, oauthProvider: "KAKAO", openId: openId, deviceToken: deviceToken)
         registerWithAPI(registerRequest: registerRequest, profileImage: UIImage(named: "default-profile-icon"))
     }
@@ -174,12 +175,36 @@ class ProfileSettingViewContorller: UIViewController {
 }
 
 extension ProfileSettingViewContorller {
+    func checkNicknameValidity(nickname: NicknameValidRequest) {
+        RegisterAPI.postNicknameValidRequest(nickname: nickname)
+            .subscribe(onNext: { response in
+                if response.existed {
+                    self.showAlert(title: "중복된 닉네임", message: "기존에 사용 중인 닉네임입니다. \n 다른 닉네임을 입력해주세요.")
+                } else {
+                    UserDefaults.standard.set(nickname.nickname, forKey: Const.UserDefaultsKey.nickname)
+                    self.showAlert(title: "사용 가능한 닉네임", message: "사용 가능한 닉네임입니다.")
+                    self.AIGenerationButton.backgroundColor = UIColor.allowedButtonColor
+                }
+            }, onError: { error in
+                print("Error occurred during nickname validation: \(error.localizedDescription)")
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension ProfileSettingViewContorller {
     func registerWithAPI(registerRequest: RegisterRequest, profileImage: UIImage?) {
         AuthAPI.register(registerRequest: registerRequest, profileImage: profileImage)
             .subscribe(onNext: { registerResponse in
                 UserDefaults.standard.set(registerResponse.accessToken, forKey: Const.UserDefaultsKey.accessToken)
                 print("accessToken 값 입니다. ")
-                print(registerResponse.accessToken) // 확인
+                print(registerResponse.accessToken) 
                 self.navigationController?.pushViewController(RootViewController(), animated: true)
                 print("회원가입 성공: \(registerResponse)")
             }, onError: { error in
