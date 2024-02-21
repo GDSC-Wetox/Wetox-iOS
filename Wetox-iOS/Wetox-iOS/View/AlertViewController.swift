@@ -75,11 +75,14 @@ extension AlertViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension AlertViewController: AlertTableViewCellDelegate {
-    func presentAcceptAlertController(toId: Int64) {
+    func presentAcceptAlertController(at indexPath: IndexPath) {
+        let toId = friendRequestsList[indexPath.row].fromUserId
+        
         FriendshipAPI.acceptFriendship(toId: toId)
                .subscribe(onNext: { response in
                    print("Friendship request accepted successfully!")
-                   
+                   print(response.status)
+
                    let alertController = UIAlertController(title: "친구 추가 완료", message: "친구 요청을 수락하였습니다.", preferredStyle: .alert)
                    alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
                    self.present(alertController, animated: true, completion: nil)
@@ -90,7 +93,9 @@ extension AlertViewController: AlertTableViewCellDelegate {
                .disposed(by: disposeBag) 
     }
     
-    func presentRejectAlertController(toId: Int64) {
+    func presentRejectAlertController(at indexPath: IndexPath) {
+        // TODO: 친구 요청 거절 API 추가 구현
+        
         let alertController = UIAlertController(title: "친구 요청 거절", message: "친구 요청을 거절하였습니다.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)

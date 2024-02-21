@@ -8,8 +8,8 @@
 import UIKit
 
 @objc protocol AlertTableViewCellDelegate {
-    func presentAcceptAlertController(toId: Int64)
-    func presentRejectAlertController(toId: Int64)
+    func presentAcceptAlertController(at indexPath: IndexPath)
+    func presentRejectAlertController(at indexPath: IndexPath)
 }
 
 class AlertTableViewCell: UITableViewCell {
@@ -56,15 +56,19 @@ class AlertTableViewCell: UITableViewCell {
     }
     
     @objc func acceptButtonTapped() {
+        guard let indexPath = indexPath else { print("indexPath is nil"); return }
+        
         let alertController = UIAlertController(title: "친구 추가 완료", message: "친구 요청을 수락하였습니다.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-//        delegate?.presentAcceptAlertController()
+        delegate?.presentAcceptAlertController(at: indexPath)
     }
     
     @objc func rejectButtonTapped() {
+        guard let indexPath = indexPath else { print("indexPath is nil"); return }
+        
         let alertController = UIAlertController(title: "친구 요청 거절", message: "친구 요청을 거절하였습니다.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-//        delegate?.presentRejectAlertController()
+        delegate?.presentRejectAlertController(at: indexPath)
     }
     
     private func configureUI() {
