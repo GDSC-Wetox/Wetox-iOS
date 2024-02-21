@@ -86,7 +86,7 @@ class ProfileSettingViewContorller: UIViewController {
         duplicateCheckButton.setRooundedButton(title: "중복검사",
                                                titleSize: 12,
                                                titleColor: .white,
-                                               backgroundColor: UIColor.blockedButtonColor,
+                                               backgroundColor: UIColor.checkRedButtonColor,
                                                radius: 7)
         duplicateCheckButton.addTarget(self, action: #selector(nicknameValidButtonTapped), for: .touchUpInside)
         
