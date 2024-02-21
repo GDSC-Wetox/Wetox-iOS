@@ -29,5 +29,6 @@ extension Const {
         static let deviceToken = "deviceToken"
         static let updatedAt = "updatedAt"
         static let isLogin = "isLogin"
+        static let nickname = "nickname"
     }
 }
