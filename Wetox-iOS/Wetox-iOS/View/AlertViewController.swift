@@ -49,7 +49,7 @@ class AlertViewController: UIViewController {
     }
     
     @objc func navigationButtonTapped() {
-        self.navigationController?.popViewController(animated: false)
+        dismiss(animated: true)
     }
 }
 
