@@ -8,5 +8,5 @@
 import Foundation
 
 struct AIProfileImageResponse: Codable {
-    let imageData: Data
+    
 }
