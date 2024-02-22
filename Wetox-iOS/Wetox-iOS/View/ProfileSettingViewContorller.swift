@@ -107,7 +107,8 @@ class ProfileSettingViewContorller: UIViewController {
     }
 
     @objc func AIGenerationButtonTapped() {
-        // TODO: AI 생성 API 연결
+         fetchAIProfileImage()
+//        profileImageView.image = UIImage(named: <#T##String#>)
     }
     
     @objc func navigationButtonTapped() {
@@ -196,15 +197,24 @@ extension ProfileSettingViewContorller {
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
-}
-
-extension ProfileSettingViewContorller {
+    
+    func fetchAIProfileImage() {
+        RegisterAPI.getAIProfileImage()
+            .subscribe(onNext: { response in
+                print("response")
+                print(response)
+            }, onError: { error in
+                print("Error fetching AI profile image: \(error.localizedDescription)")
+            })
+            .disposed(by: disposeBag)
+    }
+    
     func registerWithAPI(registerRequest: RegisterRequest, profileImage: UIImage?) {
         AuthAPI.register(registerRequest: registerRequest, profileImage: profileImage)
             .subscribe(onNext: { registerResponse in
                 UserDefaults.standard.set(registerResponse.accessToken, forKey: Const.UserDefaultsKey.accessToken)
                 print("accessToken 값 입니다. ")
-                print(registerResponse.accessToken) 
+                print(registerResponse.accessToken)
                 self.navigationController?.pushViewController(RootViewController(), animated: true)
                 print("회원가입 성공: \(registerResponse)")
             }, onError: { error in

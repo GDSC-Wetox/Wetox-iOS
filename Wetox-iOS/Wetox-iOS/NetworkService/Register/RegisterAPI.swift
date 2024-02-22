@@ -35,4 +35,26 @@ public class RegisterAPI {
                 return Observable.error(error)
             }
     }
+    
+    static func getAIProfileImage() -> Observable<AIProfileImageResponse> {
+        // TODO: Decoding 방식 수정하기 
+        let decoder = JSONDecoder()
+        
+        return registerProvider.rx.request(.getAIImage)
+            .map(AIProfileImageResponse.self, using: decoder)
+            .asObservable()
+            .catch { error in
+                if let moyaError = error as? MoyaError {
+                    switch moyaError {
+                    case .statusCode(let response):
+                        print("HTTP Status Code: \(response.statusCode)")
+                    case .jsonMapping(let response):
+                        print("JSON Mapping Error for Response: \(response)")
+                    default:
+                        print("Other MoyaError: \(moyaError.localizedDescription)")
+                    }
+                }
+                return Observable.error(error)
+            }
+    }
 }
