@@ -99,14 +99,14 @@ extension UIColor {
     
     // MARK: - Segmented Control Colors
     static var segmentedBackgroundGrayColor: UIColor {
-        return UIColor(hexCode: "0xE8E8E8")
+        return UIColor(hexCode: "0x404040", alpha: 0.12)
     }
     
     // MARK: - Tint Colors (label / image etc)
     
     /// 404040, alpha: 0.64
     static var unselectedTintColor: UIColor {
-        return UIColor(hexCode: "0x404040", alpha: 0.64)
+        return UIColor(hexCode: "0x404040", alpha: 0.28)
     }
     
     static var selectedTintColor: UIColor {
