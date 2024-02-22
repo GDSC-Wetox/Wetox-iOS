@@ -106,7 +106,7 @@ class DailyView: UIView {
 extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // TODO: 서버에서 받아오는 친구 수 + 1 하기
-        return 2
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -119,8 +119,11 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
             cell.circularProfileProgressBar.lineWidth = CGFloat(0.0)
             cell.nicknameLabel.text = "new"
             friendsCollectionView.reloadInputViews()
+        } 
+        
+        if indexPath.row == 0 {
             
-        } else if indexPath.row == 0 {
+            /* TODO: 추후 제대로 구현
             // 자신의 Profile
             mainViewModel.myProfile
                 .observe(on: MainScheduler.instance)
@@ -135,9 +138,25 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
                     cell.circularProfileProgressBar.value = percentage
                 })
                 .disposed(by: disposeBag)
-        } else {
-            // TODO: 친구들 프로필
+             */
+            
+            // TODO: 이미지 비율 문제 수정하기
+            cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "AppIcon")
+            cell.circularProfileProgressBar.value = 0.0
+            cell.circularProfileProgressBar.lineWidth = CGFloat(0.0)
+            cell.nicknameLabel.text = "Colli"
+            cell.circularProfileProgressBar.profileImageView.contentMode = .scaleAspectFill
+            cell.circularProfileProgressBar.profileImageView.clipsToBounds = true
+
+            let cellWidth = (collectionView.frame.width - 32) / 3
+            cell.circularProfileProgressBar.profileImageView.frame = CGRect(x: 0, y: 0, width: cellWidth, height: cellWidth)
+
+            friendsCollectionView.reloadInputViews()
+            
         }
+        
+        // TODO: 친구들 프로필 띄우기
+        
         return cell
     }
     
