@@ -28,8 +28,7 @@ class RootViewController: UIViewController {
         
         segmentedControl.frame = CGRectMake(0, 0, 180, 36)
         segmentedControl.layer.cornerRadius = 5.0
-        segmentedControl.backgroundColor = .segmentedBackgroundGrayColor
-        segmentedControl.tintColor = .gray
+        segmentedControl.tintColor = .segmentedBackgroundGrayColor
         return segmentedControl
     }()
     
@@ -41,6 +40,7 @@ class RootViewController: UIViewController {
         button.tintColor = .unselectedTintColor
         button.setImage(image, for: .normal)
         button.contentMode = .scaleToFill
+        button.addTarget(self, action: #selector(alarmButtonTapped), for: .touchUpInside)
         return button
         
     }()
@@ -54,7 +54,6 @@ class RootViewController: UIViewController {
         button.setImage(image, for: .normal)
         button.contentMode = .scaleToFill
         return button
-        
     }()
     
     override func viewDidLoad() {
@@ -94,10 +93,17 @@ class RootViewController: UIViewController {
         }
         
         alarmButton.snp.makeConstraints {
-            $0.trailing.equalTo(settingButton.snp.leading).offset(Constants.Padding.narrowPadding)
+            $0.trailing.equalTo(settingButton.snp.leading).offset(Constants.Padding.defaultPadding / 10)
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.width.height.equalTo(42)
         }
+    }
+    
+    @objc func alarmButtonTapped() {
+        let alertViewController = AlertViewController()
+        let navigationController = UINavigationController(rootViewController: alertViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true)
     }
 
     @objc func tappedSegmentedControl(_ segmentedControl: UISegmentedControl) {

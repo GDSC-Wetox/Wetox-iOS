@@ -21,6 +21,7 @@
 		554F27492B6391E20050B6D9 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F27482B6391E20050B6D9 /* RegisterResponse.swift */; };
 		555C80B62B866560003BEA55 /* NicknameValidRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C80B52B866560003BEA55 /* NicknameValidRequest.swift */; };
 		555C80B82B86656D003BEA55 /* NicknameValidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C80B72B86656D003BEA55 /* NicknameValidResponse.swift */; };
+		555C80BA2B867BEB003BEA55 /* AIProfileImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C80B92B867BEB003BEA55 /* AIProfileImageResponse.swift */; };
 		556AA2D02B6A3B2B00F2AE79 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556AA2CF2B6A3B2B00F2AE79 /* TextField+Extension.swift */; };
 		556C12912B834C5D0000797B /* AlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C12902B834C5D0000797B /* AlertTableViewCell.swift */; };
 		557926412B86052F004A4443 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557926402B86052F004A4443 /* RegisterService.swift */; };
@@ -117,6 +118,7 @@
 		554F27482B6391E20050B6D9 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		555C80B52B866560003BEA55 /* NicknameValidRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameValidRequest.swift; sourceTree = "<group>"; };
 		555C80B72B86656D003BEA55 /* NicknameValidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameValidResponse.swift; sourceTree = "<group>"; };
+		555C80B92B867BEB003BEA55 /* AIProfileImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIProfileImageResponse.swift; sourceTree = "<group>"; };
 		556AA2CF2B6A3B2B00F2AE79 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
 		556C12902B834C5D0000797B /* AlertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewCell.swift; sourceTree = "<group>"; };
 		557926402B86052F004A4443 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 		5579263B2B8602B1004A4443 /* AIProfile */ = {
 			isa = PBXGroup;
 			children = (
+				555C80B92B867BEB003BEA55 /* AIProfileImageResponse.swift */,
 			);
 			path = AIProfile;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				554412902B608CA9001B8CBA /* LoginViewController.swift in Sources */,
 				BF8DA3212B85E595001957C2 /* BadgeAPI.swift in Sources */,
 				55EC6D852B7DFC7E0018128D /* FriendshipService.swift in Sources */,
+				555C80BA2B867BEB003BEA55 /* AIProfileImageResponse.swift in Sources */,
 				5514CE642B65F891006B2700 /* MoyaLoggerPlugin.swift in Sources */,
 				BF7181DD2B7A2EB300ACEA0D /* UserService.swift in Sources */,
 				BF7209F72B5F926B001D76CB /* CircularProgressBar.swift in Sources */,

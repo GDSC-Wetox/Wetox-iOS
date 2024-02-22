@@ -107,7 +107,7 @@ class ProfileSettingViewContorller: UIViewController {
     }
 
     @objc func AIGenerationButtonTapped() {
-        // TODO: AI 생성 API 연결
+         fetchAIProfileImage()
     }
     
     @objc func navigationButtonTapped() {
@@ -115,10 +115,9 @@ class ProfileSettingViewContorller: UIViewController {
         let deviceToken = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.deviceToken) ?? String()
         let openId = UserDefaults.standard.string(forKey: Const.UserDefaultsKey.openId) ?? String()
 
-        // TODO: AI 프로필 api 연동
         // TODO: oauthProvider setting 추후 수정하기
         let registerRequest = RegisterRequest(nickname: nickname, oauthProvider: "KAKAO", openId: openId, deviceToken: deviceToken)
-        registerWithAPI(registerRequest: registerRequest, profileImage: UIImage(named: "default-profile-icon"))
+        registerWithAPI(registerRequest: registerRequest, profileImage: self.profileImageView.image)
     }
     
     private func configureLayout() {
@@ -196,15 +195,28 @@ extension ProfileSettingViewContorller {
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
-}
-
-extension ProfileSettingViewContorller {
+    
+    func fetchAIProfileImage() {
+        RegisterAPI.getAIProfileImage()
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { imageData in
+                guard let image = UIImage(data: imageData) else {
+                    print("Failed to convert data to image")
+                    return
+                }
+                self.profileImageView.image = image
+            }, onError: { error in
+                print("Error: \(error.localizedDescription)")
+            })
+            .disposed(by: disposeBag)
+    }
+    
     func registerWithAPI(registerRequest: RegisterRequest, profileImage: UIImage?) {
         AuthAPI.register(registerRequest: registerRequest, profileImage: profileImage)
             .subscribe(onNext: { registerResponse in
                 UserDefaults.standard.set(registerResponse.accessToken, forKey: Const.UserDefaultsKey.accessToken)
                 print("accessToken 값 입니다. ")
-                print(registerResponse.accessToken) 
+                print(registerResponse.accessToken)
                 self.navigationController?.pushViewController(RootViewController(), animated: true)
                 print("회원가입 성공: \(registerResponse)")
             }, onError: { error in

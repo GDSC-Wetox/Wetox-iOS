@@ -35,4 +35,25 @@ public class RegisterAPI {
                 return Observable.error(error)
             }
     }
+    
+    static func getAIProfileImage() -> Observable<Data> {
+            return registerProvider.rx.request(.getAIImage)
+                .map { response -> Data in
+                    print("response")
+                    print(response.data)
+                    return response.data
+                }
+                .asObservable()
+                .catch { error in
+                    if let moyaError = error as? MoyaError {
+                        switch moyaError {
+                        case .statusCode(let response):
+                            print("HTTP Status Code: \(response.statusCode)")
+                        default:
+                            print("Other MoyaError: \(moyaError.localizedDescription)")
+                        }
+                    }
+                    return Observable.error(error)
+                }
+        }
 }
