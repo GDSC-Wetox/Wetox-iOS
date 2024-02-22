@@ -44,7 +44,7 @@ class CircularProgressBar: UIView {
         bezierPath.stroke()
     }
     
-    lazy var profileImageView: UIImageView = {
+    var profileImageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
     }()
@@ -78,11 +78,17 @@ class CircularProgressBar: UIView {
         self.layer.addSublayer(shapeLayer)
         let imageSize = (rect.midX - (lineWidth / 2)) * cornerRadiusRatio * 1.96
         profileImageView.layer.cornerRadius = imageSize / 2
-        setupProfileImageView()
+        
+        if profileImageView.superview == nil {
+            setupProfileImageView()
+        }
+
         profileImageView.snp.makeConstraints {
 //            $0.center.equalTo(self.snp.center)
             $0.width.height.equalTo(imageSize)
         }
+        
+        
     }
     
     private func setupProfileImageView() {

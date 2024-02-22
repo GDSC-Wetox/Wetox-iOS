@@ -14,6 +14,7 @@ class DailyView: UIView {
     var mainViewModel: MainViewModel!
     var disposeBag = DisposeBag()
     
+    private let chartView = ChartView()
     private let bottomSheetView: BottomSheetView = {
         let view = BottomSheetView()
         view.isUserInteractionEnabled = true
@@ -43,16 +44,21 @@ class DailyView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
+        setupChartView()
+        setupTapGestureRecognizer()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        commonInit()
+        setupChartView()
+        setupTapGestureRecognizer()
     }
     
     private func commonInit() {
         backgroundColor = .systemBackground
         mainViewModel = MainViewModel()
-        [friendsCollectionView, bottomSheetView].forEach { addSubview($0) }
+        [friendsCollectionView, bottomSheetView, chartView].forEach { addSubview($0) }
         bottomSheetView.addSubview(dragIndicatorView)
         setupLayout()
         setupCollectionView()
@@ -75,6 +81,11 @@ class DailyView: UIView {
             make.centerX.equalTo(bottomSheetView.snp.centerX)
             make.width.equalTo(30)
             make.height.equalTo(3)
+        }
+        
+        chartView.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+            $0.width.height.equalTo(340)
         }
     }
     
@@ -106,7 +117,7 @@ class DailyView: UIView {
 extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // TODO: 서버에서 받아오는 친구 수 + 1 하기
-        return 2
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -120,12 +131,17 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
             cell.nicknameLabel.text = "new"
             friendsCollectionView.reloadInputViews()
             
-        } else if indexPath.row == 0 {
+        }
+        
+        if indexPath.item == 0 {
+            
+            /*
             // 자신의 Profile
             mainViewModel.myProfile
                 .observe(on: MainScheduler.instance)
                 .subscribe(onNext: { myProfile in
                     cell.nicknameLabel.text = myProfile.nickname
+                    cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "AppIcon")
                 })
                 .disposed(by: disposeBag)
             
@@ -135,10 +151,14 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
                     cell.circularProfileProgressBar.value = percentage
                 })
                 .disposed(by: disposeBag)
-        } else {
-            // TODO: 친구들 프로필
+             */
+            cell.nicknameLabel.text = "lena"
+            cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "AppIcon")
+            friendsCollectionView.reloadInputViews()
         }
+        
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -155,6 +175,37 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
             if let viewController = self.findViewController() {
                 viewController.present(navigationController, animated: true)
             }
+        } else {
+            chartView.isHidden = false
         }
+    }
+    
+}
+
+extension DailyView: UIGestureRecognizerDelegate {
+    private func setupChartView() {
+        addSubview(chartView)
+        chartView.isHidden = true
+        
+        chartView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.height.equalTo(340)
+        }
+    }
+    
+    private func setupTapGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        tapGestureRecognizer.delegate = self
+        self.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc private func handleTap(_ gesture: UITapGestureRecognizer) {
+        // ChartView의 isHidden 속성을 반전시켜 숨김/표시 상태 전환
+        chartView.isHidden = !chartView.isHidden
+    }
+    
+    // UIGestureRecognizerDelegate 메서드
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return touch.view != chartView
     }
 }

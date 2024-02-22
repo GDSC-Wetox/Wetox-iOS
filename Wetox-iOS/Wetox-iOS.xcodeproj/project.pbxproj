@@ -82,6 +82,7 @@
 		BF8DA3212B85E595001957C2 /* BadgeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8DA3202B85E595001957C2 /* BadgeAPI.swift */; };
 		BF8DA3262B85FF7E001957C2 /* BadgeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8DA3252B85FF7E001957C2 /* BadgeResponse.swift */; };
 		BF8DA3282B860691001957C2 /* BadgeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8DA3272B860691001957C2 /* BadgeViewModel.swift */; };
+		BF8DA32A2B867E75001957C2 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8DA3292B867E75001957C2 /* ChartView.swift */; };
 		BFB317A32B665744007F0A9A /* StrokeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A22B665744007F0A9A /* StrokeLabel.swift */; };
 		BFB317A52B6666AF007F0A9A /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A42B6666AF007F0A9A /* TimeConverter.swift */; };
 		BFB317A82B666962007F0A9A /* ScreenTimeInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB317A72B666962007F0A9A /* ScreenTimeInputViewModel.swift */; };
@@ -175,6 +176,7 @@
 		BF8DA3202B85E595001957C2 /* BadgeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeAPI.swift; sourceTree = "<group>"; };
 		BF8DA3252B85FF7E001957C2 /* BadgeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeResponse.swift; sourceTree = "<group>"; };
 		BF8DA3272B860691001957C2 /* BadgeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeViewModel.swift; sourceTree = "<group>"; };
+		BF8DA3292B867E75001957C2 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		BFB317A22B665744007F0A9A /* StrokeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeLabel.swift; sourceTree = "<group>"; };
 		BFB317A42B6666AF007F0A9A /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 		BFB317A72B666962007F0A9A /* ScreenTimeInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeInputViewModel.swift; sourceTree = "<group>"; };
@@ -256,7 +258,7 @@
 			children = (
 				5579263A2B8602A1004A4443 /* Register */,
 				554F27442B6390BE0050B6D9 /* Login */,
-                BF8DA3222B85FD77001957C2 /* Badge */,
+				BF8DA3222B85FD77001957C2 /* Badge */,
 				55EC6D832B7DE88E0018128D /* Friendship */,
 				BF7181E02B7A2F6E00ACEA0D /* User */,
 				BF7181CF2B73588800ACEA0D /* ScreenTime */,
@@ -523,6 +525,7 @@
 				556C12902B834C5D0000797B /* AlertTableViewCell.swift */,
 				55EC6D802B7DE8530018128D /* FriendshipViewController.swift */,
 				552FE1732B6118DE00A4F568 /* ProfileSettingViewContorller.swift */,
+				BF8DA3292B867E75001957C2 /* ChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -773,6 +776,7 @@
 				554F27412B638EE60050B6D9 /* TokenRequest.swift in Sources */,
 				5514CE602B65F721006B2700 /* AuthService.swift in Sources */,
 				BF2FE0262B64CBC9009C3C73 /* ScreenTime.swift in Sources */,
+				BF8DA32A2B867E75001957C2 /* ChartView.swift in Sources */,
 				BF2FE0242B64C742009C3C73 /* Constants.swift in Sources */,
 				BF6B12DC2B64B9170031165E /* ScreenTimeInputViewController.swift in Sources */,
 				BF6B12DE2B64B9B40031165E /* CustomUISlider.swift in Sources */,
