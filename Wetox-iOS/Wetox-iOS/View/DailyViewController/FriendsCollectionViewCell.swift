@@ -34,6 +34,7 @@ class FriendsCollectionViewCell: UICollectionViewCell {
     /// 재사용 시 value 값을 초기화
     override func prepareForReuse() {
         super.prepareForReuse()
+        circularProfileProgressBar.profileImageView.image = nil
         circularProfileProgressBar.value = nil
     }
     
@@ -44,14 +45,14 @@ class FriendsCollectionViewCell: UICollectionViewCell {
     private func setupLayout() {
         self.backgroundColor = .systemBackground
         
-        nicknameLabel.setLabel(labelText: "lena",
+        nicknameLabel.setLabel(labelText: "",
                                backgroundColor: .clear,
                                weight: .medium,
                                textSize: 14,
                                labelColor: UIColor.unselectedTintColor)
         
         [circularProfileProgressBar, nicknameLabel].forEach { self.addSubview($0)}
-        circularProfileProgressBar.profileImageView.image = UIImage(systemName: "person.fill")
+//        circularProfileProgressBar.profileImageView.image = UIImage(systemName: "person.fill")
         circularProfileProgressBar.snp.makeConstraints { make in
             make.edges.equalTo(self)
         }

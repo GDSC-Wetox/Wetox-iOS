@@ -14,6 +14,7 @@ class DailyView: UIView {
     var mainViewModel: MainViewModel!
     var disposeBag = DisposeBag()
     
+    private let chartView = ChartView()
     private let bottomSheetView: BottomSheetView = {
         let view = BottomSheetView()
         view.isUserInteractionEnabled = true
@@ -43,16 +44,21 @@ class DailyView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
+        setupChartView()
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        commonInit()
+        setupChartView()
+        setupTapGestureRecognizer()
     }
     
     private func commonInit() {
         backgroundColor = .systemBackground
         mainViewModel = MainViewModel()
-        [friendsCollectionView, bottomSheetView].forEach { addSubview($0) }
+        [friendsCollectionView, bottomSheetView, chartView].forEach { addSubview($0) }
         bottomSheetView.addSubview(dragIndicatorView)
         setupLayout()
         setupCollectionView()
@@ -75,6 +81,11 @@ class DailyView: UIView {
             make.centerX.equalTo(bottomSheetView.snp.centerX)
             make.width.equalTo(30)
             make.height.equalTo(3)
+        }
+        
+        chartView.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+            $0.width.height.equalTo(340)
         }
     }
     
@@ -114,6 +125,7 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
         
         // 마지막 셀인 경우
         if indexPath.item == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
+            cell.circularProfileProgressBar.profileImageView.contentMode = .center
             cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "plus")
             cell.circularProfileProgressBar.value = 0.0
             cell.circularProfileProgressBar.lineWidth = CGFloat(0.0)
@@ -129,6 +141,7 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
                 .observe(on: MainScheduler.instance)
                 .subscribe(onNext: { myProfile in
                     cell.nicknameLabel.text = myProfile.nickname
+                    cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "AppIcon")
                 })
                 .disposed(by: disposeBag)
             
@@ -155,9 +168,91 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
             
         }
         
+        if indexPath.row == 0 {
+            
+            /* TODO: 추후 제대로 구현
+            // 자신의 Profile
+            mainViewModel.myProfile
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { myProfile in
+                    cell.nicknameLabel.text = myProfile.nickname
+                    cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "AppIcon")
+                })
+                .disposed(by: disposeBag)
+            
+            mainViewModel.percentage
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { percentage in
+                    cell.circularProfileProgressBar.value = percentage
+                })
+                .disposed(by: disposeBag)
+             */
+            
+            // TODO: 이미지 비율 문제 수정하기
+            cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "AppIcon")
+            cell.circularProfileProgressBar.value = 0.0
+            cell.circularProfileProgressBar.lineWidth = CGFloat(0.0)
+            cell.nicknameLabel.text = "Colli"
+            cell.circularProfileProgressBar.profileImageView.contentMode = .scaleAspectFill
+            cell.circularProfileProgressBar.profileImageView.clipsToBounds = true
+
+            let cellWidth = (collectionView.frame.width - 32) / 3
+            cell.circularProfileProgressBar.profileImageView.frame = CGRect(x: 0, y: 0, width: cellWidth, height: cellWidth)
+
+            friendsCollectionView.reloadInputViews()
+            
+        }
+        
+        if indexPath.row == 1 {
+
+            cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "image2")
+            cell.circularProfileProgressBar.value = 0.0
+            cell.circularProfileProgressBar.lineWidth = CGFloat(0.0)
+            cell.nicknameLabel.text = "Lena"
+            cell.circularProfileProgressBar.profileImageView.contentMode = .scaleAspectFill
+            cell.circularProfileProgressBar.profileImageView.clipsToBounds = true
+
+            let cellWidth = (collectionView.frame.width - 32) / 3
+            cell.circularProfileProgressBar.profileImageView.frame = CGRect(x: 0, y: 0, width: cellWidth, height: cellWidth)
+
+            friendsCollectionView.reloadInputViews()
+            
+        }
+        
+        if indexPath.row == 2 {
+            cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "image3")
+            cell.circularProfileProgressBar.value = 0.0
+            cell.circularProfileProgressBar.lineWidth = CGFloat(0.0)
+            cell.nicknameLabel.text = "hyein"
+            cell.circularProfileProgressBar.profileImageView.contentMode = .scaleAspectFill
+            cell.circularProfileProgressBar.profileImageView.clipsToBounds = true
+
+            let cellWidth = (collectionView.frame.width - 32) / 3
+            cell.circularProfileProgressBar.profileImageView.frame = CGRect(x: 0, y: 0, width: cellWidth, height: cellWidth)
+
+            friendsCollectionView.reloadInputViews()
+            
+        }
+        
+        if indexPath.row == 3 {
+            cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "image4")
+            cell.circularProfileProgressBar.value = 0.0
+            cell.circularProfileProgressBar.lineWidth = CGFloat(0.0)
+            cell.nicknameLabel.text = "jison"
+            cell.circularProfileProgressBar.profileImageView.contentMode = .scaleAspectFill
+            cell.circularProfileProgressBar.profileImageView.clipsToBounds = true
+
+            let cellWidth = (collectionView.frame.width - 32) / 3
+            cell.circularProfileProgressBar.profileImageView.frame = CGRect(x: 0, y: 0, width: cellWidth, height: cellWidth)
+
+            friendsCollectionView.reloadInputViews()
+            
+        }
+        
         // TODO: 친구들 프로필 띄우기
         
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -168,12 +263,52 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if indexPath.item == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
+            chartView.isHidden = true
             let friendshipViewController = FriendshipViewController()
             let navigationController = UINavigationController(rootViewController: friendshipViewController)
             navigationController.modalPresentationStyle = .fullScreen
             if let viewController = self.findViewController() {
                 viewController.present(navigationController, animated: true)
             }
+        } else {
+            setupTapGestureRecognizer()
+            chartView.isHidden = false
+        }
+    }
+    
+}
+
+extension DailyView: UIGestureRecognizerDelegate {
+    private func setupChartView() {
+        addSubview(chartView)
+        chartView.isHidden = true
+        
+        chartView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.height.equalTo(340)
+        }
+    }
+    
+    private func setupTapGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        tapGestureRecognizer.delegate = self
+        self.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc private func handleTap(_ gesture: UITapGestureRecognizer) {
+        // ChartView의 isHidden 속성을 반전시켜 숨김/표시 상태 전환
+        chartView.isHidden = !chartView.isHidden
+    }
+    
+    // UIGestureRecognizerDelegate 메서드
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        
+        // 터치가 발생한 뷰가 UICollectionViewCell이거나 그 하위 뷰인지 확인
+        if touch.view is UICollectionViewCell || touch.view?.superview is UICollectionViewCell {
+            // 터치가 UICollectionViewCell에서 발생한 경우 제스처 인식을 무시
+            return false
+        } else {
+            return touch.view != chartView
         }
     }
 }
