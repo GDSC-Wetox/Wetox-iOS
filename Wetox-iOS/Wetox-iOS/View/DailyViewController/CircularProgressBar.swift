@@ -11,6 +11,7 @@ import SnapKit
 class CircularProgressBar: UIView {
     
     var lineWidth: CGFloat = 5
+    var lineColor: UIColor = .clear
     
     /// progressBar 내부에 들어갈 profileImage의 크기 설정을 위한 비율
     let cornerRadiusRatio: CGFloat = 0.8
@@ -69,9 +70,10 @@ class CircularProgressBar: UIView {
         shapeLayer.path = bezierPath.cgPath
         shapeLayer.lineCap = .round    // 프로그래스 바의 끝을 둥글게 설정
         
-        let color: UIColor = .profileGreenColor
+        // TODO: Color 변경
+//        lineColor = CustomUISlider.colorForValue(Float(self.value!))
         
-        shapeLayer.strokeColor = color.cgColor
+        shapeLayer.strokeColor = lineColor.cgColor
         shapeLayer.fillColor = UIColor.white.cgColor
         shapeLayer.lineWidth = lineWidth
         

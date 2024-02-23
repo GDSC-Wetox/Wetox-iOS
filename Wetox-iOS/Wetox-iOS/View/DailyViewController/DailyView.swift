@@ -57,7 +57,7 @@ class DailyView: UIView {
     
     private func commonInit() {
         backgroundColor = .systemBackground
-        mainViewModel = MainViewModel()
+//        mainViewModel = MainViewModel()
         [friendsCollectionView, bottomSheetView, chartView].forEach { addSubview($0) }
         bottomSheetView.addSubview(dragIndicatorView)
         setupLayout()
@@ -155,43 +155,8 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
             
             // TODO: 이미지 비율 문제 수정하기
             cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "AppIcon")
-            cell.circularProfileProgressBar.value = 0.0
-            cell.circularProfileProgressBar.lineWidth = CGFloat(0.0)
-            cell.nicknameLabel.text = "Colli"
-            cell.circularProfileProgressBar.profileImageView.contentMode = .scaleAspectFill
-            cell.circularProfileProgressBar.profileImageView.clipsToBounds = true
-
-            let cellWidth = (collectionView.frame.width - 32) / 3
-            cell.circularProfileProgressBar.profileImageView.frame = CGRect(x: 0, y: 0, width: cellWidth, height: cellWidth)
-
-            friendsCollectionView.reloadInputViews()
-            
-        }
-        
-        if indexPath.row == 0 {
-            
-            /* TODO: 추후 제대로 구현
-            // 자신의 Profile
-            mainViewModel.myProfile
-                .observe(on: MainScheduler.instance)
-                .subscribe(onNext: { myProfile in
-                    cell.nicknameLabel.text = myProfile.nickname
-                    cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "AppIcon")
-                })
-                .disposed(by: disposeBag)
-            
-            mainViewModel.percentage
-                .observe(on: MainScheduler.instance)
-                .subscribe(onNext: { percentage in
-                    cell.circularProfileProgressBar.value = percentage
-                })
-                .disposed(by: disposeBag)
-             */
-            
-            // TODO: 이미지 비율 문제 수정하기
-            cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "AppIcon")
-            cell.circularProfileProgressBar.value = 0.0
-            cell.circularProfileProgressBar.lineWidth = CGFloat(0.0)
+            cell.circularProfileProgressBar.value = 0.35 // yellow
+            cell.circularProfileProgressBar.lineColor = .wetoxYellow
             cell.nicknameLabel.text = "Colli"
             cell.circularProfileProgressBar.profileImageView.contentMode = .scaleAspectFill
             cell.circularProfileProgressBar.profileImageView.clipsToBounds = true
@@ -206,8 +171,8 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
         if indexPath.row == 1 {
 
             cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "image2")
-            cell.circularProfileProgressBar.value = 0.0
-            cell.circularProfileProgressBar.lineWidth = CGFloat(0.0)
+            cell.circularProfileProgressBar.value = 0.12 // green
+            cell.circularProfileProgressBar.lineColor = .wetoxGreen
             cell.nicknameLabel.text = "Lena"
             cell.circularProfileProgressBar.profileImageView.contentMode = .scaleAspectFill
             cell.circularProfileProgressBar.profileImageView.clipsToBounds = true
@@ -221,8 +186,8 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
         
         if indexPath.row == 2 {
             cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "image3")
-            cell.circularProfileProgressBar.value = 0.0
-            cell.circularProfileProgressBar.lineWidth = CGFloat(0.0)
+            cell.circularProfileProgressBar.value = 0.63 // orange
+            cell.circularProfileProgressBar.lineColor = .wetoxOrange
             cell.nicknameLabel.text = "hyein"
             cell.circularProfileProgressBar.profileImageView.contentMode = .scaleAspectFill
             cell.circularProfileProgressBar.profileImageView.clipsToBounds = true
@@ -236,8 +201,8 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
         
         if indexPath.row == 3 {
             cell.circularProfileProgressBar.profileImageView.image = UIImage(named: "image4")
-            cell.circularProfileProgressBar.value = 0.0
-            cell.circularProfileProgressBar.lineWidth = CGFloat(0.0)
+            cell.circularProfileProgressBar.value = 0.85 // red
+            cell.circularProfileProgressBar.lineColor = .wetoxRed
             cell.nicknameLabel.text = "jison"
             cell.circularProfileProgressBar.profileImageView.contentMode = .scaleAspectFill
             cell.circularProfileProgressBar.profileImageView.clipsToBounds = true
@@ -250,9 +215,7 @@ extension DailyView: UICollectionViewDataSource, UICollectionViewDelegateFlowLay
         }
         
         // TODO: 친구들 프로필 띄우기
-        
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

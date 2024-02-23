@@ -114,7 +114,7 @@ class CustomUISlider: UISlider {
     }
     
     private func updateTrackImage() {
-        let color = colorForValue(self.value)
+        let color = CustomUISlider.colorForValue(self.value)
         minimumTrackTintColor = color
         
         let thumbRect = thumbRect(forBounds: bounds, 
@@ -128,7 +128,7 @@ class CustomUISlider: UISlider {
     }
 
     /// 입력하는 값에 따라 minimumTrack의 색상을 변경합니다
-    private func colorForValue(_ value: Float) -> UIColor {
+    static func colorForValue(_ value: Float) -> UIColor {
         let maxValue = Float(Constants.Time.maxMinutes)
         let minValue = Float(Constants.Time.minMinutes)
         let colorStep = maxValue / 4
