@@ -66,9 +66,9 @@ extension BadgeView: UICollectionViewDataSource, UICollectionViewDelegate, UICol
             fatalError("dequeue BadgeCollectionViewCell 불가 에러 ")
         }
 
-        let activityType: ActivityType = [.sns, .youtube, .game, .book][indexPath.row / 3 % 4]
+        let activityType: ActivityType = [.game, .book, .sns, .youtube][indexPath.row / 3 % 4]
         let timePeriod: TimePeriod = [.day, .week, .month][indexPath.row % 3]
-        let activityState: ActivityState = .inactive(activityType, timePeriod)
+        let activityState: ActivityState = timePeriod == .month ? .inactive(activityType, timePeriod) : .active(activityType, timePeriod)
         
         let imageName = activityState.imageName
         cell.badgeImageView.image = UIImage(named: imageName)
