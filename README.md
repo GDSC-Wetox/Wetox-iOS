@@ -1,44 +1,65 @@
-<div align="center" >
+<div align="center">
   
 <img width="150" src="https://github.com/GDSC-Wetox/Wetox-iOS/assets/99120199/f702a1a8-f63e-4f11-839e-0eb8cfcdd6cc">
 
 # Wetox
-**“우리의 detox mate, Wetox”** <br/>
-GDSC-Hongik 프로젝트 <br/><br/>
-나의 스크린타임 카테고리 및 사용시간을 파악하고 이를 친구와 공유함으로써 디지털 Detox를 함께 할 수 있는 iOS 서비스 <br/>
+**"Your detox mate, Wetox"** <br/>
+GDSC-Hongik Project <br/><br/>
+<img width="720" src="https://github.com/GDSC-Wetox/Wetox-iOS/assets/99120199/c37683f5-1326-4674-916f-b837d80bfac5">
+
+
+An iOS service that allows you to understand and share your screen time categories and usage with friends, enabling digital detox together. <br/>
 </div></div></div>
 
-## 🥅 목표 
-UN의 지속가능한 개발 목표 중, "건강 보장, 모든 연령대 인구 복지 증진" 
-- 스크린 타임을 공유하고 선의의 경쟁과 긍정적 피드백을 통해 건강한 스마트폰 사용을 지향
-- 배지(또는 메달) 보상 시스템으로 건강한 스마트폰 사용에 대한 동기부여와 자극을 보상
-- 스마트폰 중독으로 위협받는 정신건강을 보호
+## 🥅 Goals
+Among the UN's Sustainable Development Goals, "Ensure healthy lives and promote well-being for all at all ages":
+- Share screen time to encourage healthy smartphone usage through positive competition and feedback.
+- Motivate and stimulate healthy smartphone usage with a badge (or medal) reward system.
+- Protect mental health threatened by smartphone addiction.
 
 
 ## 💡Features 
-- **스크린타임 공유**
-    - 자신을 포함한 친구들의 Daily / Weekly 스크린타임 공유 <br>
-- **신호등 기능**
-    - 사용 가능 시간 = 24시간 - 스크린타임 시간
-    - 사용 가능 시간이 많으면 green,절반을 넘으면 orange, 1/4 이하면 red
-    - 스크린 타임이 적을수록, 스마트폰이 아닌 다른 방식으로 보낸 시간이 많을수록 사용할 수 있는 시간을 직관적으로 볼 수 있도록 하여 긍정적인 피드백 제공 <br>
-- **상세통계**
-    - 전체 사용시간 및 카테고리 별 사용시간 추적
-    - 카테고리 별 분포 파악 <br>
-- **배지**
-    - AI를 통한 개인 맞춤형 보상
-    - 사용량이 크게 변화가 있는 앱 혹은 카테고리 분석하여 개인 맞춤형 보상 제공 
+- **Screen Time Sharing**
+    - Share Daily / Weekly screen time of oneself and friends. <br><br>
+- **Traffic Light Feature**
+    - Available time = 24 hours - screen time.
+    - Lots of available time is green, over half is orange, and less than 1/4 is red.
+    - The less screen time, the more time spent on other activities, providing positive feedback visually. <br><br>
+- **Detailed Statistics**
+    - Track total usage time and usage time by category.
+    - Understand category distribution. <br><br>
+- **Badges**
+    - Personalized rewards through AI.
+    - Analyze apps or categories with significant usage changes to provide personalized rewards.
 <br><br>
 
-<!--
+### 🚀 Installing via TestFlight
+
+To install our app through TestFlight, please follow these simple steps:
+
+**1. Download TestFlight** <br>
+   Ensure that you have the TestFlight app installed on your iOS device. TestFlight is Apple's official app for installing test builds.<br><br>
+**2. Open the TestFlight Link**<br>
+   Click on the [Wetox TestFlight](https://testflight.apple.com/join/KkiFUqt0). 
+   This link will open in TestFlight and present you with the opportunity to join the beta testing.<br><br>
+**3. Install the App**<br>
+   Once in TestFlight, tap on "Install" or "Update" next to the app's name. This will download and install the app on your iOS device.<br><br>
+**4. Open and Test**<br>
+    After installation, you can open the app directly from TestFlight or find it on your home screen. Explore the app and all its features!<br><br>
+
 ### 📱 Screenshots
-| Name | Screenshot | Detail |
-|:---:|:---:|---|
-|**title**|<img width="200" src="">| |
--->
+|<img width="400" src="https://github.com/GDSC-Wetox/Wetox-iOS/assets/99120199/52fd6170-54f1-42b0-a0e7-7f00283e4ef1">|<img width="400" src="https://github.com/GDSC-Wetox/Wetox-iOS/assets/99120199/e2c11952-a146-404e-b275-6260f3bbb418">|
+|-|-|
+|<img width="400" src="https://github.com/GDSC-Wetox/Wetox-iOS/assets/99120199/e8e8d5c6-2ca4-4ae4-a3b7-98a6c14c6310">|<img width="400" src="https://github.com/GDSC-Wetox/Wetox-iOS/assets/99120199/a84b78c7-d365-4739-8b17-a5574a5b2059">|
+
+### 👷‍♂️Architecture
+![stack](https://github.com/GDSC-Wetox/Wetox-iOS/assets/99120199/50e5d04f-b837-4e11-b121-a51a0ba123b9)
+
+
+
 
 ### :sparkles: Skills & Tech Stack
-|구분|항목|
+|Category|Items|
 |:---:|---|
 |**Environment**|iOS 16.0+, Xcode 15.2|
 |**Framework**|UIKit, Push Notification|
@@ -51,15 +72,15 @@ UN의 지속가능한 개발 목표 중, "건강 보장, 모든 연령대 인구
 
 ## 🫂 Developers
 
-|석혜민|김소현|
+|Seok Hyemin|Kim Sohyeon|
 |:-:|:-:|
-|<img src="https://github.com/lenamin.png" width="190">|<img src="https://github.com/SohyeonKim-dev.png" width="190">
+|<img src="https://github.com/lenamin.png" width="190">|<img src="https://github.com/SohyeonKim-dev.png" width="190">|
 |[Lena](https://github.com/lenamin)|[Colli](https://github.com/SohyeonKim-dev)|
-|<p align="left">- ScreenTimeInput 구현<br>- 네트워크 통신구현|<p align="left">- 로그인 기능 구현<br>- 네트워크 통신 구현|
+|<p align="left">- ScreenTimeInput<br>- DailyView feature<br>- Badge feature<br>- Network communication<br>- FCM Setting|<p align="left">- Login feature<br>- Network communication<br>- Register profile<br>- Friend request|
 
 <br>
 
 ### Special Thanks to 
-|Designer 김보영|
+|Designer Kim Boyoung|
 |:-:|
-|<p align="left">- 로고 디자인 <br>- MainView, ScreenInputView 디자인|
+|<p align="left">- Logo design <br>- MainView, ScreenInputView design|
